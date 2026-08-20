@@ -3,7 +3,6 @@ import { db } from "./firebase-config.js";
 import {
   collection,
   query,
-  orderBy,
   onSnapshot,
   updateDoc,
   doc
@@ -18,6 +17,11 @@ import {
 
 
 const auth = getAuth();
+
+
+// =========================================================
+// ELEMENTS
+// =========================================================
 
 const loginPage =
   document.getElementById("loginPage");
@@ -58,6 +62,12 @@ let unsubscribeBookings = null;
 
 onAuthStateChanged(auth, (user) => {
 
+  console.log(
+    "Western Mona Admin Auth:",
+    user ? user.email : "Not logged in"
+  );
+
+
   if (user) {
 
     loginPage.style.display = "none";
@@ -89,55 +99,72 @@ onAuthStateChanged(auth, (user) => {
 // LOGIN
 // =========================================================
 
-loginForm.addEventListener("submit", async (event) => {
+loginForm.addEventListener(
+  "submit",
+  async (event) => {
 
-  event.preventDefault();
-
-  const email =
-    document.getElementById("adminEmail").value.trim();
-
-  const password =
-    document.getElementById("adminPassword").value;
-
-  loginError.classList.add("hidden");
-
-  loginButton.disabled = true;
-
-  loginButton.textContent =
-    "Signing in...";
+    event.preventDefault();
 
 
-  try {
+    const email =
+      document
+        .getElementById("adminEmail")
+        .value
+        .trim();
 
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
 
-  } catch (error) {
+    const password =
+      document
+        .getElementById("adminPassword")
+        .value;
 
-    console.error(
-      "Western Mona login error:",
-      error
-    );
 
-    loginError.textContent =
-      "Login failed: " +
-      error.message;
+    loginError.classList.add("hidden");
 
-    loginError.classList.remove("hidden");
-
-  } finally {
-
-    loginButton.disabled = false;
+    loginButton.disabled = true;
 
     loginButton.textContent =
-      "Login to Dashboard";
+      "Signing in...";
+
+
+    try {
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+
+    } catch (error) {
+
+      console.error(
+        "Western Mona Admin Login Error:",
+        error
+      );
+
+
+      loginError.textContent =
+        "Login failed: " +
+        error.message;
+
+
+      loginError.classList.remove(
+        "hidden"
+      );
+
+
+    } finally {
+
+      loginButton.disabled = false;
+
+      loginButton.textContent =
+        "Login to Dashboard";
+
+    }
 
   }
-
-});
+);
 
 
 // =========================================================
@@ -171,6 +198,11 @@ logoutButton.addEventListener(
 
 function loadBookings() {
 
+  console.log(
+    "Western Mona: Loading bookings from Firestore..."
+  );
+
+
   if (unsubscribeBookings) {
 
     unsubscribeBookings();
@@ -180,16 +212,23 @@ function loadBookings() {
 
   const bookingsQuery =
     query(
-      collection(db, "bookings"),
-      orderBy("createdAt", "desc")
+      collection(db, "bookings")
     );
 
 
   unsubscribeBookings =
     onSnapshot(
+
       bookingsQuery,
 
       (snapshot) => {
+
+        console.log(
+          "Western Mona: Firestore returned",
+          snapshot.size,
+          "bookings."
+        );
+
 
         allBookings =
           snapshot.docs.map(
@@ -203,6 +242,26 @@ function loadBookings() {
           );
 
 
+        // ===============================================
+        // SORT NEWEST FIRST
+        // ===============================================
+
+        allBookings.sort(
+          (a, b) => {
+
+            const timeA =
+              getCreatedTime(a.createdAt);
+
+            const timeB =
+              getCreatedTime(b.createdAt);
+
+
+            return timeB - timeA;
+
+          }
+        );
+
+
         updateStatistics();
 
         renderBookings();
@@ -212,19 +271,70 @@ function loadBookings() {
       (error) => {
 
         console.error(
-          "Firestore loading error:",
+          "Western Mona Firestore Error:",
           error
         );
 
+
         bookingsList.innerHTML = `
+
           <div class="no-bookings">
-            Unable to load bookings.<br>
-            ${escapeHtml(error.message)}
+
+            <strong>
+              Unable to load bookings.
+            </strong>
+
+            <br><br>
+
+            ${escapeHtml(
+              error.message
+            )}
+
           </div>
+
         `;
 
       }
+
     );
+
+}
+
+
+// =========================================================
+// GET FIRESTORE TIMESTAMP
+// =========================================================
+
+function getCreatedTime(timestamp) {
+
+  if (!timestamp) {
+
+    return 0;
+
+  }
+
+
+  // Firebase Timestamp
+  if (
+    typeof timestamp.toMillis === "function"
+  ) {
+
+    return timestamp.toMillis();
+
+  }
+
+
+  // Timestamp object
+  if (
+    timestamp.seconds
+  ) {
+
+    return timestamp.seconds * 1000;
+
+  }
+
+
+  return 0;
 
 }
 
@@ -269,33 +379,38 @@ function updateStatistics() {
 
   document.getElementById(
     "totalBookings"
-  ).textContent = total;
+  ).textContent =
+    total;
 
 
   document.getElementById(
     "pendingBookings"
-  ).textContent = pending;
+  ).textContent =
+    pending;
 
 
   document.getElementById(
     "confirmedBookings"
-  ).textContent = confirmed;
+  ).textContent =
+    confirmed;
 
 
   document.getElementById(
     "completedBookings"
-  ).textContent = completed;
+  ).textContent =
+    completed;
 
 
   document.getElementById(
     "cancelledBookings"
-  ).textContent = cancelled;
+  ).textContent =
+    cancelled;
 
 }
 
 
 // =========================================================
-// SEARCH + FILTER
+// SEARCH
 // =========================================================
 
 searchBookings.addEventListener(
@@ -303,6 +418,10 @@ searchBookings.addEventListener(
   renderBookings
 );
 
+
+// =========================================================
+// STATUS FILTER
+// =========================================================
 
 statusFilter.addEventListener(
   "change",
@@ -349,8 +468,11 @@ function renderBookings() {
           booking.vehicle
 
         ]
+
           .filter(Boolean)
+
           .join(" ")
+
           .toLowerCase();
 
 
@@ -376,9 +498,13 @@ function renderBookings() {
   if (!filtered.length) {
 
     bookingsList.innerHTML = `
+
       <div class="no-bookings">
+
         No bookings found.
+
       </div>
+
     `;
 
     return;
@@ -435,7 +561,8 @@ function createBookingCard(booking) {
   }
 
 
-  const whatsappText =
+  const whatsappMessage =
+
 `Hello ${booking.name || ""},
 
 This is Western Mona Taxis & Safaris regarding your booking.
@@ -443,8 +570,11 @@ This is Western Mona Taxis & Safaris regarding your booking.
 Booking Reference: ${booking.reference || ""}
 
 Pickup: ${booking.pickup || ""}
+
 Destination: ${booking.destination || ""}
+
 Date: ${booking.date || ""}
+
 Time: ${booking.time || ""}
 
 Thank you.`;
@@ -466,7 +596,8 @@ Thank you.`;
           <div class="reference">
 
             ${escapeHtml(
-              booking.reference || "No reference"
+              booking.reference ||
+              "No reference"
             )}
 
           </div>
@@ -474,20 +605,24 @@ Thank you.`;
           <div class="date-time">
 
             ${escapeHtml(
-              booking.date || "No date"
+              booking.date ||
+              "No date"
             )}
 
             •
 
             ${escapeHtml(
-              booking.time || "No time"
+              booking.time ||
+              "No time"
             )}
 
           </div>
 
         </div>
 
-        <span class="status ${statusClass}">
+
+        <span
+          class="status ${statusClass}">
 
           ${escapeHtml(status)}
 
@@ -672,6 +807,7 @@ Thank you.`;
 
       <div class="booking-actions">
 
+
         ${
           status !== "Confirmed" &&
           status !== "Completed" &&
@@ -679,14 +815,18 @@ Thank you.`;
 
           ?
 
-          `<button
+          `
+
+          <button
             class="action confirm"
             data-id="${booking.id}"
             data-status="Confirmed">
 
             ✓ Confirm
 
-          </button>`
+          </button>
+
+          `
 
           :
 
@@ -699,14 +839,18 @@ Thank you.`;
 
           ?
 
-          `<button
+          `
+
+          <button
             class="action complete"
             data-id="${booking.id}"
             data-status="Completed">
 
             ✓ Mark Completed
 
-          </button>`
+          </button>
+
+          `
 
           :
 
@@ -720,14 +864,18 @@ Thank you.`;
 
           ?
 
-          `<button
+          `
+
+          <button
             class="action cancel"
             data-id="${booking.id}"
             data-status="Cancelled">
 
             ✕ Cancel
 
-          </button>`
+          </button>
+
+          `
 
           :
 
@@ -740,20 +888,25 @@ Thank you.`;
 
           ?
 
-          `<a
+          `
+
+          <a
             class="action whatsapp"
             target="_blank"
-            rel="noopener"
-            href="https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}">
+            rel="noopener noreferrer"
+            href="https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}">
 
             💬 WhatsApp
 
-          </a>`
+          </a>
+
+          `
 
           :
 
           ""
         }
+
 
       </div>
 
@@ -765,7 +918,7 @@ Thank you.`;
 
 
 // =========================================================
-// BOOKING ACTIONS
+// BOOKING STATUS ACTIONS
 // =========================================================
 
 function attachBookingActions() {
@@ -783,17 +936,18 @@ function attachBookingActions() {
           const id =
             button.dataset.id;
 
+
           const newStatus =
             button.dataset.status;
 
 
-          const confirmation =
+          const confirmed =
             confirm(
               `Change this booking to "${newStatus}"?`
             );
 
 
-          if (!confirmation) {
+          if (!confirmed) {
 
             return;
 
@@ -806,19 +960,22 @@ function attachBookingActions() {
           try {
 
             await updateDoc(
+
               doc(
                 db,
                 "bookings",
                 id
               ),
+
               {
                 status: newStatus
               }
+
             );
 
 
             console.log(
-              "Booking status updated:",
+              "Western Mona: Booking status updated:",
               id,
               newStatus
             );
@@ -827,13 +984,13 @@ function attachBookingActions() {
           } catch (error) {
 
             console.error(
-              "Unable to update booking:",
+              "Western Mona: Status update failed:",
               error
             );
 
 
             alert(
-              "Unable to update booking: " +
+              "Unable to update booking:\n\n" +
               error.message
             );
 
@@ -851,16 +1008,36 @@ function attachBookingActions() {
 
 
 // =========================================================
-// SECURITY: ESCAPE HTML
+// ESCAPE HTML
 // =========================================================
 
 function escapeHtml(value) {
 
   return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
