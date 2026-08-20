@@ -16,34 +16,34 @@ content="Western Mona Taxis and Safaris - taxi, airport transfer, hotel transfer
 --black:#060606;
 --dark:#111;
 --card:#171717;
---muted:#aaa
+--muted:#aaa;
 }
 
 *{
 box-sizing:border-box;
 margin:0;
-padding:0
+padding:0;
 }
 
 html{
-scroll-behavior:smooth
+scroll-behavior:smooth;
 }
 
 body{
 font-family:Arial,sans-serif;
 background:var(--black);
 color:#fff;
-line-height:1.6
+line-height:1.6;
 }
 
 a{
 text-decoration:none;
-color:inherit
+color:inherit;
 }
 
 .container{
 width:min(1140px,92%);
-margin:auto
+margin:auto;
 }
 
 header{
@@ -52,14 +52,14 @@ z-index:99;
 top:0;
 width:100%;
 background:rgba(0,0,0,.95);
-border-bottom:1px solid #40331c
+border-bottom:1px solid #40331c;
 }
 
 nav{
 height:74px;
 display:flex;
 align-items:center;
-justify-content:space-between
+justify-content:space-between;
 }
 
 .brand{
@@ -67,7 +67,7 @@ display:flex;
 align-items:center;
 gap:10px;
 font-weight:800;
-font-size:14px
+font-size:14px;
 }
 
 .brand img{
@@ -75,17 +75,17 @@ width:48px;
 height:48px;
 border-radius:50%;
 object-fit:cover;
-border:1px solid var(--gold)
+border:1px solid var(--gold);
 }
 
 .menu{
 display:flex;
 gap:22px;
-align-items:center
+align-items:center;
 }
 
 .menu a:hover{
-color:var(--gold2)
+color:var(--gold2);
 }
 
 .btn{
@@ -96,22 +96,24 @@ background:var(--gold);
 color:#000;
 font-weight:800;
 cursor:pointer;
-display:inline-block
+display:inline-block;
+transition:.25s;
 }
 
 .btn:hover{
-background:var(--gold2)
+background:var(--gold2);
+transform:translateY(-2px);
 }
 
 .btn:disabled{
 opacity:.6;
-cursor:not-allowed
+cursor:not-allowed;
 }
 
 .outline{
 background:transparent;
 color:var(--gold2);
-border:1px solid var(--gold)
+border:1px solid var(--gold);
 }
 
 .hero{
@@ -121,7 +123,7 @@ display:flex;
 align-items:center;
 background:
 radial-gradient(circle at 80% 20%,#3c2b0d55,transparent 32%),
-linear-gradient(130deg,#050505,#15120b,#050505)
+linear-gradient(130deg,#050505,#15120b,#050505);
 }
 
 .hero-grid{
@@ -129,7 +131,7 @@ display:grid;
 grid-template-columns:1.05fr .95fr;
 gap:55px;
 align-items:center;
-padding:80px 0
+padding:80px 0;
 }
 
 .eyebrow{
@@ -138,125 +140,127 @@ letter-spacing:3px;
 color:var(--gold2);
 font-weight:800;
 font-size:12px;
-margin-bottom:12px
+margin-bottom:12px;
 }
 
 h1,h2{
-font-family:Georgia,serif
+font-family:Georgia,serif;
 }
 
 h1{
 font-size:clamp(42px,6vw,72px);
 line-height:1.03;
-margin-bottom:20px
+margin-bottom:20px;
 }
 
 h1 span{
-color:var(--gold2)
+color:var(--gold2);
 }
 
 .hero p{
 color:#ccc;
 font-size:18px;
 max-width:650px;
-margin-bottom:25px
+margin-bottom:25px;
 }
 
 .actions{
 display:flex;
 gap:12px;
-flex-wrap:wrap
+flex-wrap:wrap;
 }
 
 .hero-logo{
 background:#090909;
 border:1px solid #4a391d;
 border-radius:18px;
-padding:16px
+padding:16px;
 }
 
 .hero-logo img{
 width:100%;
-border-radius:12px
+border-radius:12px;
 }
 
 section{
-padding:82px 0
+padding:82px 0;
 }
 
 .dark{
-background:#0c0c0c
+background:#0c0c0c;
 }
 
 .section-title{
 text-align:center;
 max-width:760px;
-margin:0 auto 40px
+margin:0 auto 40px;
 }
 
 .section-title h2{
 font-size:42px;
-margin-bottom:10px
+margin-bottom:10px;
 }
 
 .section-title p{
-color:#aaa
+color:#aaa;
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:18px
+gap:18px;
 }
 
 .card{
 background:var(--card);
 border:1px solid #292929;
 border-radius:14px;
-padding:23px
+padding:23px;
+transition:.25s;
 }
 
 .card:hover{
-border-color:var(--gold)
+border-color:var(--gold);
+transform:translateY(-3px);
 }
 
 .card h3{
-margin:5px 0
+margin:5px 0;
 }
 
 .card p{
 font-size:14px;
-color:#aaa
+color:#aaa;
 }
 
 .icon{
-font-size:29px
+font-size:29px;
 }
 
 .booking-grid{
 display:grid;
 grid-template-columns:1.25fr .75fr;
-gap:25px
+gap:25px;
 }
 
 form,.panel{
 background:#151515;
 border:1px solid #302a20;
 border-radius:15px;
-padding:25px
+padding:25px;
 }
 
 .row{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:14px
+gap:14px;
 }
 
 label{
 display:block;
 font-size:13px;
 color:#ddd;
-margin-bottom:5px
+margin-bottom:5px;
 }
 
 input,select,textarea{
@@ -266,66 +270,127 @@ background:#080808;
 color:white;
 border:1px solid #393939;
 border-radius:7px;
-margin-bottom:13px
+margin-bottom:13px;
 }
 
 textarea{
 min-height:90px;
-resize:vertical
+resize:vertical;
 }
 
-input:focus,select:focus,textarea:focus{
+input:focus,
+select:focus,
+textarea:focus{
 outline:none;
-border-color:var(--gold)
+border-color:var(--gold);
 }
 
 .fare{
 font-size:31px;
 font-weight:800;
 color:var(--gold2);
-margin:10px 0
+margin:10px 0;
 }
 
 .small{
 font-size:13px;
-color:#999
+color:#999;
 }
 
 .fleet{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:14px
+gap:20px;
 }
 
 .vehicle{
 background:#121212;
 border:1px solid #292929;
-border-radius:12px;
-padding:18px
+border-radius:15px;
+overflow:hidden;
+transition:.3s;
+display:flex;
+flex-direction:column;
+}
+
+.vehicle:hover{
+border-color:var(--gold);
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(216,173,74,.12);
+}
+
+.vehicle-image{
+width:100%;
+height:220px;
+overflow:hidden;
+background:#080808;
+}
+
+.vehicle-image img{
+width:100%;
+height:100%;
+display:block;
+object-fit:cover;
+transition:transform .5s ease;
+}
+
+.vehicle:hover .vehicle-image img{
+transform:scale(1.06);
+}
+
+.vehicle-content{
+padding:20px;
+display:flex;
+flex-direction:column;
+flex:1;
 }
 
 .vehicle strong{
-color:var(--gold2)
+color:var(--gold2);
+font-size:20px;
+display:block;
+margin-bottom:6px;
+}
+
+.vehicle-seats{
+display:inline-flex;
+align-items:center;
+gap:6px;
+color:#ddd;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.vehicle-description{
+color:#aaa;
+font-size:14px;
+margin-bottom:18px;
+}
+
+.vehicle .btn{
+text-align:center;
+margin-top:auto;
+width:100%;
 }
 
 .area-list{
 display:flex;
 gap:10px;
 justify-content:center;
-flex-wrap:wrap
+flex-wrap:wrap;
 }
 
 .pill{
 padding:9px 15px;
 border:1px solid #44361d;
 border-radius:30px;
-color:#ddd
+color:#ddd;
 }
 
 .steps{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:15px
+gap:15px;
 }
 
 .step{
@@ -333,13 +398,13 @@ padding:20px;
 background:#121212;
 border-radius:12px;
 border:1px solid #292929;
-text-align:center
+text-align:center;
 }
 
 .step b{
 display:block;
 color:var(--gold2);
-font-size:24px
+font-size:24px;
 }
 
 .status{
@@ -348,34 +413,34 @@ border-radius:7px;
 background:#0b0b0b;
 margin:10px 0;
 color:#ccc;
-min-height:42px
+min-height:42px;
 }
 
 .success{
 border:1px solid #315d31;
-color:#9be09b
+color:#9be09b;
 }
 
 .error{
 border:1px solid #713333;
-color:#ff9999
+color:#ff9999;
 }
 
 footer{
 padding:40px 0 20px;
-border-top:1px solid #222
+border-top:1px solid #222;
 }
 
 .footer-grid{
 display:grid;
 grid-template-columns:1.2fr 1fr 1fr;
-gap:25px
+gap:25px;
 }
 
 .footer-grid h3{
 color:var(--gold2);
 font-family:Georgia,serif;
-margin-bottom:8px
+margin-bottom:8px;
 }
 
 .footer-grid p,
@@ -383,7 +448,7 @@ margin-bottom:8px
 display:block;
 color:#aaa;
 font-size:14px;
-margin:5px 0
+margin:5px 0;
 }
 
 .copy{
@@ -392,42 +457,42 @@ border-top:1px solid #222;
 margin-top:25px;
 padding-top:15px;
 color:#777;
-font-size:12px
+font-size:12px;
 }
 
 .mobile{
-display:none
+display:none;
 }
 
 @media(max-width:850px){
 
 .menu{
-display:none
+display:none;
 }
 
 .mobile{
-display:block
+display:block;
 }
 
 .hero-grid,
 .booking-grid{
-grid-template-columns:1fr
+grid-template-columns:1fr;
 }
 
 .grid{
-grid-template-columns:1fr 1fr
+grid-template-columns:1fr 1fr;
 }
 
 .fleet{
-grid-template-columns:1fr 1fr
+grid-template-columns:1fr 1fr;
 }
 
 .steps{
-grid-template-columns:1fr 1fr
+grid-template-columns:1fr 1fr;
 }
 
 .footer-grid{
-grid-template-columns:1fr
+grid-template-columns:1fr;
 }
 
 }
@@ -438,20 +503,28 @@ grid-template-columns:1fr
 .fleet,
 .steps,
 .row{
-grid-template-columns:1fr
+grid-template-columns:1fr;
 }
 
 .brand{
-font-size:11px
+font-size:11px;
 }
 
 .hero-grid{
-padding:55px 0
+padding:55px 0;
 }
 
 .actions .btn{
 width:100%;
-text-align:center
+text-align:center;
+}
+
+.vehicle-image{
+height:210px;
+}
+
+.section-title h2{
+font-size:34px;
 }
 
 }
@@ -481,13 +554,9 @@ WESTERN MONA TAXIS & SAFARIS
 <div class="menu">
 
 <a href="#services">Services</a>
-
 <a href="#booking">Book</a>
-
 <a href="#fare">Fare</a>
-
 <a href="#fleet">Fleet</a>
-
 <a href="#contact">Contact</a>
 
 <a
@@ -650,8 +719,7 @@ Reserve ahead and let our team coordinate your journey.
 
 <!-- ================= BOOKING ================= -->
 
-<section
-id="booking">
+<section id="booking">
 
 <div class="container">
 
@@ -672,16 +740,11 @@ The request can also be sent to WhatsApp.
 
 </div>
 
-
 <div class="booking-grid">
-
 
 <form
 id="bookingForm"
 novalidate>
-
-
-<!-- NAME + PHONE -->
 
 <div class="row">
 
@@ -700,7 +763,6 @@ autocomplete="name"
 placeholder="Your full name">
 
 </div>
-
 
 <div>
 
@@ -721,8 +783,6 @@ placeholder="+254...">
 </div>
 
 
-<!-- EMAIL -->
-
 <div>
 
 <label for="email">
@@ -740,8 +800,6 @@ placeholder="your@email.com">
 </div>
 
 
-<!-- PICKUP + DESTINATION -->
-
 <div class="row">
 
 <div>
@@ -758,7 +816,6 @@ required
 placeholder="e.g. JKIA">
 
 </div>
-
 
 <div>
 
@@ -778,8 +835,6 @@ placeholder="e.g. Nairobi CBD">
 </div>
 
 
-<!-- DATE + TIME -->
-
 <div class="row">
 
 <div>
@@ -795,7 +850,6 @@ type="date"
 required>
 
 </div>
-
 
 <div>
 
@@ -813,8 +867,6 @@ required>
 
 </div>
 
-
-<!-- SERVICE + VEHICLE -->
 
 <div class="row">
 
@@ -915,8 +967,6 @@ Subaru Forester
 </div>
 
 
-<!-- PASSENGERS + PAYMENT -->
-
 <div class="row">
 
 <div>
@@ -934,7 +984,6 @@ value="1"
 required>
 
 </div>
-
 
 <div>
 
@@ -965,8 +1014,6 @@ Request payment instructions
 </div>
 
 
-<!-- DETAILS -->
-
 <label for="details">
 Additional Details
 </label>
@@ -976,8 +1023,6 @@ id="details"
 name="details"
 placeholder="Luggage, return trip, flight number, special request..."></textarea>
 
-
-<!-- BOOKING BUTTON -->
 
 <button
 class="btn"
@@ -990,8 +1035,6 @@ Confirm & Send Booking
 </button>
 
 
-<!-- BOOKING STATUS -->
-
 <div
 class="status"
 id="bookingStatus"
@@ -1001,18 +1044,14 @@ Your booking reference will appear here.
 
 </div>
 
-
 </form>
 
-
-<!-- BOOKING INFORMATION -->
 
 <div class="panel">
 
 <div class="eyebrow">
 Booking Process
 </div>
-
 
 <div
 class="steps"
@@ -1040,9 +1079,7 @@ Ride
 
 </div>
 
-
 <br>
-
 
 <h3>
 Driver Notifications
@@ -1056,9 +1093,7 @@ automatic driver alerts.
 
 </p>
 
-
 <br>
-
 
 <h3>
 Payment
@@ -1109,11 +1144,9 @@ and trip requirements.
 
 </div>
 
-
 <div
 class="panel"
 style="max-width:760px;margin:auto">
-
 
 <div class="row">
 
@@ -1144,7 +1177,6 @@ Safari / Tour
 </select>
 
 </div>
-
 
 <div>
 
@@ -1192,7 +1224,6 @@ Prado TX / 4x4 Land Cruiser
 </select>
 
 </div>
-
 
 <div>
 
@@ -1252,70 +1283,409 @@ with Western Mona.
 
 <!-- ================= FLEET ================= -->
 
-<section
-id="fleet">
+<section id="fleet">
 
 <div class="container">
 
 <div class="section-title">
 
 <div class="eyebrow">
-Fleet
+Our Fleet
 </div>
 
 <h2>
-Vehicles for Every Journey
+Choose Your Vehicle
 </h2>
+
+<p>
+Comfortable and reliable vehicles for city transfers,
+airport pickups, long-distance journeys, family travel
+and safari adventures across Kenya.
+</p>
 
 </div>
 
 
 <div class="fleet">
 
-<div class="vehicle">
-<strong>Nissan Note</strong>
-<p>Compact city travel.</p>
-</div>
+
+<!-- NISSAN NOTE -->
 
 <div class="vehicle">
-<strong>Mazda CX-5</strong>
-<p>Premium SUV comfort.</p>
+
+<div class="vehicle-image">
+
+<img
+src="vehicles/nissan-note.jpg"
+alt="Nissan Note taxi"
+loading="lazy">
+
 </div>
 
-<div class="vehicle">
-<strong>Toyota Land Cruiser Prado TX</strong>
-<p>Premium touring.</p>
+<div class="vehicle-content">
+
+<strong>
+Nissan Note
+</strong>
+
+<div class="vehicle-seats">
+👥 4–5 Seaters
 </div>
 
-<div class="vehicle">
-<strong>4x4 Land Cruiser</strong>
-<p>Safari and rugged routes.</p>
+<p class="vehicle-description">
+Compact, economical and comfortable for
+town trips, airport transfers and everyday travel.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Nissan Note')">
+
+Book This Vehicle
+
+</button>
+
 </div>
 
-<div class="vehicle">
-<strong>Fielder</strong>
-<p>Practical everyday travel.</p>
 </div>
 
-<div class="vehicle">
-<strong>Noah</strong>
-<p>Family and group travel.</p>
-</div>
+
+<!-- MAZDA CX5 -->
 
 <div class="vehicle">
-<strong>Voxy</strong>
-<p>Spacious people carrier.</p>
+
+<div class="vehicle-image">
+
+<img
+src="vehicles/mazda-cx5.jpg"
+alt="Mazda CX-5"
+loading="lazy">
+
 </div>
 
-<div class="vehicle">
-<strong>Mazda Axela</strong>
-<p>Stylish city travel.</p>
+<div class="vehicle-content">
+
+<strong>
+Mazda CX-5
+</strong>
+
+<div class="vehicle-seats">
+👥 5 Seaters
 </div>
 
-<div class="vehicle">
-<strong>Subaru Forester</strong>
-<p>Versatile SUV.</p>
+<p class="vehicle-description">
+Premium SUV comfort, ideal for business trips,
+airport transfers and comfortable touring.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Mazda CX-5')">
+
+Book This Vehicle
+
+</button>
+
 </div>
+
+</div>
+
+
+<!-- PRADO -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="vehicles/prado-tx.jpg"
+alt="Toyota Land Cruiser Prado TX"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Toyota Land Cruiser Prado TX
+</strong>
+
+<div class="vehicle-seats">
+👥 5–7 Seaters
+</div>
+
+<p class="vehicle-description">
+Premium touring vehicle for long-distance travel,
+safaris, business trips and executive journeys.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Toyota Land Cruiser Prado TX')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- 4X4 LAND CRUISER -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="vehicles/land-cruiser.jpg"
+alt="4x4 Land Cruiser"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+4x4 Land Cruiser
+</strong>
+
+<div class="vehicle-seats">
+👥 5–7 Seaters
+</div>
+
+<p class="vehicle-description">
+Built for safari adventures, rough terrain and
+long-distance journeys across Kenya.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('4x4 Land Cruiser')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FIELDER -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="vehicles/fielder.jpg"
+alt="Toyota Fielder"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Fielder
+</strong>
+
+<div class="vehicle-seats">
+👥 4–5 Seaters
+</div>
+
+<p class="vehicle-description">
+Practical and comfortable for daily transportation,
+town trips and airport transfers.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Fielder')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- NOAH -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="vehicles/noah.jpg"
+alt="Toyota Noah"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Noah
+</strong>
+
+<div class="vehicle-seats">
+👥 7–8 Seaters
+</div>
+
+<p class="vehicle-description">
+Spacious family vehicle suitable for groups,
+airport transfers and comfortable touring.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Noah')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- VOXY -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="vehicles/voxy.jpg"
+alt="Toyota Voxy"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Voxy
+</strong>
+
+<div class="vehicle-seats">
+👥 7–8 Seaters
+</div>
+
+<p class="vehicle-description">
+Spacious people carrier designed for family,
+group and long-distance travel.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Voxy')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- MAZDA AXELA -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="vehicles/mazda-axela.jpg"
+alt="Mazda Axela"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Mazda Axela
+</strong>
+
+<div class="vehicle-seats">
+👥 5 Seaters
+</div>
+
+<p class="vehicle-description">
+Stylish and comfortable for city travel,
+business trips and airport transfers.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Mazda Axela')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FORESTER -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="vehicles/forester.jpg"
+alt="Subaru Forester"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Subaru Forester
+</strong>
+
+<div class="vehicle-seats">
+👥 5 Seaters
+</div>
+
+<p class="vehicle-description">
+Versatile SUV offering comfort and capability
+for city, countryside and long-distance travel.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Subaru Forester')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -1326,8 +1696,7 @@ Vehicles for Every Journey
 
 <!-- ================= SERVICE AREAS ================= -->
 
-<section
-class="dark">
+<section class="dark">
 
 <div class="container">
 
@@ -1342,7 +1711,6 @@ Where We Operate
 </h2>
 
 </div>
-
 
 <div class="area-list">
 
@@ -1406,13 +1774,11 @@ and map-based booking.
 
 <!-- ================= FOOTER ================= -->
 
-<footer
-id="contact">
+<footer id="contact">
 
 <div class="container">
 
 <div class="footer-grid">
-
 
 <div>
 
@@ -1472,7 +1838,6 @@ Fleet
 
 </div>
 
-
 </div>
 
 
@@ -1488,7 +1853,39 @@ All rights reserved.
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- ================= VEHICLE SELECTION ================= -->
+
+<script>
+
+function selectVehicle(vehicleName){
+
+const vehicleSelect =
+document.getElementById("vehicle");
+
+const bookingSection =
+document.getElementById("booking");
+
+if(vehicleSelect){
+
+vehicleSelect.value = vehicleName;
+
+}
+
+if(bookingSection){
+
+bookingSection.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+}
+
+</script>
+
+
+<!-- ================= FIREBASE / BOOKING ================= -->
 
 <script
 type="module"
