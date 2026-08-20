@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -47,7 +48,7 @@ width:min(1140px,92%);
 margin:auto;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
 position:fixed;
@@ -119,7 +120,7 @@ color:var(--gold2);
 border:1px solid var(--gold);
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
 min-height:100vh;
@@ -133,6 +134,7 @@ circle at 80% 20%,
 #3c2b0d55,
 transparent 32%
 ),
+
 linear-gradient(
 130deg,
 #050505,
@@ -158,7 +160,8 @@ font-size:12px;
 margin-bottom:12px;
 }
 
-h1,h2{
+h1,
+h2{
 font-family:Georgia,serif;
 }
 
@@ -197,7 +200,7 @@ width:100%;
 border-radius:12px;
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 
 section{
 padding:82px 0;
@@ -222,7 +225,7 @@ margin-bottom:10px;
 color:#aaa;
 }
 
-/* ================= SERVICES ================= */
+/* SERVICES */
 
 .grid{
 display:grid;
@@ -256,7 +259,7 @@ color:#aaa;
 font-size:29px;
 }
 
-/* ================= BOOKING ================= */
+/* BOOKING */
 
 .booking-grid{
 display:grid;
@@ -309,6 +312,8 @@ outline:none;
 border-color:var(--gold);
 }
 
+/* FARE */
+
 .fare{
 font-size:31px;
 font-weight:800;
@@ -321,7 +326,7 @@ font-size:13px;
 color:#999;
 }
 
-/* ================= FLEET ================= */
+/* FLEET */
 
 .fleet{
 display:grid;
@@ -335,7 +340,6 @@ border:1px solid #292929;
 border-radius:15px;
 overflow:hidden;
 transition:.3s;
-
 display:flex;
 flex-direction:column;
 }
@@ -343,22 +347,20 @@ flex-direction:column;
 .vehicle:hover{
 border-color:var(--gold);
 transform:translateY(-5px);
-box-shadow:
-0 10px 30px rgba(216,173,74,.12);
+box-shadow:0 10px 30px rgba(216,173,74,.12);
 }
 
 /*
 IMPORTANT:
-The image container has a fixed height so
-all vehicle cards remain the same size.
+All vehicle photos are now loaded
+from the western-mona folder.
 */
 
 .vehicle-image{
 width:100%;
-height:230px;
+height:220px;
 overflow:hidden;
 background:#080808;
-position:relative;
 }
 
 .vehicle-image img{
@@ -373,33 +375,10 @@ transition:transform .5s ease;
 transform:scale(1.06);
 }
 
-/* Image loading fallback */
-
-.image-error{
-display:none;
-
-position:absolute;
-inset:0;
-
-align-items:center;
-justify-content:center;
-
-text-align:center;
-
-padding:20px;
-
-background:#111;
-color:#aaa;
-
-font-size:14px;
-}
-
 .vehicle-content{
 padding:20px;
-
 display:flex;
 flex-direction:column;
-
 flex:1;
 }
 
@@ -414,11 +393,8 @@ margin-bottom:6px;
 display:inline-flex;
 align-items:center;
 gap:6px;
-
 color:#ddd;
-
 font-size:14px;
-
 margin-bottom:10px;
 }
 
@@ -434,7 +410,7 @@ margin-top:auto;
 width:100%;
 }
 
-/* ================= AREAS ================= */
+/* AREAS */
 
 .area-list{
 display:flex;
@@ -450,7 +426,7 @@ border-radius:30px;
 color:#ddd;
 }
 
-/* ================= STEPS ================= */
+/* STEPS */
 
 .steps{
 display:grid;
@@ -460,37 +436,26 @@ gap:15px;
 
 .step{
 padding:20px;
-
 background:#121212;
-
 border-radius:12px;
-
 border:1px solid #292929;
-
 text-align:center;
 }
 
 .step b{
 display:block;
-
 color:var(--gold2);
-
 font-size:24px;
 }
 
-/* ================= STATUS ================= */
+/* STATUS */
 
 .status{
 padding:10px;
-
 border-radius:7px;
-
 background:#0b0b0b;
-
 margin:10px 0;
-
 color:#ccc;
-
 min-height:42px;
 }
 
@@ -504,52 +469,39 @@ border:1px solid #713333;
 color:#ff9999;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
 padding:40px 0 20px;
-
 border-top:1px solid #222;
 }
 
 .footer-grid{
 display:grid;
-
 grid-template-columns:1.2fr 1fr 1fr;
-
 gap:25px;
 }
 
 .footer-grid h3{
 color:var(--gold2);
-
 font-family:Georgia,serif;
-
 margin-bottom:8px;
 }
 
 .footer-grid p,
 .footer-grid a{
 display:block;
-
 color:#aaa;
-
 font-size:14px;
-
 margin:5px 0;
 }
 
 .copy{
 text-align:center;
-
 border-top:1px solid #222;
-
 margin-top:25px;
-
 padding-top:15px;
-
 color:#777;
-
 font-size:12px;
 }
 
@@ -557,7 +509,7 @@ font-size:12px;
 display:none;
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 
 @media(max-width:850px){
 
@@ -615,7 +567,7 @@ text-align:center;
 }
 
 .vehicle-image{
-height:220px;
+height:210px;
 }
 
 .section-title h2{
@@ -627,12 +579,11 @@ font-size:34px;
 </style>
 </head>
 
+
 <body>
 
 
-<!-- =====================================================
-HEADER
-===================================================== -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -643,9 +594,8 @@ HEADER
 <a class="brand" href="#home">
 
 <img
-src="./logo.jpg"
-alt="Western Mona Taxis and Safaris Logo"
-onerror="this.style.display='none';">
+src="logo.jpg"
+alt="Western Mona Taxis and Safaris Logo">
 
 <span>
 WESTERN MONA TAXIS & SAFARIS
@@ -702,9 +652,7 @@ WhatsApp
 </header>
 
 
-<!-- =====================================================
-HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <section
 class="hero"
@@ -715,8 +663,11 @@ id="home">
 <div>
 
 <div class="eyebrow">
+
 Luxury • Reliability • Professionalism
+
 </div>
+
 
 <h1>
 
@@ -728,13 +679,15 @@ Our priority.
 
 </h1>
 
+
 <p>
 
 Professional taxi, airport transfer,
-hotel transfer, long-distance and safari
-services across Kenya.
+hotel transfer, long-distance and
+safari services across Kenya.
 
 </p>
+
 
 <div class="actions">
 
@@ -745,6 +698,7 @@ href="#booking">
 🚕 Book a Ride
 
 </a>
+
 
 <a
 class="btn outline"
@@ -762,9 +716,8 @@ href="https://wa.me/254710666222?text=Hello%20Western%20Mona%20Taxis%20and%20Saf
 <div class="hero-logo">
 
 <img
-src="./logo.jpg"
-alt="Western Mona Taxis and Safaris"
-onerror="this.style.display='none';">
+src="logo.jpg"
+alt="Western Mona Taxis and Safaris">
 
 </div>
 
@@ -773,9 +726,7 @@ onerror="this.style.display='none';">
 </section>
 
 
-<!-- =====================================================
-SERVICES
-===================================================== -->
+<!-- ================= SERVICES ================= -->
 
 <section
 class="dark"
@@ -794,10 +745,8 @@ Travel with confidence
 </h2>
 
 <p>
-
 Convenient transport for business,
 family, airport and safari travel.
-
 </p>
 
 </div>
@@ -817,7 +766,8 @@ Airport Transfers
 </h3>
 
 <p>
-Scheduled pickups and drop-offs for smooth airport travel.
+Scheduled pickups and drop-offs
+for smooth airport travel.
 </p>
 
 </div>
@@ -904,7 +854,8 @@ Pre-Booked Rides
 </h3>
 
 <p>
-Reserve ahead and let our team coordinate your journey.
+Reserve ahead and let our team
+coordinate your journey.
 </p>
 
 </div>
@@ -917,9 +868,7 @@ Reserve ahead and let our team coordinate your journey.
 </section>
 
 
-<!-- =====================================================
-BOOKING
-===================================================== -->
+<!-- ================= BOOKING ================= -->
 
 <section id="booking">
 
@@ -936,10 +885,8 @@ Book your vehicle
 </h2>
 
 <p>
-
-Submit your request and receive a booking reference.
-The request can also be sent to WhatsApp.
-
+Submit your request and receive
+a booking reference.
 </p>
 
 </div>
@@ -1255,8 +1202,11 @@ Your booking reference will appear here.
 
 </div>
 
+
 </form>
 
+
+<!-- BOOKING INFORMATION -->
 
 <div class="panel">
 
@@ -1269,25 +1219,30 @@ Booking Process
 class="steps"
 style="grid-template-columns:1fr 1fr">
 
+
 <div class="step">
 <b>1</b>
 Request
 </div>
+
 
 <div class="step">
 <b>2</b>
 Confirm
 </div>
 
+
 <div class="step">
 <b>3</b>
 Pay
 </div>
 
+
 <div class="step">
 <b>4</b>
 Ride
 </div>
+
 
 </div>
 
@@ -1299,10 +1254,11 @@ Ride
 Driver Notifications
 </h3>
 
+
 <p class="small">
 
-Your booking is securely submitted
-to our booking system.
+Your booking is securely saved
+in our booking system.
 
 </p>
 
@@ -1314,14 +1270,16 @@ to our booking system.
 Payment
 </h3>
 
+
 <p class="small">
 
-Choose your preferred payment option
+Choose your preferred payment method
 when submitting your booking.
 
 </p>
 
 </div>
+
 
 </div>
 
@@ -1330,15 +1288,14 @@ when submitting your booking.
 </section>
 
 
-<!-- =====================================================
-FARE CALCULATOR
-===================================================== -->
+<!-- ================= FARE CALCULATOR ================= -->
 
 <section
 class="dark"
 id="fare">
 
 <div class="container">
+
 
 <div class="section-title">
 
@@ -1352,9 +1309,8 @@ Calculate an Estimated Fare
 
 <p>
 
-This is an estimate only. Final price can be
-confirmed by our team based on route,
-waiting time, vehicle and trip requirements.
+This is an estimate only. Final price
+can be confirmed by our team.
 
 </p>
 
@@ -1489,10 +1445,11 @@ KES 0
 
 <div class="small">
 
-Indicative calculator; confirm the final quote
-with Western Mona.
+Indicative calculator; confirm
+the final quote with Western Mona.
 
 </div>
+
 
 </div>
 
@@ -1501,9 +1458,7 @@ with Western Mona.
 </section>
 
 
-<!-- =====================================================
-FLEET
-===================================================== -->
+<!-- ================= FLEET ================= -->
 
 <section id="fleet">
 
@@ -1522,8 +1477,9 @@ Choose Your Vehicle
 
 <p>
 
-Comfortable and reliable vehicles for city transfers,
-airport pickups, long-distance journeys, family travel
+Comfortable and reliable vehicles
+for city transfers, airport pickups,
+long-distance journeys, family travel
 and safari adventures across Kenya.
 
 </p>
@@ -1534,25 +1490,17 @@ and safari adventures across Kenya.
 <div class="fleet">
 
 
-<!-- =====================================================
-NISSAN NOTE
-===================================================== -->
+<!-- NISSAN NOTE -->
 
 <div class="vehicle">
 
 <div class="vehicle-image">
 
 <img
-src="."western-mona/nissan-note.jpg"
-alt="Nissan Note taxi - 4 to 5 seaters"
+src="western-mona/nissan-note.jpg"
+alt="Nissan Note taxi"
 loading="lazy"
-onerror="showImageError(this)">
-
-<div class="image-error">
-Vehicle photo could not be loaded.
-<br>
-Check: western-mona/nissan-note.jpg
-</div>
+onerror="this.onerror=null;this.src='logo.jpg';">
 
 </div>
 
@@ -1569,8 +1517,9 @@ Nissan Note
 
 <p class="vehicle-description">
 
-Compact, economical and comfortable for
-town trips, airport transfers and everyday travel.
+Compact, economical and comfortable
+for town trips, airport transfers
+and everyday travel.
 
 </p>
 
@@ -1588,25 +1537,17 @@ Book This Vehicle
 </div>
 
 
-<!-- =====================================================
-MAZDA CX-5
-===================================================== -->
+<!-- MAZDA CX5 -->
 
 <div class="vehicle">
 
 <div class="vehicle-image">
 
 <img
-src="./vehicles/mazda-cx5.jpg"
-alt="Mazda CX-5 - 5 seaters"
+src="western-mona/mazda-cx5.jpg"
+alt="Mazda CX-5"
 loading="lazy"
-onerror="showImageError(this)">
-
-<div class="image-error">
-Vehicle photo could not be loaded.
-<br>
-Check: vehicles/mazda-cx5.jpg
-</div>
+onerror="this.onerror=null;this.src='logo.jpg';">
 
 </div>
 
@@ -1623,8 +1564,9 @@ Mazda CX-5
 
 <p class="vehicle-description">
 
-Premium SUV comfort, ideal for business trips,
-airport transfers and comfortable touring.
+Premium SUV comfort, ideal for
+business trips, airport transfers
+and comfortable touring.
 
 </p>
 
@@ -1642,25 +1584,17 @@ Book This Vehicle
 </div>
 
 
-<!-- =====================================================
-PRADO TX
-===================================================== -->
+<!-- PRADO -->
 
 <div class="vehicle">
 
 <div class="vehicle-image">
 
 <img
-src="./vehicles/prado-tx.jpg"
-alt="Toyota Land Cruiser Prado TX - 5 to 7 seaters"
+src="western-mona/prado-tx.jpg"
+alt="Toyota Land Cruiser Prado TX"
 loading="lazy"
-onerror="showImageError(this)">
-
-<div class="image-error">
-Vehicle photo could not be loaded.
-<br>
-Check: vehicles/prado-tx.jpg
-</div>
+onerror="this.onerror=null;this.src='logo.jpg';">
 
 </div>
 
@@ -1677,8 +1611,9 @@ Toyota Land Cruiser Prado TX
 
 <p class="vehicle-description">
 
-Premium touring vehicle for long-distance travel,
-safaris, business trips and executive journeys.
+Premium touring vehicle for
+long-distance travel, safaris,
+business trips and executive journeys.
 
 </p>
 
@@ -1696,25 +1631,17 @@ Book This Vehicle
 </div>
 
 
-<!-- =====================================================
-4X4 LAND CRUISER
-===================================================== -->
+<!-- LAND CRUISER -->
 
 <div class="vehicle">
 
 <div class="vehicle-image">
 
 <img
-src="./vehicles/land-cruiser.jpg"
-alt="4x4 Land Cruiser - 5 to 7 seaters"
+src="western-mona/land-cruiser.jpg"
+alt="4x4 Land Cruiser"
 loading="lazy"
-onerror="showImageError(this)">
-
-<div class="image-error">
-Vehicle photo could not be loaded.
-<br>
-Check: vehicles/land-cruiser.jpg
-</div>
+onerror="this.onerror=null;this.src='logo.jpg';">
 
 </div>
 
@@ -1731,8 +1658,9 @@ Check: vehicles/land-cruiser.jpg
 
 <p class="vehicle-description">
 
-Built for safari adventures, rough terrain
-and long-distance journeys across Kenya.
+Built for safari adventures,
+rough terrain and long-distance
+journeys across Kenya.
 
 </p>
 
@@ -1750,25 +1678,17 @@ Book This Vehicle
 </div>
 
 
-<!-- =====================================================
-FIELDER
-===================================================== -->
+<!-- FIELDER -->
 
 <div class="vehicle">
 
 <div class="vehicle-image">
 
 <img
-src="./vehicles/fielder.jpg"
-alt="Toyota Fielder - 4 to 5 seaters"
+src="western-mona/fielder.jpg"
+alt="Toyota Fielder"
 loading="lazy"
-onerror="showImageError(this)">
-
-<div class="image-error">
-Vehicle photo could not be loaded.
-<br>
-Check: vehicles/fielder.jpg
-</div>
+onerror="this.onerror=null;this.src='logo.jpg';">
 
 </div>
 
@@ -1785,8 +1705,9 @@ Fielder
 
 <p class="vehicle-description">
 
-Practical and comfortable for daily transportation,
-town trips and airport transfers.
+Practical and comfortable for
+daily transportation, town trips
+and airport transfers.
 
 </p>
 
@@ -1804,25 +1725,17 @@ Book This Vehicle
 </div>
 
 
-<!-- =====================================================
-NOAH
-===================================================== -->
+<!-- NOAH -->
 
 <div class="vehicle">
 
 <div class="vehicle-image">
 
 <img
-src="./vehicles/noah.jpg"
-alt="Toyota Noah - 7 to 8 seaters"
+src="western-mona/noah.jpg"
+alt="Toyota Noah"
 loading="lazy"
-onerror="showImageError(this)">
-
-<div class="image-error">
-Vehicle photo could not be loaded.
-<br>
-Check: vehicles/noah.jpg
-</div>
+onerror="this.onerror=null;this.src='logo.jpg';">
 
 </div>
 
@@ -1839,8 +1752,9 @@ Noah
 
 <p class="vehicle-description">
 
-Spacious family vehicle suitable for groups,
-airport transfers and comfortable touring.
+Spacious family vehicle suitable
+for groups, airport transfers
+and comfortable touring.
 
 </p>
 
@@ -1858,25 +1772,17 @@ Book This Vehicle
 </div>
 
 
-<!-- =====================================================
-VOXY
-===================================================== -->
+<!-- VOXY -->
 
 <div class="vehicle">
 
 <div class="vehicle-image">
 
 <img
-src="./vehicles/voxy.jpg"
-alt="Toyota Voxy - 7 to 8 seaters"
+src="western-mona/voxy.jpg"
+alt="Toyota Voxy"
 loading="lazy"
-onerror="showImageError(this)">
-
-<div class="image-error">
-Vehicle photo could not be loaded.
-<br>
-Check: vehicles/voxy.jpg
-</div>
+onerror="this.onerror=null;this.src='logo.jpg';">
 
 </div>
 
@@ -1893,8 +1799,8 @@ Voxy
 
 <p class="vehicle-description">
 
-Spacious people carrier designed for family,
-group and long-distance travel.
+Spacious people carrier designed
+for family, group and long-distance travel.
 
 </p>
 
@@ -1912,25 +1818,17 @@ Book This Vehicle
 </div>
 
 
-<!-- =====================================================
-MAZDA AXELA
-===================================================== -->
+<!-- MAZDA AXELA -->
 
 <div class="vehicle">
 
 <div class="vehicle-image">
 
 <img
-src="./vehicles/mazda-axela.jpg"
-alt="Mazda Axela - 5 seaters"
+src="western-mona/mazda-axela.jpg"
+alt="Mazda Axela"
 loading="lazy"
-onerror="showImageError(this)">
-
-<div class="image-error">
-Vehicle photo could not be loaded.
-<br>
-Check: vehicles/mazda-axela.jpg
-</div>
+onerror="this.onerror=null;this.src='logo.jpg';">
 
 </div>
 
@@ -1947,8 +1845,9 @@ Mazda Axela
 
 <p class="vehicle-description">
 
-Stylish and comfortable for city travel,
-business trips and airport transfers.
+Stylish and comfortable for
+city travel, business trips
+and airport transfers.
 
 </p>
 
@@ -1966,25 +1865,17 @@ Book This Vehicle
 </div>
 
 
-<!-- =====================================================
-SUBARU FORESTER
-===================================================== -->
+<!-- FORESTER -->
 
 <div class="vehicle">
 
 <div class="vehicle-image">
 
 <img
-src="./vehicles/forester.jpg"
-alt="Subaru Forester - 5 seaters"
+src="western-mona/forester.jpg"
+alt="Subaru Forester"
 loading="lazy"
-onerror="showImageError(this)">
-
-<div class="image-error">
-Vehicle photo could not be loaded.
-<br>
-Check: vehicles/forester.jpg
-</div>
+onerror="this.onerror=null;this.src='logo.jpg';">
 
 </div>
 
@@ -2001,8 +1892,9 @@ Subaru Forester
 
 <p class="vehicle-description">
 
-Versatile SUV offering comfort and capability
-for city, countryside and long-distance travel.
+Versatile SUV offering comfort
+and capability for city,
+countryside and long-distance travel.
 
 </p>
 
@@ -2027,13 +1919,12 @@ Book This Vehicle
 </section>
 
 
-<!-- =====================================================
-SERVICE AREAS
-===================================================== -->
+<!-- ================= SERVICE AREAS ================= -->
 
 <section class="dark">
 
 <div class="container">
+
 
 <div class="section-title">
 
@@ -2072,14 +1963,13 @@ Long Distance Across Kenya
 
 </div>
 
+
 </div>
 
 </section>
 
 
-<!-- =====================================================
-MANAGEMENT
-===================================================== -->
+<!-- ================= MANAGEMENT ================= -->
 
 <section>
 
@@ -2097,8 +1987,9 @@ Ready for the Next Upgrade
 
 <p>
 
-Our booking system is connected to a real-time
-database and admin dashboard.
+The website is connected to the
+booking system and admin dashboard.
+More features can be added later.
 
 </p>
 
@@ -2109,9 +2000,7 @@ database and admin dashboard.
 </section>
 
 
-<!-- =====================================================
-FOOTER
-===================================================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer id="contact">
 
@@ -2189,14 +2078,13 @@ All rights reserved.
 
 </div>
 
+
 </div>
 
 </footer>
 
 
-<!-- =====================================================
-VEHICLE SELECTION
-===================================================== -->
+<!-- ================= VEHICLE SELECTION ================= -->
 
 <script>
 
@@ -2208,11 +2096,13 @@ document.getElementById("vehicle");
 const bookingSection =
 document.getElementById("booking");
 
+
 if(vehicleSelect){
 
 vehicleSelect.value = vehicleName;
 
 }
+
 
 if(bookingSection){
 
@@ -2228,38 +2118,14 @@ block:"start"
 
 }
 
-
-/*
-==========================================================
-IMAGE ERROR HANDLER
-==========================================================
-*/
-
-function showImageError(image){
-
-image.style.display = "none";
-
-const errorBox =
-image.parentElement.querySelector(".image-error");
-
-if(errorBox){
-
-errorBox.style.display = "flex";
-
-}
-
-}
-
 </script>
 
 
-<!-- =====================================================
-FIREBASE / BOOKING SCRIPT
-===================================================== -->
+<!-- ================= FIREBASE / BOOKING ================= -->
 
 <script
 type="module"
-src="./script.js">
+src="script.js">
 </script>
 
 
