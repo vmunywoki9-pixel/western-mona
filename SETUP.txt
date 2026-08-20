@@ -1,0 +1,26 @@
+WESTERN MONA TAXIS & SAFARIS - WEBSITE V2
+
+Included:
+- Online booking form
+- Booking reference generation
+- Local booking storage (demo/offline)
+- WhatsApp booking handoff
+- Fare estimator
+- Fleet section
+- Service areas
+- Mobile responsive design
+- Logo
+
+IMPORTANT:
+The current booking storage is browser-local for demonstration. It is NOT yet a shared online database.
+To make bookings available to you from any phone/computer, connect Firebase/Supabase or another backend.
+To activate real online payments, connect a payment provider (for Kenya, options include M-Pesa/card providers).
+To enable automatic driver notifications, connect the database to WhatsApp/SMS/email/push notifications.
+Google Maps can be connected for live pickup/destination and route distance.
+
+BUSINESS DETAILS:
+Western Mona Taxis and Safaris
+Nairobi, Kenya
++254710666222
+western.mona@gmail.com
+Operating: Nairobi, Nakuru, Eldoret, Naivasha
