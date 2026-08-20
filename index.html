@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -48,7 +49,7 @@ width:min(1140px,92%);
 margin:auto;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 header{
 position:fixed;
@@ -120,7 +121,7 @@ color:var(--gold2);
 border:1px solid var(--gold);
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
 min-height:100vh;
@@ -200,7 +201,7 @@ width:100%;
 border-radius:12px;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 
 section{
 padding:82px 0;
@@ -225,7 +226,7 @@ margin-bottom:10px;
 color:#aaa;
 }
 
-/* SERVICES */
+/* ================= SERVICES ================= */
 
 .grid{
 display:grid;
@@ -259,7 +260,7 @@ color:#aaa;
 font-size:29px;
 }
 
-/* BOOKING */
+/* ================= BOOKING ================= */
 
 .booking-grid{
 display:grid;
@@ -312,7 +313,60 @@ outline:none;
 border-color:var(--gold);
 }
 
-/* FARE */
+/* ================= VEHICLE PHOTO ABOVE BOOKING ================= */
+
+.booking-vehicle-preview{
+background:#111;
+border:1px solid #3a2e1b;
+border-radius:18px;
+overflow:hidden;
+margin-bottom:25px;
+box-shadow:0 10px 35px rgba(0,0,0,.35);
+}
+
+.booking-vehicle-image{
+width:100%;
+height:360px;
+background:#080808;
+overflow:hidden;
+}
+
+.booking-vehicle-image img{
+width:100%;
+height:100%;
+display:block;
+object-fit:cover;
+}
+
+.booking-vehicle-info{
+padding:18px 22px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.booking-vehicle-info h3{
+font-family:Georgia,serif;
+font-size:25px;
+color:var(--gold2);
+}
+
+.booking-vehicle-info p{
+color:#aaa;
+font-size:14px;
+}
+
+.vehicle-preview-label{
+font-size:11px;
+letter-spacing:2px;
+text-transform:uppercase;
+color:var(--gold);
+font-weight:800;
+}
+
+/* ================= FARE ================= */
 
 .fare{
 font-size:31px;
@@ -326,7 +380,7 @@ font-size:13px;
 color:#999;
 }
 
-/* FLEET */
+/* ================= FLEET ================= */
 
 .fleet{
 display:grid;
@@ -349,12 +403,6 @@ border-color:var(--gold);
 transform:translateY(-5px);
 box-shadow:0 10px 30px rgba(216,173,74,.12);
 }
-
-/*
-IMPORTANT:
-All vehicle photos are now loaded
-from the western-mona folder.
-*/
 
 .vehicle-image{
 width:100%;
@@ -410,7 +458,7 @@ margin-top:auto;
 width:100%;
 }
 
-/* AREAS */
+/* ================= AREAS ================= */
 
 .area-list{
 display:flex;
@@ -426,7 +474,7 @@ border-radius:30px;
 color:#ddd;
 }
 
-/* STEPS */
+/* ================= STEPS ================= */
 
 .steps{
 display:grid;
@@ -448,7 +496,7 @@ color:var(--gold2);
 font-size:24px;
 }
 
-/* STATUS */
+/* ================= STATUS ================= */
 
 .status{
 padding:10px;
@@ -469,7 +517,7 @@ border:1px solid #713333;
 color:#ff9999;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
 padding:40px 0 20px;
@@ -509,7 +557,7 @@ font-size:12px;
 display:none;
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:850px){
 
@@ -542,6 +590,10 @@ grid-template-columns:1fr 1fr;
 grid-template-columns:1fr;
 }
 
+.booking-vehicle-image{
+height:300px;
+}
+
 }
 
 @media(max-width:560px){
@@ -570,6 +622,10 @@ text-align:center;
 height:210px;
 }
 
+.booking-vehicle-image{
+height:230px;
+}
+
 .section-title h2{
 font-size:34px;
 }
@@ -577,6 +633,7 @@ font-size:34px;
 }
 
 </style>
+
 </head>
 
 
@@ -606,25 +663,15 @@ WESTERN MONA TAXIS & SAFARIS
 
 <div class="menu">
 
-<a href="#services">
-Services
-</a>
+<a href="#services">Services</a>
 
-<a href="#booking">
-Book
-</a>
+<a href="#booking">Book</a>
 
-<a href="#fare">
-Fare
-</a>
+<a href="#fare">Fare</a>
 
-<a href="#fleet">
-Fleet
-</a>
+<a href="#fleet">Fleet</a>
 
-<a href="#contact">
-Contact
-</a>
+<a href="#contact">Contact</a>
 
 <a
 class="btn"
@@ -663,11 +710,8 @@ id="home">
 <div>
 
 <div class="eyebrow">
-
 Luxury • Reliability • Professionalism
-
 </div>
-
 
 <h1>
 
@@ -679,7 +723,6 @@ Our priority.
 
 </h1>
 
-
 <p>
 
 Professional taxi, airport transfer,
@@ -687,7 +730,6 @@ hotel transfer, long-distance and
 safari services across Kenya.
 
 </p>
-
 
 <div class="actions">
 
@@ -698,7 +740,6 @@ href="#booking">
 🚕 Book a Ride
 
 </a>
-
 
 <a
 class="btn outline"
@@ -757,9 +798,7 @@ family, airport and safari travel.
 
 <div class="card">
 
-<div class="icon">
-✈️
-</div>
+<div class="icon">✈️</div>
 
 <h3>
 Airport Transfers
@@ -775,9 +814,7 @@ for smooth airport travel.
 
 <div class="card">
 
-<div class="icon">
-🏙️
-</div>
+<div class="icon">🏙️</div>
 
 <h3>
 Town Trips
@@ -793,9 +830,7 @@ business and appointments.
 
 <div class="card">
 
-<div class="icon">
-🛣️
-</div>
+<div class="icon">🛣️</div>
 
 <h3>
 Long Distance
@@ -810,9 +845,7 @@ Reliable intercity travel across Kenya.
 
 <div class="card">
 
-<div class="icon">
-🏨
-</div>
+<div class="icon">🏨</div>
 
 <h3>
 Hotel Transfers
@@ -827,9 +860,7 @@ Hotel, station, airport and attraction transfers.
 
 <div class="card">
 
-<div class="icon">
-🦁
-</div>
+<div class="icon">🦁</div>
 
 <h3>
 Safaris & Tours
@@ -845,9 +876,7 @@ and multi-day adventures.
 
 <div class="card">
 
-<div class="icon">
-📅
-</div>
+<div class="icon">📅</div>
 
 <h3>
 Pre-Booked Rides
@@ -885,15 +914,63 @@ Book your vehicle
 </h2>
 
 <p>
-Submit your request and receive
-a booking reference.
+Choose your vehicle below and submit
+your booking request.
 </p>
+
+</div>
+
+
+<!-- VEHICLE PHOTO ABOVE BOOKING FORM -->
+
+<div class="booking-vehicle-preview">
+
+<div class="booking-vehicle-image">
+
+<img
+id="bookingVehicleImage"
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/nissan-note.jpg"
+alt="Nissan Note"
+onerror="this.style.display='none';">
+
+</div>
+
+<div class="booking-vehicle-info">
+
+<div>
+
+<div class="vehicle-preview-label">
+Selected Vehicle
+</div>
+
+<h3 id="bookingVehicleName">
+Nissan Note
+</h3>
+
+<p id="bookingVehicleDescription">
+Compact, economical and comfortable for
+town trips, airport transfers and everyday travel.
+</p>
+
+</div>
+
+<a
+href="#fleet"
+class="btn outline">
+
+Change Vehicle
+
+</a>
+
+</div>
 
 </div>
 
 
 <div class="booking-grid">
 
+
+<!-- BOOKING FORM -->
 
 <form
 id="bookingForm"
@@ -1077,10 +1154,6 @@ Vehicle
 id="vehicle"
 name="vehicle">
 
-<option value="Any suitable vehicle">
-Any suitable vehicle
-</option>
-
 <option value="Nissan Note">
 Nissan Note
 </option>
@@ -1202,7 +1275,6 @@ Your booking reference will appear here.
 
 </div>
 
-
 </form>
 
 
@@ -1219,30 +1291,25 @@ Booking Process
 class="steps"
 style="grid-template-columns:1fr 1fr">
 
-
 <div class="step">
 <b>1</b>
 Request
 </div>
-
 
 <div class="step">
 <b>2</b>
 Confirm
 </div>
 
-
 <div class="step">
 <b>3</b>
 Pay
 </div>
 
-
 <div class="step">
 <b>4</b>
 Ride
 </div>
-
 
 </div>
 
@@ -1253,7 +1320,6 @@ Ride
 <h3>
 Driver Notifications
 </h3>
-
 
 <p class="small">
 
@@ -1270,7 +1336,6 @@ in our booking system.
 Payment
 </h3>
 
-
 <p class="small">
 
 Choose your preferred payment method
@@ -1279,7 +1344,6 @@ when submitting your booking.
 </p>
 
 </div>
-
 
 </div>
 
@@ -1296,7 +1360,6 @@ id="fare">
 
 <div class="container">
 
-
 <div class="section-title">
 
 <div class="eyebrow">
@@ -1308,10 +1371,8 @@ Calculate an Estimated Fare
 </h2>
 
 <p>
-
 This is an estimate only. Final price
 can be confirmed by our team.
-
 </p>
 
 </div>
@@ -1450,7 +1511,6 @@ the final quote with Western Mona.
 
 </div>
 
-
 </div>
 
 </div>
@@ -1463,7 +1523,6 @@ the final quote with Western Mona.
 <section id="fleet">
 
 <div class="container">
-
 
 <div class="section-title">
 
@@ -1497,12 +1556,12 @@ and safari adventures across Kenya.
 <div class="vehicle-image">
 
 <img
-src="nissan-note.jpg"
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/nissan-note.jpg"
 alt="Nissan Note taxi"
 loading="lazy"
+onerror="this.style.display='none';">
 
 </div>
-
 
 <div class="vehicle-content">
 
@@ -1543,13 +1602,12 @@ Book This Vehicle
 <div class="vehicle-image">
 
 <img
-src="mazda-cx5.jpg"
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/mazda-cx5.jpg"
 alt="Mazda CX-5"
 loading="lazy"
-
+onerror="this.style.display='none';">
 
 </div>
-
 
 <div class="vehicle-content">
 
@@ -1590,12 +1648,12 @@ Book This Vehicle
 <div class="vehicle-image">
 
 <img
-src="prado-tx.jpg"
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/prado-tx.jpg"
 alt="Toyota Land Cruiser Prado TX"
 loading="lazy"
+onerror="this.style.display='none';">
 
 </div>
-
 
 <div class="vehicle-content">
 
@@ -1636,13 +1694,12 @@ Book This Vehicle
 <div class="vehicle-image">
 
 <img
-src="land-cruiser.jpg"
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/land-cruiser.jpg"
 alt="4x4 Land Cruiser"
 loading="lazy"
-
+onerror="this.style.display='none';">
 
 </div>
-
 
 <div class="vehicle-content">
 
@@ -1683,13 +1740,12 @@ Book This Vehicle
 <div class="vehicle-image">
 
 <img
-src="fielder.jpg"
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/fielder.jpg"
 alt="Toyota Fielder"
 loading="lazy"
-
+onerror="this.style.display='none';">
 
 </div>
-
 
 <div class="vehicle-content">
 
@@ -1730,14 +1786,12 @@ Book This Vehicle
 <div class="vehicle-image">
 
 <img
-src="noah.jpg"
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/noah.jpg"
 alt="Toyota Noah"
 loading="lazy"
-
-
+onerror="this.style.display='none';">
 
 </div>
-
 
 <div class="vehicle-content">
 
@@ -1778,13 +1832,12 @@ Book This Vehicle
 <div class="vehicle-image">
 
 <img
-src="voxy.jpg"
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/voxy.jpg"
 alt="Toyota Voxy"
 loading="lazy"
-
+onerror="this.style.display='none';">
 
 </div>
-
 
 <div class="vehicle-content">
 
@@ -1824,13 +1877,12 @@ Book This Vehicle
 <div class="vehicle-image">
 
 <img
-src="mazda-axela.jpg"
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/mazda-axela.jpg"
 alt="Mazda Axela"
 loading="lazy"
->
+onerror="this.style.display='none';">
 
 </div>
-
 
 <div class="vehicle-content">
 
@@ -1871,13 +1923,12 @@ Book This Vehicle
 <div class="vehicle-image">
 
 <img
-src="forester.jpg"
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/forester.jpg"
 alt="Subaru Forester"
 loading="lazy"
-
+onerror="this.style.display='none';">
 
 </div>
-
 
 <div class="vehicle-content">
 
@@ -1924,7 +1975,6 @@ Book This Vehicle
 
 <div class="container">
 
-
 <div class="section-title">
 
 <div class="eyebrow">
@@ -1961,7 +2011,6 @@ Long Distance Across Kenya
 </span>
 
 </div>
-
 
 </div>
 
@@ -2066,7 +2115,6 @@ Fleet
 
 </div>
 
-
 </div>
 
 
@@ -2077,7 +2125,6 @@ All rights reserved.
 
 </div>
 
-
 </div>
 
 </footer>
@@ -2087,6 +2134,56 @@ All rights reserved.
 
 <script>
 
+const vehicleData = {
+
+"Nissan Note":{
+image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/nissan-note.jpg",
+description:"Compact, economical and comfortable for town trips, airport transfers and everyday travel."
+},
+
+"Mazda CX-5":{
+image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/mazda-cx5.jpg",
+description:"Premium SUV comfort, ideal for business trips, airport transfers and comfortable touring."
+},
+
+"Toyota Land Cruiser Prado TX":{
+image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/prado-tx.jpg",
+description:"Premium touring vehicle for long-distance travel, safaris, business trips and executive journeys."
+},
+
+"4x4 Land Cruiser":{
+image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/land-cruiser.jpg",
+description:"Built for safari adventures, rough terrain and long-distance journeys across Kenya."
+},
+
+"Fielder":{
+image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/fielder.jpg",
+description:"Practical and comfortable for daily transportation, town trips and airport transfers."
+},
+
+"Noah":{
+image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/noah.jpg",
+description:"Spacious family vehicle suitable for groups, airport transfers and comfortable touring."
+},
+
+"Voxy":{
+image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/voxy.jpg",
+description:"Spacious people carrier designed for family, group and long-distance travel."
+},
+
+"Mazda Axela":{
+image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/mazda-axela.jpg",
+description:"Stylish and comfortable for city travel, business trips and airport transfers."
+},
+
+"Subaru Forester":{
+image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/forester.jpg",
+description:"Versatile SUV offering comfort and capability for city, countryside and long-distance travel."
+}
+
+};
+
+
 function selectVehicle(vehicleName){
 
 const vehicleSelect =
@@ -2094,6 +2191,15 @@ document.getElementById("vehicle");
 
 const bookingSection =
 document.getElementById("booking");
+
+const bookingImage =
+document.getElementById("bookingVehicleImage");
+
+const bookingName =
+document.getElementById("bookingVehicleName");
+
+const bookingDescription =
+document.getElementById("bookingVehicleDescription");
 
 
 if(vehicleSelect){
@@ -2103,19 +2209,53 @@ vehicleSelect.value = vehicleName;
 }
 
 
+const data = vehicleData[vehicleName];
+
+
+if(data){
+
+bookingImage.src = data.image;
+
+bookingImage.alt = vehicleName;
+
+bookingName.textContent = vehicleName;
+
+bookingDescription.textContent = data.description;
+
+}
+
+
 if(bookingSection){
 
 bookingSection.scrollIntoView({
-
 behavior:"smooth",
-
 block:"start"
-
 });
 
 }
 
 }
+
+
+/* Update preview when dropdown is changed */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const vehicleSelect =
+document.getElementById("vehicle");
+
+if(vehicleSelect){
+
+vehicleSelect.addEventListener("change",function(){
+
+selectVehicle(this.value);
+
+});
+
+}
+
+});
+
 
 </script>
 
@@ -2129,4 +2269,5 @@ src="script.js">
 
 
 </body>
+
 </html>
