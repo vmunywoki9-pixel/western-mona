@@ -3,127 +3,1498 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Western Mona Taxis and Safaris - taxi, airport transfer, hotel transfer, long-distance and safari services across Kenya.">
+
+<meta name="description"
+content="Western Mona Taxis and Safaris - taxi, airport transfer, hotel transfer, long-distance and safari services across Kenya.">
+
 <title>Western Mona Taxis & Safaris | Book a Ride</title>
+
 <style>
-:root{--gold:#d8ad4a;--gold2:#f1cf73;--black:#060606;--dark:#111;--card:#171717;--muted:#aaa}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:var(--black);color:#fff;line-height:1.6}
-a{text-decoration:none;color:inherit}.container{width:min(1140px,92%);margin:auto}
-header{position:fixed;z-index:99;top:0;width:100%;background:rgba(0,0,0,.95);border-bottom:1px solid #40331c}
-nav{height:74px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px}.brand img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
-.menu{display:flex;gap:22px;align-items:center}.menu a:hover{color:var(--gold2)}
-.btn{border:0;border-radius:7px;padding:12px 18px;background:var(--gold);color:#000;font-weight:800;cursor:pointer;display:inline-block}.btn:hover{background:var(--gold2)}
-.outline{background:transparent;color:var(--gold2);border:1px solid var(--gold)}
-.hero{min-height:100vh;padding-top:74px;display:flex;align-items:center;background:radial-gradient(circle at 80% 20%,#3c2b0d55,transparent 32%),linear-gradient(130deg,#050505,#15120b,#050505)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center;padding:80px 0}
-.eyebrow{text-transform:uppercase;letter-spacing:3px;color:var(--gold2);font-weight:800;font-size:12px;margin-bottom:12px}
-h1,h2{font-family:Georgia,serif}h1{font-size:clamp(42px,6vw,72px);line-height:1.03;margin-bottom:20px}h1 span{color:var(--gold2)}
-.hero p{color:#ccc;font-size:18px;max-width:650px;margin-bottom:25px}.actions{display:flex;gap:12px;flex-wrap:wrap}
-.hero-logo{background:#090909;border:1px solid #4a391d;border-radius:18px;padding:16px}.hero-logo img{width:100%;border-radius:12px}
-section{padding:82px 0}.dark{background:#0c0c0c}.section-title{text-align:center;max-width:760px;margin:0 auto 40px}.section-title h2{font-size:42px;margin-bottom:10px}.section-title p{color:#aaa}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid #292929;border-radius:14px;padding:23px}.card:hover{border-color:var(--gold)}
-.card h3{margin:5px 0}.card p{font-size:14px;color:#aaa}.icon{font-size:29px}
-.booking-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:25px}
-form,.panel{background:#151515;border:1px solid #302a20;border-radius:15px;padding:25px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}label{display:block;font-size:13px;color:#ddd;margin-bottom:5px}
-input,select,textarea{width:100%;padding:12px;background:#080808;color:white;border:1px solid #393939;border-radius:7px;margin-bottom:13px}textarea{min-height:90px;resize:vertical}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
-.fare{font-size:31px;font-weight:800;color:var(--gold2);margin:10px 0}.small{font-size:13px;color:#999}
-.fleet{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.vehicle{background:#121212;border:1px solid #292929;border-radius:12px;padding:18px}.vehicle strong{color:var(--gold2)}
-.area-list{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.pill{padding:9px 15px;border:1px solid #44361d;border-radius:30px;color:#ddd}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.step{padding:20px;background:#121212;border-radius:12px;border:1px solid #292929;text-align:center}.step b{display:block;color:var(--gold2);font-size:24px}
-.admin-note{font-size:13px;color:#aaa;margin-top:10px}.status{padding:10px;border-radius:7px;background:#0b0b0b;margin:10px 0;color:#ccc}
-footer{padding:40px 0 20px;border-top:1px solid #222}.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:25px}.footer-grid h3{color:var(--gold2);font-family:Georgia,serif;margin-bottom:8px}.footer-grid p,.footer-grid a{display:block;color:#aaa;font-size:14px;margin:5px 0}.copy{text-align:center;border-top:1px solid #222;margin-top:25px;padding-top:15px;color:#777;font-size:12px}
-.mobile{display:none}
-@media(max-width:850px){.menu{display:none}.mobile{display:block}.hero-grid,.booking-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.fleet{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}}
-@media(max-width:560px){.grid,.fleet,.steps,.row{grid-template-columns:1fr}.brand{font-size:11px}.hero-grid{padding:55px 0}.actions .btn{width:100%;text-align:center}}
+:root{
+--gold:#d8ad4a;
+--gold2:#f1cf73;
+--black:#060606;
+--dark:#111;
+--card:#171717;
+--muted:#aaa
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+html{
+scroll-behavior:smooth
+}
+
+body{
+font-family:Arial,sans-serif;
+background:var(--black);
+color:#fff;
+line-height:1.6
+}
+
+a{
+text-decoration:none;
+color:inherit
+}
+
+.container{
+width:min(1140px,92%);
+margin:auto
+}
+
+header{
+position:fixed;
+z-index:99;
+top:0;
+width:100%;
+background:rgba(0,0,0,.95);
+border-bottom:1px solid #40331c
+}
+
+nav{
+height:74px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:800;
+font-size:14px
+}
+
+.brand img{
+width:48px;
+height:48px;
+border-radius:50%;
+object-fit:cover;
+border:1px solid var(--gold)
+}
+
+.menu{
+display:flex;
+gap:22px;
+align-items:center
+}
+
+.menu a:hover{
+color:var(--gold2)
+}
+
+.btn{
+border:0;
+border-radius:7px;
+padding:12px 18px;
+background:var(--gold);
+color:#000;
+font-weight:800;
+cursor:pointer;
+display:inline-block
+}
+
+.btn:hover{
+background:var(--gold2)
+}
+
+.btn:disabled{
+opacity:.6;
+cursor:not-allowed
+}
+
+.outline{
+background:transparent;
+color:var(--gold2);
+border:1px solid var(--gold)
+}
+
+.hero{
+min-height:100vh;
+padding-top:74px;
+display:flex;
+align-items:center;
+background:
+radial-gradient(circle at 80% 20%,#3c2b0d55,transparent 32%),
+linear-gradient(130deg,#050505,#15120b,#050505)
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1.05fr .95fr;
+gap:55px;
+align-items:center;
+padding:80px 0
+}
+
+.eyebrow{
+text-transform:uppercase;
+letter-spacing:3px;
+color:var(--gold2);
+font-weight:800;
+font-size:12px;
+margin-bottom:12px
+}
+
+h1,h2{
+font-family:Georgia,serif
+}
+
+h1{
+font-size:clamp(42px,6vw,72px);
+line-height:1.03;
+margin-bottom:20px
+}
+
+h1 span{
+color:var(--gold2)
+}
+
+.hero p{
+color:#ccc;
+font-size:18px;
+max-width:650px;
+margin-bottom:25px
+}
+
+.actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap
+}
+
+.hero-logo{
+background:#090909;
+border:1px solid #4a391d;
+border-radius:18px;
+padding:16px
+}
+
+.hero-logo img{
+width:100%;
+border-radius:12px
+}
+
+section{
+padding:82px 0
+}
+
+.dark{
+background:#0c0c0c
+}
+
+.section-title{
+text-align:center;
+max-width:760px;
+margin:0 auto 40px
+}
+
+.section-title h2{
+font-size:42px;
+margin-bottom:10px
+}
+
+.section-title p{
+color:#aaa
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
+}
+
+.card{
+background:var(--card);
+border:1px solid #292929;
+border-radius:14px;
+padding:23px
+}
+
+.card:hover{
+border-color:var(--gold)
+}
+
+.card h3{
+margin:5px 0
+}
+
+.card p{
+font-size:14px;
+color:#aaa
+}
+
+.icon{
+font-size:29px
+}
+
+.booking-grid{
+display:grid;
+grid-template-columns:1.25fr .75fr;
+gap:25px
+}
+
+form,.panel{
+background:#151515;
+border:1px solid #302a20;
+border-radius:15px;
+padding:25px
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px
+}
+
+label{
+display:block;
+font-size:13px;
+color:#ddd;
+margin-bottom:5px
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+background:#080808;
+color:white;
+border:1px solid #393939;
+border-radius:7px;
+margin-bottom:13px
+}
+
+textarea{
+min-height:90px;
+resize:vertical
+}
+
+input:focus,select:focus,textarea:focus{
+outline:none;
+border-color:var(--gold)
+}
+
+.fare{
+font-size:31px;
+font-weight:800;
+color:var(--gold2);
+margin:10px 0
+}
+
+.small{
+font-size:13px;
+color:#999
+}
+
+.fleet{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px
+}
+
+.vehicle{
+background:#121212;
+border:1px solid #292929;
+border-radius:12px;
+padding:18px
+}
+
+.vehicle strong{
+color:var(--gold2)
+}
+
+.area-list{
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap
+}
+
+.pill{
+padding:9px 15px;
+border:1px solid #44361d;
+border-radius:30px;
+color:#ddd
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px
+}
+
+.step{
+padding:20px;
+background:#121212;
+border-radius:12px;
+border:1px solid #292929;
+text-align:center
+}
+
+.step b{
+display:block;
+color:var(--gold2);
+font-size:24px
+}
+
+.status{
+padding:10px;
+border-radius:7px;
+background:#0b0b0b;
+margin:10px 0;
+color:#ccc;
+min-height:42px
+}
+
+.success{
+border:1px solid #315d31;
+color:#9be09b
+}
+
+.error{
+border:1px solid #713333;
+color:#ff9999
+}
+
+footer{
+padding:40px 0 20px;
+border-top:1px solid #222
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:1.2fr 1fr 1fr;
+gap:25px
+}
+
+.footer-grid h3{
+color:var(--gold2);
+font-family:Georgia,serif;
+margin-bottom:8px
+}
+
+.footer-grid p,
+.footer-grid a{
+display:block;
+color:#aaa;
+font-size:14px;
+margin:5px 0
+}
+
+.copy{
+text-align:center;
+border-top:1px solid #222;
+margin-top:25px;
+padding-top:15px;
+color:#777;
+font-size:12px
+}
+
+.mobile{
+display:none
+}
+
+@media(max-width:850px){
+
+.menu{
+display:none
+}
+
+.mobile{
+display:block
+}
+
+.hero-grid,
+.booking-grid{
+grid-template-columns:1fr
+}
+
+.grid{
+grid-template-columns:1fr 1fr
+}
+
+.fleet{
+grid-template-columns:1fr 1fr
+}
+
+.steps{
+grid-template-columns:1fr 1fr
+}
+
+.footer-grid{
+grid-template-columns:1fr
+}
+
+}
+
+@media(max-width:560px){
+
+.grid,
+.fleet,
+.steps,
+.row{
+grid-template-columns:1fr
+}
+
+.brand{
+font-size:11px
+}
+
+.hero-grid{
+padding:55px 0
+}
+
+.actions .btn{
+width:100%;
+text-align:center
+}
+
+}
 </style>
 </head>
+
 <body>
-<header><div class="container"><nav>
-<a class="brand" href="#home"><img src="logo.jpg" alt="Western Mona logo"><span>WESTERN MONA TAXIS & SAFARIS</span></a>
-<div class="menu"><a href="#services">Services</a><a href="#booking">Book</a><a href="#fare">Fare</a><a href="#fleet">Fleet</a><a href="#contact">Contact</a><a class="btn" href="tel:+254710666222">Call</a></div>
-<a class="mobile btn" href="https://wa.me/254710666222">WhatsApp</a>
-</nav></div></header>
 
-<section class="hero" id="home"><div class="container hero-grid">
-<div><div class="eyebrow">Luxury • Reliability • Professionalism</div><h1>Your journey.<br><span>Our priority.</span></h1>
-<p>Professional taxi, airport transfer, hotel transfer, long-distance and safari services across Kenya.</p>
-<div class="actions"><a class="btn" href="#booking">🚕 Book a Ride</a><a class="btn outline" href="https://wa.me/254710666222?text=Hello%20Western%20Mona%20Taxis%20and%20Safaris%2C%20I%20would%20like%20to%20book.">💬 WhatsApp</a></div></div>
-<div class="hero-logo"><img src="logo.jpg" alt="Western Mona Taxis and Safaris"></div>
-</div></section>
+<!-- ================= HEADER ================= -->
 
-<section class="dark" id="services"><div class="container"><div class="section-title"><div class="eyebrow">Services</div><h2>Travel with confidence</h2><p>Convenient transport for business, family, airport and safari travel.</p></div>
+<header>
+<div class="container">
+<nav>
+
+<a class="brand" href="#home">
+
+<img
+src="logo.jpg"
+alt="Western Mona Taxis and Safaris Logo">
+
+<span>
+WESTERN MONA TAXIS & SAFARIS
+</span>
+
+</a>
+
+<div class="menu">
+
+<a href="#services">Services</a>
+
+<a href="#booking">Book</a>
+
+<a href="#fare">Fare</a>
+
+<a href="#fleet">Fleet</a>
+
+<a href="#contact">Contact</a>
+
+<a
+class="btn"
+href="tel:+254710666222">
+Call
+</a>
+
+</div>
+
+<a
+class="mobile btn"
+href="https://wa.me/254710666222">
+WhatsApp
+</a>
+
+</nav>
+</div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section
+class="hero"
+id="home">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="eyebrow">
+Luxury • Reliability • Professionalism
+</div>
+
+<h1>
+Your journey.<br>
+<span>Our priority.</span>
+</h1>
+
+<p>
+Professional taxi, airport transfer, hotel transfer,
+long-distance and safari services across Kenya.
+</p>
+
+<div class="actions">
+
+<a
+class="btn"
+href="#booking">
+🚕 Book a Ride
+</a>
+
+<a
+class="btn outline"
+href="https://wa.me/254710666222?text=Hello%20Western%20Mona%20Taxis%20and%20Safaris%2C%20I%20would%20like%20to%20book.">
+💬 WhatsApp
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-logo">
+
+<img
+src="logo.jpg"
+alt="Western Mona Taxis and Safaris">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section
+class="dark"
+id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="eyebrow">
+Services
+</div>
+
+<h2>
+Travel with confidence
+</h2>
+
+<p>
+Convenient transport for business, family,
+airport and safari travel.
+</p>
+
+</div>
+
 <div class="grid">
-<div class="card"><div class="icon">✈️</div><h3>Airport Transfers</h3><p>Scheduled pickups and drop-offs for smooth airport travel.</p></div>
-<div class="card"><div class="icon">🏙️</div><h3>Town Trips</h3><p>Comfortable local rides for errands, business and appointments.</p></div>
-<div class="card"><div class="icon">🛣️</div><h3>Long Distance</h3><p>Reliable intercity travel across Kenya.</p></div>
-<div class="card"><div class="icon">🏨</div><h3>Hotel Transfers</h3><p>Hotel, station, airport and attraction transfers.</p></div>
-<div class="card"><div class="icon">🦁</div><h3>Safaris & Tours</h3><p>Comfortable vehicles for wildlife and multi-day adventures.</p></div>
-<div class="card"><div class="icon">📅</div><h3>Pre-Booked Rides</h3><p>Reserve ahead and let our team coordinate your journey.</p></div>
-</div></div></section>
 
-<section id="booking"><div class="container"><div class="section-title"><div class="eyebrow">Online Booking</div><h2>Book your vehicle</h2><p>Submit your request and receive a booking reference. The request can also be sent to WhatsApp.</p></div>
+<div class="card">
+<div class="icon">✈️</div>
+<h3>Airport Transfers</h3>
+<p>
+Scheduled pickups and drop-offs for smooth airport travel.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🏙️</div>
+<h3>Town Trips</h3>
+<p>
+Comfortable local rides for errands,
+business and appointments.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🛣️</div>
+<h3>Long Distance</h3>
+<p>
+Reliable intercity travel across Kenya.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🏨</div>
+<h3>Hotel Transfers</h3>
+<p>
+Hotel, station, airport and attraction transfers.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🦁</div>
+<h3>Safaris & Tours</h3>
+<p>
+Comfortable vehicles for wildlife
+and multi-day adventures.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📅</div>
+<h3>Pre-Booked Rides</h3>
+<p>
+Reserve ahead and let our team coordinate your journey.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+
+<section
+id="booking">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="eyebrow">
+Online Booking
+</div>
+
+<h2>
+Book your vehicle
+</h2>
+
+<p>
+Submit your request and receive a booking reference.
+The request can also be sent to WhatsApp.
+</p>
+
+</div>
+
+
 <div class="booking-grid">
-<form id="bookingForm">
-<div class="row"><div><label>Full Name</label><input id="name" required></div><div><label>Phone / WhatsApp</label><input id="phone" required placeholder="+254..."></div></div>
-<div class="row"><div><label>Pickup</label><input id="pickup" required placeholder="e.g. JKIA"></div><div><label>Destination</label><input id="destination" required placeholder="e.g. Nairobi CBD"></div></div>
-<div class="row"><div><label>Date</label><input id="date" type="date" required></div><div><label>Time</label><input id="time" type="time" required></div></div>
-<div class="row"><div><label>Service</label><select id="service" required><option value="">Select</option><option>Airport Transfer</option><option>Town Trip</option><option>Long Distance Trip</option><option>Hotel Transfer</option><option>Safari / Tour</option></select></div>
-<div><label>Vehicle</label><select id="vehicle"><option>Any suitable vehicle</option><option>Nissan Note</option><option>Mazda CX-5</option><option>Toyota Land Cruiser Prado TX</option><option>4x4 Land Cruiser</option><option>Fielder</option><option>Noah</option><option>Voxy</option><option>Mazda Axela</option><option>Subaru Forester</option></select></div></div>
-<div class="row"><div><label>Passengers</label><input id="passengers" type="number" min="1" value="1"></div><div><label>Payment preference</label><select id="payment"><option>Pay on arrival</option><option>Online payment</option><option>Request payment instructions</option></select></div></div>
-<label>Additional details</label><textarea id="details" placeholder="Luggage, return trip, flight number, special request..."></textarea>
-<button class="btn" style="width:100%" type="submit">Confirm & Send Booking</button>
-<div class="status" id="bookingStatus">Your booking reference will appear here.</div>
+
+
+<form
+id="bookingForm"
+novalidate>
+
+
+<!-- NAME + PHONE -->
+
+<div class="row">
+
+<div>
+
+<label for="name">
+Full Name
+</label>
+
+<input
+id="name"
+name="name"
+type="text"
+required
+autocomplete="name"
+placeholder="Your full name">
+
+</div>
+
+
+<div>
+
+<label for="phone">
+Phone / WhatsApp
+</label>
+
+<input
+id="phone"
+name="phone"
+type="tel"
+required
+autocomplete="tel"
+placeholder="+254...">
+
+</div>
+
+</div>
+
+
+<!-- EMAIL -->
+
+<div>
+
+<label for="email">
+Email Address
+</label>
+
+<input
+id="email"
+name="email"
+type="email"
+required
+autocomplete="email"
+placeholder="your@email.com">
+
+</div>
+
+
+<!-- PICKUP + DESTINATION -->
+
+<div class="row">
+
+<div>
+
+<label for="pickup">
+Pickup
+</label>
+
+<input
+id="pickup"
+name="pickup"
+type="text"
+required
+placeholder="e.g. JKIA">
+
+</div>
+
+
+<div>
+
+<label for="destination">
+Destination
+</label>
+
+<input
+id="destination"
+name="destination"
+type="text"
+required
+placeholder="e.g. Nairobi CBD">
+
+</div>
+
+</div>
+
+
+<!-- DATE + TIME -->
+
+<div class="row">
+
+<div>
+
+<label for="date">
+Date
+</label>
+
+<input
+id="date"
+name="date"
+type="date"
+required>
+
+</div>
+
+
+<div>
+
+<label for="time">
+Time
+</label>
+
+<input
+id="time"
+name="time"
+type="time"
+required>
+
+</div>
+
+</div>
+
+
+<!-- SERVICE + VEHICLE -->
+
+<div class="row">
+
+<div>
+
+<label for="service">
+Service
+</label>
+
+<select
+id="service"
+name="service"
+required>
+
+<option value="">
+Select
+</option>
+
+<option value="Airport Transfer">
+Airport Transfer
+</option>
+
+<option value="Town Trip">
+Town Trip
+</option>
+
+<option value="Long Distance Trip">
+Long Distance Trip
+</option>
+
+<option value="Hotel Transfer">
+Hotel Transfer
+</option>
+
+<option value="Safari / Tour">
+Safari / Tour
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="vehicle">
+Vehicle
+</label>
+
+<select
+id="vehicle"
+name="vehicle">
+
+<option value="Any suitable vehicle">
+Any suitable vehicle
+</option>
+
+<option value="Nissan Note">
+Nissan Note
+</option>
+
+<option value="Mazda CX-5">
+Mazda CX-5
+</option>
+
+<option value="Toyota Land Cruiser Prado TX">
+Toyota Land Cruiser Prado TX
+</option>
+
+<option value="4x4 Land Cruiser">
+4x4 Land Cruiser
+</option>
+
+<option value="Fielder">
+Fielder
+</option>
+
+<option value="Noah">
+Noah
+</option>
+
+<option value="Voxy">
+Voxy
+</option>
+
+<option value="Mazda Axela">
+Mazda Axela
+</option>
+
+<option value="Subaru Forester">
+Subaru Forester
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- PASSENGERS + PAYMENT -->
+
+<div class="row">
+
+<div>
+
+<label for="passengers">
+Passengers
+</label>
+
+<input
+id="passengers"
+name="passengers"
+type="number"
+min="1"
+value="1"
+required>
+
+</div>
+
+
+<div>
+
+<label for="payment">
+Payment Preference
+</label>
+
+<select
+id="payment"
+name="payment">
+
+<option value="Pay on arrival">
+Pay on arrival
+</option>
+
+<option value="Online payment">
+Online payment
+</option>
+
+<option value="Request payment instructions">
+Request payment instructions
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- DETAILS -->
+
+<label for="details">
+Additional Details
+</label>
+
+<textarea
+id="details"
+name="details"
+placeholder="Luggage, return trip, flight number, special request..."></textarea>
+
+
+<!-- BOOKING BUTTON -->
+
+<button
+class="btn"
+style="width:100%"
+type="submit"
+id="submitBooking">
+
+Confirm & Send Booking
+
+</button>
+
+
+<!-- BOOKING STATUS -->
+
+<div
+class="status"
+id="bookingStatus"
+aria-live="polite">
+
+Your booking reference will appear here.
+
+</div>
+
+
 </form>
-<div class="panel"><div class="eyebrow">Booking process</div><div class="steps" style="grid-template-columns:1fr 1fr">
-<div class="step"><b>1</b>Request</div><div class="step"><b>2</b>Confirm</div><div class="step"><b>3</b>Pay</div><div class="step"><b>4</b>Ride</div>
-</div><br><h3>Driver notifications</h3><p class="small">The website is structured so bookings can later be connected to an admin dashboard and automatic driver alerts.</p><br>
-<h3>Payment</h3><p class="small">Online payment is prepared as a booking option. To activate actual payments, we need your preferred provider and account details.</p>
-</div></div></div></section>
 
-<section class="dark" id="fare"><div class="container"><div class="section-title"><div class="eyebrow">Fare Estimate</div><h2>Calculate an estimated fare</h2><p>This is an estimate only. Final price can be confirmed by our team based on route, waiting time, vehicle and trip requirements.</p></div>
-<div class="panel" style="max-width:760px;margin:auto">
-<div class="row"><div><label>Service</label><select id="fareService"><option value="town">Town Trip</option><option value="airport">Airport Transfer</option><option value="long">Long Distance</option><option value="safari">Safari / Tour</option></select></div><div><label>Estimated distance (km)</label><input id="km" type="number" min="1" value="10"></div></div>
-<div class="row"><div><label>Vehicle</label><select id="fareVehicle"><option value="standard">Standard - Nissan Note / Fielder / Axela</option><option value="suv">SUV - CX-5 / Forester</option><option value="van">Van - Noah / Voxy</option><option value="4x4">Prado TX /4x4 Land Cruiser</option></select></div><div><label>Return trip?</label><select id="returnTrip"><option value="no">No</option><option value="yes">Yes</option></select></div></div>
-<button class="btn" id="calculate" type="button">Calculate Estimate</button><div class="fare" id="fareResult">KES 0</div><div class="small">Indicative calculator; confirm the final quote with Western Mona.</div>
-</div></div></section>
 
-<section id="fleet"><div class="container"><div class="section-title"><div class="eyebrow">Fleet</div><h2>Vehicles for every journey</h2></div>
+<!-- BOOKING INFORMATION -->
+
+<div class="panel">
+
+<div class="eyebrow">
+Booking Process
+</div>
+
+
+<div
+class="steps"
+style="grid-template-columns:1fr 1fr">
+
+<div class="step">
+<b>1</b>
+Request
+</div>
+
+<div class="step">
+<b>2</b>
+Confirm
+</div>
+
+<div class="step">
+<b>3</b>
+Pay
+</div>
+
+<div class="step">
+<b>4</b>
+Ride
+</div>
+
+</div>
+
+
+<br>
+
+
+<h3>
+Driver Notifications
+</h3>
+
+<p class="small">
+
+The website is structured so bookings can later
+be connected to an admin dashboard and
+automatic driver alerts.
+
+</p>
+
+
+<br>
+
+
+<h3>
+Payment
+</h3>
+
+<p class="small">
+
+Online payment is prepared as a booking option.
+To activate actual payments, we need your preferred
+provider and account details.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FARE CALCULATOR ================= -->
+
+<section
+class="dark"
+id="fare">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="eyebrow">
+Fare Estimate
+</div>
+
+<h2>
+Calculate an Estimated Fare
+</h2>
+
+<p>
+
+This is an estimate only. Final price can be confirmed
+by our team based on route, waiting time, vehicle
+and trip requirements.
+
+</p>
+
+</div>
+
+
+<div
+class="panel"
+style="max-width:760px;margin:auto">
+
+
+<div class="row">
+
+<div>
+
+<label for="fareService">
+Service
+</label>
+
+<select id="fareService">
+
+<option value="town">
+Town Trip
+</option>
+
+<option value="airport">
+Airport Transfer
+</option>
+
+<option value="long">
+Long Distance
+</option>
+
+<option value="safari">
+Safari / Tour
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="km">
+Estimated Distance (km)
+</label>
+
+<input
+id="km"
+type="number"
+min="1"
+value="10">
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div>
+
+<label for="fareVehicle">
+Vehicle
+</label>
+
+<select id="fareVehicle">
+
+<option value="standard">
+Standard - Nissan Note / Fielder / Axela
+</option>
+
+<option value="suv">
+SUV - CX-5 / Forester
+</option>
+
+<option value="van">
+Van - Noah / Voxy
+</option>
+
+<option value="4x4">
+Prado TX / 4x4 Land Cruiser
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="returnTrip">
+Return Trip?
+</label>
+
+<select id="returnTrip">
+
+<option value="no">
+No
+</option>
+
+<option value="yes">
+Yes
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<button
+class="btn"
+id="calculate"
+type="button">
+
+Calculate Estimate
+
+</button>
+
+
+<div
+class="fare"
+id="fareResult">
+
+KES 0
+
+</div>
+
+
+<div class="small">
+
+Indicative calculator; confirm the final quote
+with Western Mona.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FLEET ================= -->
+
+<section
+id="fleet">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="eyebrow">
+Fleet
+</div>
+
+<h2>
+Vehicles for Every Journey
+</h2>
+
+</div>
+
+
 <div class="fleet">
-<div class="vehicle"><strong>Nissan Note</strong><p>Compact city travel.</p></div><div class="vehicle"><strong>Mazda CX-5</strong><p>Premium SUV comfort.</p></div><div class="vehicle"><strong>Toyota Land Cruiser Prado TX</strong><p>Premium touring.</p></div>
-<div class="vehicle"><strong>4x4 Land Cruiser</strong><p>Safari and rugged routes.</p></div><div class="vehicle"><strong>Fielder</strong><p>Practical everyday travel.</p></div><div class="vehicle"><strong>Noah</strong><p>Family and group travel.</p></div>
-<div class="vehicle"><strong>Voxy</strong><p>Spacious people carrier.</p></div><div class="vehicle"><strong>Mazda Axela</strong><p>Stylish city travel.</p></div><div class="vehicle"><strong>Subaru Forester</strong><p>Versatile SUV.</p></div>
-</div></div></section>
 
-<section class="dark"><div class="container"><div class="section-title"><div class="eyebrow">Service Areas</div><h2>Where we operate</h2></div><div class="area-list"><span class="pill">Nairobi</span><span class="pill">Nakuru</span><span class="pill">Eldoret</span><span class="pill">Naivasha</span><span class="pill">Long Distance Across Kenya</span></div></div></section>
+<div class="vehicle">
+<strong>Nissan Note</strong>
+<p>Compact city travel.</p>
+</div>
 
-<section><div class="container"><div class="section-title"><div class="eyebrow">Management</div><h2>Ready for the next upgrade</h2><p>The front end is prepared for a real database, admin dashboard, driver notifications, online payments and map-based booking. Those require connecting your accounts/API credentials.</p></div></div></section>
+<div class="vehicle">
+<strong>Mazda CX-5</strong>
+<p>Premium SUV comfort.</p>
+</div>
 
-<footer id="contact"><div class="container"><div class="footer-grid">
-<div><h3>Western Mona Taxis & Safaris</h3><p>Luxury | Reliability | Professionalism</p><p>Nairobi, Kenya</p></div>
-<div><h3>Contact</h3><a href="tel:+254710666222">📞 +254 710 666 222</a><a href="https://wa.me/254710666222">💬 WhatsApp</a><a href="mailto:westernmona1@gmail.com">✉️ westernmona1@gmail.com</a></div>
-<div><h3>Quick Links</h3><a href="#booking">Book a Ride</a><a href="#fare">Fare Calculator</a><a href="#fleet">Fleet</a></div>
-</div><div class="copy">© 2026 Western Mona Taxis and Safaris. All rights reserved.</div></div></footer>
+<div class="vehicle">
+<strong>Toyota Land Cruiser Prado TX</strong>
+<p>Premium touring.</p>
+</div>
 
-<script>
-const ref=()=> "WM-"+Date.now().toString().slice(-8);
-document.getElementById("bookingForm").addEventListener("submit",e=>{
- e.preventDefault();
- const r=ref();
- const data={reference:r,name:name.value,phone:phone.value,pickup:pickup.value,destination:destination.value,date:date.value,time:time.value,service:service.value,vehicle:vehicle.value,passengers:passengers.value,payment:payment.value,details:details.value,created:new Date().toISOString()};
- const bookings=JSON.parse(localStorage.getItem("westernMonaBookings")||"[]");bookings.push(data);localStorage.setItem("westernMonaBookings",JSON.stringify(bookings));
- document.getElementById("bookingStatus").innerHTML="<strong>Booking reference: "+r+"</strong><br>Your request has been saved on this device. Click below to send it to WhatsApp.";
- const msg=`🚕 WESTERN MONA BOOKING\nReference: ${r}\nName: ${data.name}\nPhone: ${data.phone}\nService: ${data.service}\nPickup: ${data.pickup}\nDestination: ${data.destination}\nDate: ${data.date}\nTime: ${data.time}\nVehicle: ${data.vehicle}\nPassengers: ${data.passengers}\nPayment: ${data.payment}\nDetails: ${data.details||"None"}`;
- const a=document.createElement("a");a.href="https://wa.me/254710666222?text="+encodeURIComponent(msg);a.target="_blank";a.className="btn";a.textContent="Open WhatsApp";a.style.marginTop="10px";document.getElementById("bookingStatus").appendChild(document.createElement("br"));document.getElementById("bookingStatus").appendChild(a);
-});
-document.getElementById("calculate").addEventListener("click",()=>{
- const km=Math.max(1,Number(document.getElementById("km").value)||1), s=document.getElementById("fareService").value,v=document.getElementById("fareVehicle").value,ret=document.getElementById("returnTrip").value==="yes";
- let base={town:300,airport:1200,long:1500,safari:5000}[s], rate={standard:55,suv:75,van:70,"4x4":110}[v];
- let fare=base+km*rate;if(ret)fare*=1.8;
- document.getElementById("fareResult").textContent="KES "+Math.round(fare).toLocaleString();
-});
+<div class="vehicle">
+<strong>4x4 Land Cruiser</strong>
+<p>Safari and rugged routes.</p>
+</div>
+
+<div class="vehicle">
+<strong>Fielder</strong>
+<p>Practical everyday travel.</p>
+</div>
+
+<div class="vehicle">
+<strong>Noah</strong>
+<p>Family and group travel.</p>
+</div>
+
+<div class="vehicle">
+<strong>Voxy</strong>
+<p>Spacious people carrier.</p>
+</div>
+
+<div class="vehicle">
+<strong>Mazda Axela</strong>
+<p>Stylish city travel.</p>
+</div>
+
+<div class="vehicle">
+<strong>Subaru Forester</strong>
+<p>Versatile SUV.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SERVICE AREAS ================= -->
+
+<section
+class="dark">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="eyebrow">
+Service Areas
+</div>
+
+<h2>
+Where We Operate
+</h2>
+
+</div>
+
+
+<div class="area-list">
+
+<span class="pill">
+Nairobi
+</span>
+
+<span class="pill">
+Nakuru
+</span>
+
+<span class="pill">
+Eldoret
+</span>
+
+<span class="pill">
+Naivasha
+</span>
+
+<span class="pill">
+Long Distance Across Kenya
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MANAGEMENT ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="eyebrow">
+Management
+</div>
+
+<h2>
+Ready for the Next Upgrade
+</h2>
+
+<p>
+
+The front end is prepared for a real database,
+admin dashboard, driver notifications, online payments
+and map-based booking.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer
+id="contact">
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div>
+
+<h3>
+Western Mona Taxis & Safaris
+</h3>
+
+<p>
+Luxury | Reliability | Professionalism
+</p>
+
+<p>
+Nairobi, Kenya
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Contact
+</h3>
+
+<a href="tel:+254710666222">
+📞 +254 710 666 222
+</a>
+
+<a href="https://wa.me/254710666222">
+💬 WhatsApp
+</a>
+
+<a href="mailto:westernmona1@gmail.com">
+✉️ westernmona1@gmail.com
+</a>
+
+</div>
+
+
+<div>
+
+<h3>
+Quick Links
+</h3>
+
+<a href="#booking">
+Book a Ride
+</a>
+
+<a href="#fare">
+Fare Calculator
+</a>
+
+<a href="#fleet">
+Fleet
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copy">
+
+© 2026 Western Mona Taxis and Safaris.
+All rights reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script
+type="module"
+src="script.js">
 </script>
-</body></html>
+
+
+</body>
+</html>
