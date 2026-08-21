@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-content="Western Mona Taxis and Safaris - taxi, airport transfer, hotel transfer, long-distance and safari services across Kenya.">
+content="Western Mona Taxis and Safaris - taxi, airport transfer, hotel transfer, long-distance, safari and VVIP convoy services across Kenya.">
 
 <title>Western Mona Taxis & Safaris | Book a Ride</title>
 
@@ -121,35 +121,48 @@ color:var(--gold2);
 border:1px solid var(--gold);
 }
 
-/* ================= HERO ================= */
+/* ================= HERO VIDEO ================= */
 
 .hero{
-min-height:38vh;
+min-height:52vh;
 padding-top:74px;
 display:flex;
 align-items:center;
+position:relative;
+overflow:hidden;
+background:#000;
+}
 
+.hero-video{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:0;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
 background:
-radial-gradient(
-circle at 80% 20%,
-#3c2b0d55,
-transparent 32%
-),
-
 linear-gradient(
-130deg,
-#050505,
-#15120b,
-#050505
+90deg,
+rgba(0,0,0,.82),
+rgba(0,0,0,.48),
+rgba(0,0,0,.68)
 );
+z-index:1;
 }
 
 .hero-grid{
+position:relative;
+z-index:2;
 display:grid;
 grid-template-columns:1.05fr .95fr;
-gap:35px;
+gap:55px;
 align-items:center;
-padding:28px 0;
+padding:55px 0;
 }
 
 .eyebrow{
@@ -157,8 +170,8 @@ text-transform:uppercase;
 letter-spacing:3px;
 color:var(--gold2);
 font-weight:800;
-font-size:11px;
-margin-bottom:8px;
+font-size:12px;
+margin-bottom:12px;
 }
 
 h1,
@@ -167,9 +180,9 @@ font-family:Georgia,serif;
 }
 
 h1{
-font-size:clamp(34px,4.5vw,54px);
-line-height:1.02;
-margin-bottom:12px;
+font-size:clamp(40px,5vw,64px);
+line-height:1.03;
+margin-bottom:20px;
 }
 
 h1 span{
@@ -177,30 +190,31 @@ color:var(--gold2);
 }
 
 .hero p{
-color:#ccc;
-font-size:16px;
-max-width:600px;
-margin-bottom:16px;
+color:#eee;
+font-size:17px;
+max-width:650px;
+margin-bottom:25px;
 }
 
 .actions{
 display:flex;
-gap:10px;
+gap:12px;
 flex-wrap:wrap;
 }
 
 .hero-logo{
-background:#090909;
+background:rgba(9,9,9,.72);
 border:1px solid #4a391d;
-border-radius:15px;
-padding:9px;
-max-width:360px;
-margin:auto;
+border-radius:18px;
+padding:14px;
+max-width:430px;
+margin-left:auto;
+backdrop-filter:blur(4px);
 }
 
 .hero-logo img{
 width:100%;
-border-radius:10px;
+border-radius:12px;
 display:block;
 }
 
@@ -261,6 +275,27 @@ color:#aaa;
 
 .icon{
 font-size:29px;
+}
+
+.vvip-card{
+border-color:#765d22;
+background:
+linear-gradient(
+145deg,
+#19160e,
+#121212
+);
+}
+
+.vvip-card h3{
+color:var(--gold2);
+}
+
+.vvip-price{
+font-size:20px;
+font-weight:800;
+color:var(--gold2);
+margin:12px 0;
 }
 
 /* ================= FLEET ================= */
@@ -394,6 +429,11 @@ outline:none;
 border-color:var(--gold);
 }
 
+.vvip-option{
+color:var(--gold2);
+font-weight:bold;
+}
+
 /* ================= FARE ================= */
 
 .fare{
@@ -406,6 +446,15 @@ margin:10px 0;
 .small{
 font-size:13px;
 color:#999;
+}
+
+.fare-note{
+margin-top:10px;
+padding:12px;
+border-left:3px solid var(--gold);
+background:#111;
+color:#aaa;
+font-size:13px;
 }
 
 /* ================= AREAS ================= */
@@ -520,7 +569,7 @@ display:block;
 }
 
 .hero{
-min-height:auto;
+min-height:58vh;
 }
 
 .hero-grid,
@@ -528,13 +577,8 @@ min-height:auto;
 grid-template-columns:1fr;
 }
 
-.hero-grid{
-padding:25px 0;
-gap:22px;
-}
-
 .hero-logo{
-max-width:320px;
+display:none;
 }
 
 .grid{
@@ -557,6 +601,10 @@ grid-template-columns:1fr;
 
 @media(max-width:560px){
 
+section{
+padding:65px 0;
+}
+
 .grid,
 .fleet,
 .steps,
@@ -569,31 +617,24 @@ font-size:11px;
 }
 
 .hero{
-padding-top:74px;
+min-height:58vh;
 }
 
 .hero-grid{
-padding:22px 0;
-gap:20px;
+padding:40px 0;
 }
 
 h1{
-font-size:38px;
+font-size:42px;
 }
 
 .hero p{
-font-size:15px;
-margin-bottom:15px;
+font-size:16px;
 }
 
 .actions .btn{
 width:100%;
 text-align:center;
-}
-
-.hero-logo{
-max-width:280px;
-padding:8px;
 }
 
 .vehicle-image{
@@ -602,6 +643,14 @@ height:210px;
 
 .section-title h2{
 font-size:34px;
+}
+
+.hero-overlay{
+background:rgba(0,0,0,.65);
+}
+
+.hero-video{
+object-position:center center;
 }
 
 }
@@ -677,6 +726,32 @@ WhatsApp
 <section
 class="hero"
 id="home">
+
+
+<!--
+IMPORTANT:
+Place hero-video.mp4 in the SAME folder as index.html.
+-->
+
+<video
+class="hero-video"
+autoplay
+muted
+loop
+playsinline
+preload="auto">
+
+<source
+src="hero-video.mp4"
+type="video/mp4">
+
+Your browser does not support the video tag.
+
+</video>
+
+
+<div class="hero-overlay"></div>
+
 
 <div class="container hero-grid">
 
@@ -858,6 +933,38 @@ Pre-Booked Rides
 <p>
 Reserve ahead and let our team
 coordinate your journey.
+</p>
+
+</div>
+
+
+<!-- ================= VVIP SERVICE ================= -->
+
+<div class="card vvip-card">
+
+<div class="icon">🛡️</div>
+
+<h3>
+VVIP Convoy with Police Escort
+</h3>
+
+<p>
+
+Premium executive convoy service
+designed for high-profile guests,
+corporate executives and special events.
+
+</p>
+
+<div class="vvip-price">
+KES 258,000 + VAT
+</div>
+
+<p>
+
+5 Executive SUVs + Chase Car,
+Police Escort and Free Professional Reels.
+
 </p>
 
 </div>
@@ -1339,8 +1446,6 @@ then submit your booking request.
 <div class="booking-grid">
 
 
-<!-- ================= BOOKING FORM ================= -->
-
 <form
 id="bookingForm"
 novalidate>
@@ -1485,7 +1590,7 @@ name="service"
 required>
 
 <option value="">
-Select
+Select Service
 </option>
 
 <option value="Airport Transfer">
@@ -1506,6 +1611,15 @@ Hotel Transfer
 
 <option value="Safari / Tour">
 Safari / Tour
+</option>
+
+<option
+value="VVIP Convoy with Police Escort"
+class="vvip-option">
+
+VVIP Convoy with Police Escort -
+KES 258,000 + VAT
+
 </option>
 
 </select>
@@ -1557,6 +1671,10 @@ Mazda Axela
 
 <option value="Subaru Forester">
 Subaru Forester
+</option>
+
+<option value="5 Executive SUVs + Chase Car">
+5 Executive SUVs + Chase Car
 </option>
 
 </select>
@@ -1647,8 +1765,6 @@ Your booking reference will appear here.
 </form>
 
 
-<!-- ================= BOOKING INFORMATION ================= -->
-
 <div class="panel">
 
 <div class="eyebrow">
@@ -1694,6 +1810,22 @@ Driver Notifications
 
 Your booking is securely saved
 in our booking system.
+
+</p>
+
+
+<br>
+
+
+<h3>
+VVIP Convoy
+</h3>
+
+<p class="small">
+
+5 Executive SUVs + Chase Car,
+Police Escort and Free Professional
+Reels at KES 258,000 + VAT.
 
 </p>
 
@@ -1778,6 +1910,10 @@ Long Distance
 Safari / Tour
 </option>
 
+<option value="vvip">
+VVIP Convoy with Police Escort
+</option>
+
 </select>
 
 </div>
@@ -1824,6 +1960,10 @@ Van - Noah / Voxy
 
 <option value="4x4">
 Prado TX / 4x4 Land Cruiser
+</option>
+
+<option value="vvip">
+5 Executive SUVs + Chase Car
 </option>
 
 </select>
@@ -1873,7 +2013,9 @@ KES 0
 </div>
 
 
-<div class="small">
+<div
+class="fare-note"
+id="fareNote">
 
 Indicative calculator; confirm
 the final quote with Western Mona.
@@ -1934,36 +2076,6 @@ Long Distance Across Kenya
 
 </section>
 
-
-<!-- ================= MANAGEMENT ================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-title">
-
-<div class="eyebrow">
-Management
-</div>
-
-<h2>
-Ready for the Next Upgrade
-</h2>
-
-<p>
-
-The website is connected to the
-booking system and admin dashboard.
-More features can be added later.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
 
 
 <!-- ================= FOOTER ================= -->
@@ -2031,6 +2143,10 @@ Fare Calculator
 Fleet
 </a>
 
+<a href="#services">
+Services
+</a>
+
 </div>
 
 </div>
@@ -2048,7 +2164,7 @@ All rights reserved.
 </footer>
 
 
-<!-- ================= VEHICLE SELECTION ================= -->
+<!-- ================= VEHICLE SELECTION + FARE CALCULATOR ================= -->
 
 <script>
 
@@ -2060,13 +2176,11 @@ document.getElementById("vehicle");
 const bookingSection =
 document.getElementById("booking");
 
-
 if(vehicleSelect){
 
 vehicleSelect.value = vehicleName;
 
 }
-
 
 if(bookingSection){
 
@@ -2080,9 +2194,9 @@ block:"start"
 }
 
 
-/* Update vehicle selection when dropdown changes */
-
 document.addEventListener("DOMContentLoaded",function(){
+
+/* ================= VEHICLE DROPDOWN ================= */
 
 const vehicleSelect =
 document.getElementById("vehicle");
@@ -2092,6 +2206,152 @@ if(vehicleSelect){
 vehicleSelect.addEventListener("change",function(){
 
 vehicleSelect.value = this.value;
+
+});
+
+}
+
+
+/* ================= FARE CALCULATOR ================= */
+
+const calculateButton =
+document.getElementById("calculate");
+
+if(calculateButton){
+
+calculateButton.addEventListener("click",function(){
+
+const service =
+document.getElementById("fareService").value;
+
+const km =
+Number(document.getElementById("km").value) || 0;
+
+const vehicle =
+document.getElementById("fareVehicle").value;
+
+const returnTrip =
+document.getElementById("returnTrip").value;
+
+const result =
+document.getElementById("fareResult");
+
+const note =
+document.getElementById("fareNote");
+
+
+/* ================= VVIP PACKAGE ================= */
+
+if(service === "vvip" || vehicle === "vvip"){
+
+const vvipPrice = 258000;
+
+/*
+VAT = 16%
+*/
+
+const vat = vvipPrice * 0.16;
+
+const total = vvipPrice + vat;
+
+result.textContent =
+"KES " +
+total.toLocaleString() +
+" incl. VAT";
+
+note.textContent =
+"VVIP package: KES 258,000 + VAT. Includes 5 Executive SUVs, Chase Car, Police Escort and Free Professional Reels.";
+
+return;
+
+}
+
+
+/* ================= STANDARD FARE ================= */
+
+if(km <= 0){
+
+result.textContent = "KES 0";
+
+note.textContent =
+"Please enter an estimated distance.";
+
+return;
+
+}
+
+let baseFare = 300;
+
+let perKm = 50;
+
+
+/* SERVICE RATES */
+
+if(service === "airport"){
+
+baseFare = 500;
+perKm = 65;
+
+}
+
+else if(service === "long"){
+
+baseFare = 1000;
+perKm = 80;
+
+}
+
+else if(service === "safari"){
+
+baseFare = 2500;
+perKm = 100;
+
+}
+
+
+/* VEHICLE RATES */
+
+if(vehicle === "suv"){
+
+perKm += 20;
+
+}
+
+else if(vehicle === "van"){
+
+perKm += 30;
+
+}
+
+else if(vehicle === "4x4"){
+
+perKm += 60;
+
+}
+
+
+/* CALCULATE */
+
+let total =
+baseFare + (km * perKm);
+
+
+/* RETURN TRIP */
+
+if(returnTrip === "yes"){
+
+total = total * 2;
+
+}
+
+
+result.textContent =
+"KES " +
+Math.round(total).toLocaleString();
+
+
+note.textContent =
+"Indicative estimate only. Final fare will be confirmed by Western Mona Taxis & Safaris.";
 
 });
 
