@@ -260,126 +260,6 @@ color:#aaa;
 font-size:29px;
 }
 
-/* ================= BOOKING ================= */
-
-.booking-grid{
-display:grid;
-grid-template-columns:1.25fr .75fr;
-gap:25px;
-}
-
-form,
-.panel{
-background:#151515;
-border:1px solid #302a20;
-border-radius:15px;
-padding:25px;
-}
-
-.row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-}
-
-label{
-display:block;
-font-size:13px;
-color:#ddd;
-margin-bottom:5px;
-}
-
-input,
-select,
-textarea{
-width:100%;
-padding:12px;
-background:#080808;
-color:white;
-border:1px solid #393939;
-border-radius:7px;
-margin-bottom:13px;
-}
-
-textarea{
-min-height:90px;
-resize:vertical;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-outline:none;
-border-color:var(--gold);
-}
-
-/* ================= VEHICLE PHOTO ABOVE BOOKING ================= */
-
-.booking-vehicle-preview{
-background:#111;
-border:1px solid #3a2e1b;
-border-radius:18px;
-overflow:hidden;
-margin-bottom:25px;
-box-shadow:0 10px 35px rgba(0,0,0,.35);
-}
-
-.booking-vehicle-image{
-width:100%;
-height:360px;
-background:#080808;
-overflow:hidden;
-}
-
-.booking-vehicle-image img{
-width:100%;
-height:100%;
-display:block;
-object-fit:cover;
-}
-
-.booking-vehicle-info{
-padding:18px 22px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.booking-vehicle-info h3{
-font-family:Georgia,serif;
-font-size:25px;
-color:var(--gold2);
-}
-
-.booking-vehicle-info p{
-color:#aaa;
-font-size:14px;
-}
-
-.vehicle-preview-label{
-font-size:11px;
-letter-spacing:2px;
-text-transform:uppercase;
-color:var(--gold);
-font-weight:800;
-}
-
-/* ================= FARE ================= */
-
-.fare{
-font-size:31px;
-font-weight:800;
-color:var(--gold2);
-margin:10px 0;
-}
-
-.small{
-font-size:13px;
-color:#999;
-}
-
 /* ================= FLEET ================= */
 
 .fleet{
@@ -456,6 +336,73 @@ margin-bottom:18px;
 text-align:center;
 margin-top:auto;
 width:100%;
+}
+
+/* ================= BOOKING ================= */
+
+.booking-grid{
+display:grid;
+grid-template-columns:1.25fr .75fr;
+gap:25px;
+}
+
+form,
+.panel{
+background:#151515;
+border:1px solid #302a20;
+border-radius:15px;
+padding:25px;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+
+label{
+display:block;
+font-size:13px;
+color:#ddd;
+margin-bottom:5px;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px;
+background:#080808;
+color:white;
+border:1px solid #393939;
+border-radius:7px;
+margin-bottom:13px;
+}
+
+textarea{
+min-height:90px;
+resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+outline:none;
+border-color:var(--gold);
+}
+
+/* ================= FARE ================= */
+
+.fare{
+font-size:31px;
+font-weight:800;
+color:var(--gold2);
+margin:10px 0;
+}
+
+.small{
+font-size:13px;
+color:#999;
 }
 
 /* ================= AREAS ================= */
@@ -590,10 +537,6 @@ grid-template-columns:1fr 1fr;
 grid-template-columns:1fr;
 }
 
-.booking-vehicle-image{
-height:300px;
-}
-
 }
 
 @media(max-width:560px){
@@ -622,10 +565,6 @@ text-align:center;
 height:210px;
 }
 
-.booking-vehicle-image{
-height:230px;
-}
-
 .section-title h2{
 font-size:34px;
 }
@@ -635,7 +574,6 @@ font-size:34px;
 </style>
 
 </head>
-
 
 <body>
 
@@ -665,11 +603,11 @@ WESTERN MONA TAXIS & SAFARIS
 
 <a href="#services">Services</a>
 
+<a href="#fleet">Fleet</a>
+
 <a href="#booking">Book</a>
 
 <a href="#fare">Fare</a>
-
-<a href="#fleet">Fleet</a>
 
 <a href="#contact">Contact</a>
 
@@ -897,6 +835,447 @@ coordinate your journey.
 </section>
 
 
+<!-- ================= OUR FLEET ================= -->
+
+<section id="fleet">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="eyebrow">
+Our Fleet
+</div>
+
+<h2>
+Choose Your Vehicle
+</h2>
+
+<p>
+
+Comfortable and reliable vehicles
+for city transfers, airport pickups,
+long-distance journeys, family travel
+and safari adventures across Kenya.
+
+</p>
+
+</div>
+
+
+<div class="fleet">
+
+
+<!-- NISSAN NOTE -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/nissan-note.jpg"
+alt="Nissan Note taxi"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Nissan Note
+</strong>
+
+<div class="vehicle-seats">
+👥 4–5 Seaters
+</div>
+
+<p class="vehicle-description">
+
+Compact, economical and comfortable
+for town trips, airport transfers
+and everyday travel.
+
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Nissan Note')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- MAZDA CX5 -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/mazda-cx5.jpg"
+alt="Mazda CX-5"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Mazda CX-5
+</strong>
+
+<div class="vehicle-seats">
+👥 5 Seaters
+</div>
+
+<p class="vehicle-description">
+
+Premium SUV comfort, ideal for
+business trips, airport transfers
+and comfortable touring.
+
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Mazda CX-5')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRADO -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/prado-tx.jpg"
+alt="Toyota Land Cruiser Prado TX"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Toyota Land Cruiser Prado TX
+</strong>
+
+<div class="vehicle-seats">
+👥 5–7 Seaters
+</div>
+
+<p class="vehicle-description">
+
+Premium touring vehicle for
+long-distance travel, safaris,
+business trips and executive journeys.
+
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Toyota Land Cruiser Prado TX')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- LAND CRUISER -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/land-cruiser.jpg"
+alt="4x4 Land Cruiser"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+4x4 Land Cruiser
+</strong>
+
+<div class="vehicle-seats">
+👥 5–7 Seaters
+</div>
+
+<p class="vehicle-description">
+
+Built for safari adventures,
+rough terrain and long-distance
+journeys across Kenya.
+
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('4x4 Land Cruiser')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FIELDER -->
+
+<!-- FIELDER -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/fielder.jpg"
+alt="Toyota Fielder"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Fielder
+</strong>
+
+<div class="vehicle-seats">
+👥 4–5 Seaters
+</div>
+
+<p class="vehicle-description">
+Practical and comfortable for
+daily transportation, town trips
+and airport transfers.
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Fielder')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+<!-- NOAH -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/noah.jpg"
+alt="Toyota Noah"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Noah
+</strong>
+
+<div class="vehicle-seats">
+👥 7–8 Seaters
+</div>
+
+<p class="vehicle-description">
+
+Spacious family vehicle suitable
+for groups, airport transfers
+and comfortable touring.
+
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Noah')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- VOXY -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/voxy.jpg"
+alt="Toyota Voxy"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Voxy
+</strong>
+
+<div class="vehicle-seats">
+👥 7–8 Seaters
+</div>
+
+<p class="vehicle-description">
+
+Spacious people carrier designed
+for family, group and long-distance travel.
+
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Voxy')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- MAZDA AXELA -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/mazda-axela.jpg"
+alt="Mazda Axela"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Mazda Axela
+</strong>
+
+<div class="vehicle-seats">
+👥 5 Seaters
+</div>
+
+<p class="vehicle-description">
+
+Stylish and comfortable for
+city travel, business trips
+and airport transfers.
+
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Mazda Axela')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FORESTER -->
+
+<div class="vehicle">
+
+<div class="vehicle-image">
+
+<img
+src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/forester.jpg"
+alt="Subaru Forester"
+loading="lazy">
+
+</div>
+
+<div class="vehicle-content">
+
+<strong>
+Subaru Forester
+</strong>
+
+<div class="vehicle-seats">
+👥 5 Seaters
+</div>
+
+<p class="vehicle-description">
+
+Versatile SUV offering comfort
+and capability for city,
+countryside and long-distance travel.
+
+</p>
+
+<button
+class="btn"
+type="button"
+onclick="selectVehicle('Subaru Forester')">
+
+Book This Vehicle
+
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
 <!-- ================= BOOKING ================= -->
 
 <section id="booking">
@@ -914,55 +1293,9 @@ Book your vehicle
 </h2>
 
 <p>
-Choose your vehicle below and submit
-your booking request.
+Choose a vehicle from Our Fleet above,
+then submit your booking request.
 </p>
-
-</div>
-
-
-<!-- VEHICLE PHOTO ABOVE BOOKING FORM -->
-
-<div class="booking-vehicle-preview">
-
-<div class="booking-vehicle-image">
-
-<img
-id="bookingVehicleImage"
-src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/nissan-note.jpg"
-alt="Nissan Note"
-onerror="this.style.display='none';">
-
-</div>
-
-<div class="booking-vehicle-info">
-
-<div>
-
-<div class="vehicle-preview-label">
-Selected Vehicle
-</div>
-
-<h3 id="bookingVehicleName">
-Nissan Note
-</h3>
-
-<p id="bookingVehicleDescription">
-Compact, economical and comfortable for
-town trips, airport transfers and everyday travel.
-</p>
-
-</div>
-
-<a
-href="#fleet"
-class="btn outline">
-
-Change Vehicle
-
-</a>
-
-</div>
 
 </div>
 
@@ -970,7 +1303,7 @@ Change Vehicle
 <div class="booking-grid">
 
 
-<!-- BOOKING FORM -->
+<!-- ================= BOOKING FORM ================= -->
 
 <form
 id="bookingForm"
@@ -1278,7 +1611,7 @@ Your booking reference will appear here.
 </form>
 
 
-<!-- BOOKING INFORMATION -->
+<!-- ================= BOOKING INFORMATION ================= -->
 
 <div class="panel">
 
@@ -1518,457 +1851,6 @@ the final quote with Western Mona.
 </section>
 
 
-<!-- ================= FLEET ================= -->
-
-<section id="fleet">
-
-<div class="container">
-
-<div class="section-title">
-
-<div class="eyebrow">
-Our Fleet
-</div>
-
-<h2>
-Choose Your Vehicle
-</h2>
-
-<p>
-
-Comfortable and reliable vehicles
-for city transfers, airport pickups,
-long-distance journeys, family travel
-and safari adventures across Kenya.
-
-</p>
-
-</div>
-
-
-<div class="fleet">
-
-
-<!-- NISSAN NOTE -->
-
-<div class="vehicle">
-
-<div class="vehicle-image">
-
-<img
-src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/nissan-note.jpg"
-alt="Nissan Note taxi"
-loading="lazy"
-onerror="this.style.display='none';">
-
-</div>
-
-<div class="vehicle-content">
-
-<strong>
-Nissan Note
-</strong>
-
-<div class="vehicle-seats">
-👥 4–5 Seaters
-</div>
-
-<p class="vehicle-description">
-
-Compact, economical and comfortable
-for town trips, airport transfers
-and everyday travel.
-
-</p>
-
-<button
-class="btn"
-type="button"
-onclick="selectVehicle('Nissan Note')">
-
-Book This Vehicle
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- MAZDA CX5 -->
-
-<div class="vehicle">
-
-<div class="vehicle-image">
-
-<img
-src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/mazda-cx5.jpg"
-alt="Mazda CX-5"
-loading="lazy"
-onerror="this.style.display='none';">
-
-</div>
-
-<div class="vehicle-content">
-
-<strong>
-Mazda CX-5
-</strong>
-
-<div class="vehicle-seats">
-👥 5 Seaters
-</div>
-
-<p class="vehicle-description">
-
-Premium SUV comfort, ideal for
-business trips, airport transfers
-and comfortable touring.
-
-</p>
-
-<button
-class="btn"
-type="button"
-onclick="selectVehicle('Mazda CX-5')">
-
-Book This Vehicle
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- PRADO -->
-
-<div class="vehicle">
-
-<div class="vehicle-image">
-
-<img
-src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/prado-tx.jpg"
-alt="Toyota Land Cruiser Prado TX"
-loading="lazy"
-onerror="this.style.display='none';">
-
-</div>
-
-<div class="vehicle-content">
-
-<strong>
-Toyota Land Cruiser Prado TX
-</strong>
-
-<div class="vehicle-seats">
-👥 5–7 Seaters
-</div>
-
-<p class="vehicle-description">
-
-Premium touring vehicle for
-long-distance travel, safaris,
-business trips and executive journeys.
-
-</p>
-
-<button
-class="btn"
-type="button"
-onclick="selectVehicle('Toyota Land Cruiser Prado TX')">
-
-Book This Vehicle
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- LAND CRUISER -->
-
-<div class="vehicle">
-
-<div class="vehicle-image">
-
-<img
-src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/land-cruiser.jpg"
-alt="4x4 Land Cruiser"
-loading="lazy"
-onerror="this.style.display='none';">
-
-</div>
-
-<div class="vehicle-content">
-
-<strong>
-4x4 Land Cruiser
-</strong>
-
-<div class="vehicle-seats">
-👥 5–7 Seaters
-</div>
-
-<p class="vehicle-description">
-
-Built for safari adventures,
-rough terrain and long-distance
-journeys across Kenya.
-
-</p>
-
-<button
-class="btn"
-type="button"
-onclick="selectVehicle('4x4 Land Cruiser')">
-
-Book This Vehicle
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- FIELDER -->
-
-<div class="vehicle">
-
-<div class="vehicle-image">
-
-<img
-src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/fielder.jpg"
-alt="Toyota Fielder"
-loading="lazy"
-onerror="this.style.display='none';">
-
-</div>
-
-<div class="vehicle-content">
-
-<strong>
-Fielder
-</strong>
-
-<div class="vehicle-seats">
-👥 4–5 Seaters
-</div>
-
-<p class="vehicle-description">
-
-Practical and comfortable for
-daily transportation, town trips
-and airport transfers.
-
-</p>
-
-<button
-class="btn"
-type="button"
-onclick="selectVehicle('Fielder')">
-
-Book This Vehicle
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- NOAH -->
-
-<div class="vehicle">
-
-<div class="vehicle-image">
-
-<img
-src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/noah.jpg"
-alt="Toyota Noah"
-loading="lazy"
-onerror="this.style.display='none';">
-
-</div>
-
-<div class="vehicle-content">
-
-<strong>
-Noah
-</strong>
-
-<div class="vehicle-seats">
-👥 7–8 Seaters
-</div>
-
-<p class="vehicle-description">
-
-Spacious family vehicle suitable
-for groups, airport transfers
-and comfortable touring.
-
-</p>
-
-<button
-class="btn"
-type="button"
-onclick="selectVehicle('Noah')">
-
-Book This Vehicle
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- VOXY -->
-
-<div class="vehicle">
-
-<div class="vehicle-image">
-
-<img
-src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/voxy.jpg"
-alt="Toyota Voxy"
-loading="lazy"
-onerror="this.style.display='none';">
-
-</div>
-
-<div class="vehicle-content">
-
-<strong>
-Voxy
-</strong>
-
-<div class="vehicle-seats">
-👥 7–8 Seaters
-</div>
-
-<p class="vehicle-description">
-
-Spacious people carrier designed
-for family, group and long-distance travel.
-
-</p>
-
-<button
-class="btn"
-type="button"
-onclick="selectVehicle('Voxy')">
-
-Book This Vehicle
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- MAZDA AXELA -->
-
-<div class="vehicle">
-
-<div class="vehicle-image">
-
-<img
-src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/mazda-axela.jpg"
-alt="Mazda Axela"
-loading="lazy"
-onerror="this.style.display='none';">
-
-</div>
-
-<div class="vehicle-content">
-
-<strong>
-Mazda Axela
-</strong>
-
-<div class="vehicle-seats">
-👥 5 Seaters
-</div>
-
-<p class="vehicle-description">
-
-Stylish and comfortable for
-city travel, business trips
-and airport transfers.
-
-</p>
-
-<button
-class="btn"
-type="button"
-onclick="selectVehicle('Mazda Axela')">
-
-Book This Vehicle
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- FORESTER -->
-
-<div class="vehicle">
-
-<div class="vehicle-image">
-
-<img
-src="https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/forester.jpg"
-alt="Subaru Forester"
-loading="lazy"
-onerror="this.style.display='none';">
-
-</div>
-
-<div class="vehicle-content">
-
-<strong>
-Subaru Forester
-</strong>
-
-<div class="vehicle-seats">
-👥 5 Seaters
-</div>
-
-<p class="vehicle-description">
-
-Versatile SUV offering comfort
-and capability for city,
-countryside and long-distance travel.
-
-</p>
-
-<button
-class="btn"
-type="button"
-onclick="selectVehicle('Subaru Forester')">
-
-Book This Vehicle
-
-</button>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
 <!-- ================= SERVICE AREAS ================= -->
 
 <section class="dark">
@@ -2134,56 +2016,6 @@ All rights reserved.
 
 <script>
 
-const vehicleData = {
-
-"Nissan Note":{
-image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/nissan-note.jpg",
-description:"Compact, economical and comfortable for town trips, airport transfers and everyday travel."
-},
-
-"Mazda CX-5":{
-image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/mazda-cx5.jpg",
-description:"Premium SUV comfort, ideal for business trips, airport transfers and comfortable touring."
-},
-
-"Toyota Land Cruiser Prado TX":{
-image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/prado-tx.jpg",
-description:"Premium touring vehicle for long-distance travel, safaris, business trips and executive journeys."
-},
-
-"4x4 Land Cruiser":{
-image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/land-cruiser.jpg",
-description:"Built for safari adventures, rough terrain and long-distance journeys across Kenya."
-},
-
-"Fielder":{
-image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/fielder.jpg",
-description:"Practical and comfortable for daily transportation, town trips and airport transfers."
-},
-
-"Noah":{
-image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/noah.jpg",
-description:"Spacious family vehicle suitable for groups, airport transfers and comfortable touring."
-},
-
-"Voxy":{
-image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/voxy.jpg",
-description:"Spacious people carrier designed for family, group and long-distance travel."
-},
-
-"Mazda Axela":{
-image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/mazda-axela.jpg",
-description:"Stylish and comfortable for city travel, business trips and airport transfers."
-},
-
-"Subaru Forester":{
-image:"https://raw.githubusercontent.com/vmunywoki9-pixel/western-mona/main/forester.jpg",
-description:"Versatile SUV offering comfort and capability for city, countryside and long-distance travel."
-}
-
-};
-
-
 function selectVehicle(vehicleName){
 
 const vehicleSelect =
@@ -2192,35 +2024,10 @@ document.getElementById("vehicle");
 const bookingSection =
 document.getElementById("booking");
 
-const bookingImage =
-document.getElementById("bookingVehicleImage");
-
-const bookingName =
-document.getElementById("bookingVehicleName");
-
-const bookingDescription =
-document.getElementById("bookingVehicleDescription");
-
 
 if(vehicleSelect){
 
 vehicleSelect.value = vehicleName;
-
-}
-
-
-const data = vehicleData[vehicleName];
-
-
-if(data){
-
-bookingImage.src = data.image;
-
-bookingImage.alt = vehicleName;
-
-bookingName.textContent = vehicleName;
-
-bookingDescription.textContent = data.description;
 
 }
 
@@ -2237,7 +2044,7 @@ block:"start"
 }
 
 
-/* Update preview when dropdown is changed */
+/* Update vehicle selection when dropdown changes */
 
 document.addEventListener("DOMContentLoaded",function(){
 
@@ -2248,14 +2055,19 @@ if(vehicleSelect){
 
 vehicleSelect.addEventListener("change",function(){
 
-selectVehicle(this.value);
+/*
+The selected vehicle stays in the
+booking form. No vehicle photo is
+shown above the form anymore.
+*/
+
+vehicleSelect.value = this.value;
 
 });
 
 }
 
 });
-
 
 </script>
 
