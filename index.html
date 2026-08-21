@@ -124,7 +124,7 @@ border:1px solid var(--gold);
 /* ================= HERO ================= */
 
 .hero{
-min-height:100vh;
+min-height:38vh;
 padding-top:74px;
 display:flex;
 align-items:center;
@@ -147,9 +147,9 @@ linear-gradient(
 .hero-grid{
 display:grid;
 grid-template-columns:1.05fr .95fr;
-gap:55px;
+gap:35px;
 align-items:center;
-padding:80px 0;
+padding:28px 0;
 }
 
 .eyebrow{
@@ -157,8 +157,8 @@ text-transform:uppercase;
 letter-spacing:3px;
 color:var(--gold2);
 font-weight:800;
-font-size:12px;
-margin-bottom:12px;
+font-size:11px;
+margin-bottom:8px;
 }
 
 h1,
@@ -167,9 +167,9 @@ font-family:Georgia,serif;
 }
 
 h1{
-font-size:clamp(42px,6vw,72px);
-line-height:1.03;
-margin-bottom:20px;
+font-size:clamp(34px,4.5vw,54px);
+line-height:1.02;
+margin-bottom:12px;
 }
 
 h1 span{
@@ -178,27 +178,30 @@ color:var(--gold2);
 
 .hero p{
 color:#ccc;
-font-size:18px;
-max-width:650px;
-margin-bottom:25px;
+font-size:16px;
+max-width:600px;
+margin-bottom:16px;
 }
 
 .actions{
 display:flex;
-gap:12px;
+gap:10px;
 flex-wrap:wrap;
 }
 
 .hero-logo{
 background:#090909;
 border:1px solid #4a391d;
-border-radius:18px;
-padding:16px;
+border-radius:15px;
+padding:9px;
+max-width:360px;
+margin:auto;
 }
 
 .hero-logo img{
 width:100%;
-border-radius:12px;
+border-radius:10px;
+display:block;
 }
 
 /* ================= SECTIONS ================= */
@@ -516,9 +519,22 @@ display:none;
 display:block;
 }
 
+.hero{
+min-height:auto;
+}
+
 .hero-grid,
 .booking-grid{
 grid-template-columns:1fr;
+}
+
+.hero-grid{
+padding:25px 0;
+gap:22px;
+}
+
+.hero-logo{
+max-width:320px;
 }
 
 .grid{
@@ -552,13 +568,32 @@ grid-template-columns:1fr;
 font-size:11px;
 }
 
+.hero{
+padding-top:74px;
+}
+
 .hero-grid{
-padding:55px 0;
+padding:22px 0;
+gap:20px;
+}
+
+h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:15px;
+margin-bottom:15px;
 }
 
 .actions .btn{
 width:100%;
 text-align:center;
+}
+
+.hero-logo{
+max-width:280px;
+padding:8px;
 }
 
 .vehicle-image{
@@ -1048,8 +1083,6 @@ Book This Vehicle
 
 <!-- FIELDER -->
 
-<!-- FIELDER -->
-
 <div class="vehicle">
 
 <div class="vehicle-image">
@@ -1072,9 +1105,11 @@ Fielder
 </div>
 
 <p class="vehicle-description">
+
 Practical and comfortable for
 daily transportation, town trips
 and airport transfers.
+
 </p>
 
 <button
@@ -1089,6 +1124,7 @@ Book This Vehicle
 </div>
 
 </div>
+
 
 <!-- NOAH -->
 
@@ -2054,12 +2090,6 @@ document.getElementById("vehicle");
 if(vehicleSelect){
 
 vehicleSelect.addEventListener("change",function(){
-
-/*
-The selected vehicle stays in the
-booking form. No vehicle photo is
-shown above the form anymore.
-*/
 
 vehicleSelect.value = this.value;
 
