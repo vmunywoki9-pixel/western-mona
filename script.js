@@ -6,82 +6,121 @@ import {
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
+import emailjs from "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/+esm";
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // =========================================================
   // WESTERN MONA TAXIS & SAFARIS
-  // BOOKING + FARE CALCULATOR
+  // BOOKING + EMAILJS + FIREBASE + FARE CALCULATOR
   // =========================================================
 
-  const bookingForm = document.getElementById("bookingForm");
-  const bookingStatus = document.getElementById("bookingStatus");
-  const submitBooking = document.getElementById("submitBooking");
+  const bookingForm =
+    document.getElementById("bookingForm");
 
-  // Prevent the booking handler from being installed twice
-  if (bookingForm && bookingForm.dataset.listenerAttached === "true") {
-    console.warn("Western Mona: Booking listener already attached.");
-    return;
-  }
+  const bookingStatus =
+    document.getElementById("bookingStatus");
+
+  const submitBooking =
+    document.getElementById("submitBooking");
+
 
   // =========================================================
-  // HELPER FUNCTION
+  // EMAILJS CONFIGURATION
   // =========================================================
 
-  function getValue(id) {
-    const element = document.getElementById(id);
+  const EMAILJS_PUBLIC_KEY =
+    "6uC6bQYFyTfuEszTR";
 
-    if (!element) {
-      console.error(`Western Mona: Element #${id} was not found.`);
-      return "";
-    }
+  const EMAILJS_SERVICE_ID =
+    "service_z90f5sq";
 
-    return element.value.trim();
-  }
+  const EMAILJS_TEMPLATE_ID =
+    "template_gb3hp1q";
+
+
+  // Initialize EmailJS
+  emailjs.init({
+    publicKey: EMAILJS_PUBLIC_KEY
+  });
+
 
   // =========================================================
   // BOOKING SYSTEM
   // =========================================================
 
-  if (!bookingForm || !bookingStatus || !submitBooking) {
+  if (
+    !bookingForm ||
+    !bookingStatus ||
+    !submitBooking
+  ) {
 
     console.error(
       "Western Mona: Booking form elements were not found."
     );
 
-  } else {
-
-    bookingForm.dataset.listenerAttached = "true";
-
-    // Prevent multiple submissions
-    let bookingInProgress = false;
+    return;
+  }
 
 
-    function generateBookingReference() {
+  // Prevent duplicate event listeners
+  if (
+    bookingForm.dataset.listenerAttached === "true"
+  ) {
 
-      const randomNumber = Math.floor(
-        10000000 + Math.random() * 90000000
+    console.warn(
+      "Western Mona: Booking listener already attached."
+    );
+
+    return;
+  }
+
+
+  bookingForm.dataset.listenerAttached = "true";
+
+
+  let bookingInProgress = false;
+
+
+  // =========================================================
+  // BOOKING REFERENCE
+  // =========================================================
+
+  function generateBookingReference() {
+
+    const randomNumber =
+      Math.floor(
+        10000000 +
+        Math.random() * 90000000
       );
 
-      return `WM-${randomNumber}`;
+    return `WM-${randomNumber}`;
+  }
 
-    }
 
+  // =========================================================
+  // BOOKING SUBMISSION
+  // =========================================================
 
-    bookingForm.addEventListener("submit", async (event) => {
+  bookingForm.addEventListener(
+    "submit",
+    async (event) => {
 
       event.preventDefault();
       event.stopPropagation();
 
-      // Stop duplicate submission
+
+      // Prevent double booking
       if (bookingInProgress) {
 
         console.warn(
-          "Western Mona: Duplicate booking submission blocked."
+          "Western Mona: Duplicate submission blocked."
         );
 
         return;
-
       }
+
 
       bookingInProgress = true;
 
@@ -90,21 +129,45 @@ document.addEventListener("DOMContentLoaded", () => {
       // GET FORM ELEMENTS
       // =====================================================
 
-      const nameElement = document.getElementById("name");
-      const phoneElement = document.getElementById("phone");
-      const emailElement = document.getElementById("email");
-      const pickupElement = document.getElementById("pickup");
-      const destinationElement = document.getElementById("destination");
-      const dateElement = document.getElementById("date");
-      const timeElement = document.getElementById("time");
-      const serviceElement = document.getElementById("service");
-      const vehicleElement = document.getElementById("vehicle");
-      const passengersElement = document.getElementById("passengers");
-      const paymentElement = document.getElementById("payment");
-      const detailsElement = document.getElementById("details");
+      const nameElement =
+        document.getElementById("name");
+
+      const phoneElement =
+        document.getElementById("phone");
+
+      const emailElement =
+        document.getElementById("email");
+
+      const pickupElement =
+        document.getElementById("pickup");
+
+      const destinationElement =
+        document.getElementById("destination");
+
+      const dateElement =
+        document.getElementById("date");
+
+      const timeElement =
+        document.getElementById("time");
+
+      const serviceElement =
+        document.getElementById("service");
+
+      const vehicleElement =
+        document.getElementById("vehicle");
+
+      const passengersElement =
+        document.getElementById("passengers");
+
+      const paymentElement =
+        document.getElementById("payment");
+
+      const detailsElement =
+        document.getElementById("details");
 
 
       const requiredElements = [
+
         nameElement,
         phoneElement,
         emailElement,
@@ -117,19 +180,24 @@ document.addEventListener("DOMContentLoaded", () => {
         passengersElement,
         paymentElement,
         detailsElement
+
       ];
 
 
-      const missingElement = requiredElements.find(
-        element => !element
-      );
+      const missingElement =
+        requiredElements.find(
+          element => !element
+        );
 
 
       if (missingElement) {
 
         console.error(
-          "Western Mona: One or more booking form elements are missing."
+          "Western Mona: One or more booking elements are missing."
         );
+
+        bookingStatus.className =
+          "status error";
 
         bookingStatus.innerHTML = `
           <strong>Booking form error.</strong>
@@ -137,12 +205,9 @@ document.addEventListener("DOMContentLoaded", () => {
           Please refresh the page and try again.
         `;
 
-        bookingStatus.className = "status error";
-
         bookingInProgress = false;
 
         return;
-
       }
 
 
@@ -150,15 +215,32 @@ document.addEventListener("DOMContentLoaded", () => {
       // GET VALUES
       // =====================================================
 
-      const name = nameElement.value.trim();
-      const phone = phoneElement.value.trim();
-      const email = emailElement.value.trim();
-      const pickup = pickupElement.value.trim();
-      const destination = destinationElement.value.trim();
-      const date = dateElement.value;
-      const time = timeElement.value;
-      const service = serviceElement.value.trim();
-      const vehicle = vehicleElement.value.trim();
+      const name =
+        nameElement.value.trim();
+
+      const phone =
+        phoneElement.value.trim();
+
+      const email =
+        emailElement.value.trim();
+
+      const pickup =
+        pickupElement.value.trim();
+
+      const destination =
+        destinationElement.value.trim();
+
+      const date =
+        dateElement.value;
+
+      const time =
+        timeElement.value;
+
+      const service =
+        serviceElement.value.trim();
+
+      const vehicle =
+        vehicleElement.value.trim();
 
       const passengers =
         Number(passengersElement.value) || 1;
@@ -176,105 +258,132 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!name) {
 
-        alert("Please enter your full name.");
+        alert(
+          "Please enter your full name."
+        );
+
         nameElement.focus();
 
         bookingInProgress = false;
-        return;
 
+        return;
       }
 
 
       if (!phone) {
 
-        alert("Please enter your phone or WhatsApp number.");
+        alert(
+          "Please enter your phone or WhatsApp number."
+        );
+
         phoneElement.focus();
 
         bookingInProgress = false;
-        return;
 
+        return;
       }
 
 
       if (!email) {
 
-        alert("Please enter your email address.");
+        alert(
+          "Please enter your email address."
+        );
+
         emailElement.focus();
 
         bookingInProgress = false;
-        return;
 
+        return;
       }
 
 
       if (!emailElement.checkValidity()) {
 
-        alert("Please enter a valid email address.");
+        alert(
+          "Please enter a valid email address."
+        );
+
         emailElement.focus();
 
         bookingInProgress = false;
-        return;
 
+        return;
       }
 
 
       if (!pickup) {
 
-        alert("Please enter your pickup location.");
+        alert(
+          "Please enter your pickup location."
+        );
+
         pickupElement.focus();
 
         bookingInProgress = false;
-        return;
 
+        return;
       }
 
 
       if (!destination) {
 
-        alert("Please enter your destination.");
+        alert(
+          "Please enter your destination."
+        );
+
         destinationElement.focus();
 
         bookingInProgress = false;
-        return;
 
+        return;
       }
 
 
       if (!date) {
 
-        alert("Please select your booking date.");
+        alert(
+          "Please select your booking date."
+        );
+
         dateElement.focus();
 
         bookingInProgress = false;
-        return;
 
+        return;
       }
 
 
       if (!time) {
 
-        alert("Please select your booking time.");
+        alert(
+          "Please select your booking time."
+        );
+
         timeElement.focus();
 
         bookingInProgress = false;
-        return;
 
+        return;
       }
 
 
       if (!service) {
 
-        alert("Please select a service.");
+        alert(
+          "Please select a service."
+        );
+
         serviceElement.focus();
 
         bookingInProgress = false;
-        return;
 
+        return;
       }
 
 
       // =====================================================
-      // GENERATE REFERENCE
+      // GENERATE BOOKING REFERENCE
       // =====================================================
 
       const reference =
@@ -282,7 +391,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       // =====================================================
-      // CREATE BOOKING OBJECT
+      // FIRESTORE BOOKING
       // =====================================================
 
       const booking = {
@@ -315,15 +424,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         status: "Pending",
 
-        createdAt: serverTimestamp()
+        createdAt:
+          serverTimestamp()
 
       };
-
-
-      console.log(
-        "Sending booking to Firestore...",
-        booking
-      );
 
 
       // =====================================================
@@ -333,35 +437,96 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBooking.disabled = true;
 
       submitBooking.textContent =
-        "Saving booking...";
+        "Sending booking...";
 
 
-      bookingStatus.className = "status";
+      bookingStatus.className =
+        "status";
 
       bookingStatus.textContent =
-        "Please wait while we save your booking...";
+        "Please wait while we submit your booking...";
 
-
-      // =====================================================
-      // SAVE TO FIRESTORE
-      // =====================================================
 
       try {
 
-        const docRef = await addDoc(
-          collection(db, "bookings"),
-          booking
-        );
+        // ===================================================
+        // 1. SAVE BOOKING TO FIRESTORE
+        // ===================================================
+
+        const docRef =
+          await addDoc(
+            collection(db, "bookings"),
+            booking
+          );
 
 
         console.log(
-          "Booking successfully saved:",
+          "Booking saved to Firestore:",
           docRef.id
         );
 
 
         // ===================================================
-        // SUCCESS MESSAGE
+        // 2. SEND EMAIL USING EMAILJS
+        // ===================================================
+
+        const emailTemplateParams = {
+
+          reference: reference,
+
+          name: name,
+
+          phone: phone,
+
+          email: email,
+
+          pickup: pickup,
+
+          destination: destination,
+
+          date: date,
+
+          time: time,
+
+          service: service,
+
+          vehicle: vehicle,
+
+          passengers: passengers,
+
+          payment: payment,
+
+          details:
+            details || "None",
+
+          status: "Pending"
+
+        };
+
+
+        console.log(
+          "Sending booking email..."
+        );
+
+
+        await emailjs.send(
+
+          EMAILJS_SERVICE_ID,
+
+          EMAILJS_TEMPLATE_ID,
+
+          emailTemplateParams
+
+        );
+
+
+        console.log(
+          "Booking email sent successfully."
+        );
+
+
+        // ===================================================
+        // 3. SUCCESS MESSAGE
         // ===================================================
 
         bookingStatus.className =
@@ -369,20 +534,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         bookingStatus.innerHTML = `
-          <strong>Booking submitted successfully! 🎉</strong>
+
+          <strong>
+            Booking submitted successfully! 🎉
+          </strong>
+
           <br><br>
+
           Booking reference:
-          <strong>${reference}</strong>
+          <strong>
+            ${reference}
+          </strong>
+
           <br>
-          We will contact you shortly to confirm your ride.
+
+          Your booking has been received.
+          We will contact you shortly
+          to confirm your ride.
+
         `;
 
 
         // ===================================================
-        // WHATSAPP MESSAGE
+        // 4. WHATSAPP MESSAGE
         // ===================================================
 
         const whatsappMessage =
+
 `🚕 WESTERN MONA TAXIS & SAFARIS
 
 NEW BOOKING
@@ -411,7 +589,9 @@ Passengers: ${passengers}
 
 Payment: ${payment}
 
-Details: ${details || "None"}`;
+Details: ${details || "None"}
+
+Status: Pending`;
 
 
         const whatsappButton =
@@ -425,10 +605,13 @@ Details: ${details || "None"}`;
           );
 
 
-        whatsappButton.target = "_blank";
+        whatsappButton.target =
+          "_blank";
+
 
         whatsappButton.rel =
           "noopener noreferrer";
+
 
         whatsappButton.className =
           "btn";
@@ -457,24 +640,25 @@ Details: ${details || "None"}`;
 
 
         // ===================================================
-        // RESET FORM
+        // 5. RESET FORM
         // ===================================================
 
         bookingForm.reset();
 
 
-        passengersElement.value = "1";
+        passengersElement.value =
+          "1";
 
 
         console.log(
-          "Western Mona: Booking process completed successfully."
+          "Western Mona: Booking completed successfully."
         );
 
 
       } catch (error) {
 
         console.error(
-          "Western Mona: Firebase booking error:",
+          "Western Mona: Booking error:",
           error
         );
 
@@ -484,26 +668,33 @@ Details: ${details || "None"}`;
 
 
         bookingStatus.innerHTML = `
-          <strong>Booking failed.</strong>
-          <br>
-          ${error.message || "Unable to save booking."}
-        `;
 
+          <strong>
+            Booking could not be completed.
+          </strong>
+
+          <br><br>
+
+          ${error.message ||
+            "Please try again later."}
+
+        `;
 
       } finally {
 
-        submitBooking.disabled = false;
+        submitBooking.disabled =
+          false;
 
         submitBooking.textContent =
           "Confirm & Send Booking";
 
-        bookingInProgress = false;
+        bookingInProgress =
+          false;
 
       }
 
-    });
-
-  }
+    }
+  );
 
 
   // =========================================================
@@ -535,6 +726,9 @@ Details: ${details || "None"}`;
         const fareResult =
           document.getElementById("fareResult");
 
+        const fareNote =
+          document.getElementById("fareNote");
+
 
         if (
           !kmInput ||
@@ -549,9 +743,14 @@ Details: ${details || "None"}`;
           );
 
           return;
-
         }
 
+
+        const service =
+          fareService.value;
+
+        const vehicle =
+          fareVehicle.value;
 
         const km =
           Math.max(
@@ -559,21 +758,48 @@ Details: ${details || "None"}`;
             Number(kmInput.value) || 1
           );
 
-
-        const service =
-          fareService.value;
-
-
-        const vehicle =
-          fareVehicle.value;
-
-
         const isReturnTrip =
           returnTrip.value === "yes";
 
 
         // ===================================================
-        // BASE CHARGES
+        // VVIP PACKAGE
+        // ===================================================
+
+        if (
+          service === "vvip" ||
+          vehicle === "vvip"
+        ) {
+
+          const price =
+            258000;
+
+          const vat =
+            price * 0.16;
+
+          const total =
+            price + vat;
+
+
+          fareResult.textContent =
+            "KES " +
+            total.toLocaleString();
+
+
+          if (fareNote) {
+
+            fareNote.textContent =
+              "VVIP package: KES 258,000 + VAT. Includes 5 Executive SUVs, Chase Car, Police Escort and Free Professional Reels.";
+
+          }
+
+
+          return;
+        }
+
+
+        // ===================================================
+        // STANDARD FARE
         // ===================================================
 
         const baseCharges = {
@@ -588,10 +814,6 @@ Details: ${details || "None"}`;
 
         };
 
-
-        // ===================================================
-        // VEHICLE RATES
-        // ===================================================
 
         const rates = {
 
@@ -609,16 +831,16 @@ Details: ${details || "None"}`;
         const base =
           baseCharges[service] || 0;
 
-
         const rate =
           rates[vehicle] || 0;
 
 
         let fare =
-          base + (km * rate);
+          base +
+          (km * rate);
 
 
-        // Return trip discount/adjustment
+        // Return trip
         if (isReturnTrip) {
 
           fare =
@@ -629,8 +851,17 @@ Details: ${details || "None"}`;
 
         fareResult.textContent =
           "KES " +
-          Math.round(fare).toLocaleString();
+          Math.round(
+            fare
+          ).toLocaleString();
 
+
+        if (fareNote) {
+
+          fareNote.textContent =
+            "Indicative estimate only. Final fare will be confirmed by Western Mona Taxis & Safaris.";
+
+        }
 
       }
     );
