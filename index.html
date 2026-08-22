@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-content="Western Mona Taxis and Safaris - taxi, airport transfer, hotel transfer, long-distance, safari and VVIP convoy services across Kenya.">
+content="Western Mona Taxis and Safaris - taxi, airport transfer, hotel transfer, long-distance, safari, car hire and VVIP convoy services across Kenya.">
 
 <title>Western Mona Taxis & Safaris | Book a Ride</title>
 
@@ -298,6 +298,29 @@ color:var(--gold2);
 margin:12px 0;
 }
 
+/* CAR HIRE SERVICE */
+
+.carhire-card{
+border-color:#5b4720;
+background:
+linear-gradient(
+145deg,
+#19170f,
+#121212
+);
+}
+
+.carhire-card h3{
+color:var(--gold2);
+}
+
+.carhire-price{
+font-size:18px;
+font-weight:800;
+color:var(--gold2);
+margin-top:12px;
+}
+
 /* ================= FLEET ================= */
 
 .fleet{
@@ -432,6 +455,39 @@ border-color:var(--gold);
 .vvip-option{
 color:var(--gold2);
 font-weight:bold;
+}
+
+.carhire-option{
+color:var(--gold2);
+font-weight:bold;
+}
+
+.hidden{
+display:none !important;
+}
+
+.carhire-info{
+display:none;
+background:#111;
+border:1px solid #4b3a1d;
+border-radius:10px;
+padding:14px;
+margin:3px 0 16px;
+}
+
+.carhire-info.active{
+display:block;
+}
+
+.carhire-info strong{
+color:var(--gold2);
+}
+
+.carhire-rate{
+font-size:20px;
+font-weight:800;
+color:var(--gold2);
+margin-top:5px;
 }
 
 /* ================= FARE ================= */
@@ -599,9 +655,9 @@ width:31px;
 height:31px;
 }
 
-/* ================= RESPONSIVE ================= */
-
 }
+
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:850px){
 
@@ -814,8 +870,8 @@ Our priority.
 <p>
 
 Professional taxi, airport transfer,
-hotel transfer, long-distance and
-safari services across Kenya.
+hotel transfer, long-distance,
+car hire and safari services across Kenya.
 
 </p>
 
@@ -875,7 +931,7 @@ Travel with confidence
 
 <p>
 Convenient transport for business,
-family, airport and safari travel.
+family, airport, safari and car hire travel.
 </p>
 
 </div>
@@ -958,6 +1014,28 @@ Safaris & Tours
 Comfortable vehicles for wildlife
 and multi-day adventures.
 </p>
+
+</div>
+
+
+<div class="card carhire-card">
+
+<div class="icon">🚘</div>
+
+<h3>
+Car Hire
+</h3>
+
+<p>
+Hire a vehicle for your personal,
+business, family or travel needs.
+Choose from a wide range of vehicles
+with rates charged per 24 hours.
+</p>
+
+<div class="carhire-price">
+From KES 3,500 / 24 Hours
+</div>
 
 </div>
 
@@ -1456,7 +1534,7 @@ Book your vehicle
 </h2>
 
 <p>
-Choose a vehicle from Our Fleet above,
+Choose your service and vehicle,
 then submit your booking request.
 </p>
 
@@ -1633,6 +1711,10 @@ Hotel Transfer
 Safari / Tour
 </option>
 
+<option value="Car Hire">
+Car Hire - 24 Hour Rates
+</option>
+
 <option
 value="VVIP Convoy with Police Escort"
 class="vvip-option">
@@ -1698,6 +1780,68 @@ Subaru Forester
 </option>
 
 </select>
+
+</div>
+
+</div>
+
+
+<!-- ================= CAR HIRE DETAILS ================= -->
+
+<div
+id="carHireDetails"
+class="carhire-info">
+
+<strong>
+🚘 Car Hire Booking
+</strong>
+
+<div
+id="carHireRateDisplay"
+class="carhire-rate">
+
+Select a car-hire vehicle
+
+</div>
+
+<p class="small">
+Car hire prices are calculated per 24 hours.
+</p>
+
+</div>
+
+
+<div
+class="row hidden"
+id="carHireDurationRow">
+
+<div>
+
+<label for="carHireDays">
+Number of 24-Hour Periods
+</label>
+
+<input
+id="carHireDays"
+name="carHireDays"
+type="number"
+min="1"
+value="1">
+
+</div>
+
+<div>
+
+<label>
+Rate
+</label>
+
+<input
+id="carHireRate"
+name="carHireRate"
+type="text"
+value="KES 0 / 24 hours"
+readonly>
 
 </div>
 
@@ -1838,6 +1982,23 @@ in our booking system.
 
 
 <h3>
+Car Hire
+</h3>
+
+<p class="small">
+
+Choose your preferred vehicle and
+number of 24-hour periods. The
+calculator automatically calculates
+the car-hire estimate.
+
+</p>
+
+
+<br>
+
+
+<h3>
 VVIP Convoy
 </h3>
 
@@ -1892,8 +2053,8 @@ Calculate an Estimated Fare
 </h2>
 
 <p>
-This is an estimate only. Final price
-can be confirmed by our team.
+For car hire, prices are calculated
+per 24 hours using the selected vehicle.
 </p>
 
 </div>
@@ -1930,6 +2091,10 @@ Long Distance
 Safari / Tour
 </option>
 
+<option value="carhire">
+Car Hire - 24 Hour Rate
+</option>
+
 <option value="vvip">
 VVIP Convoy with Police Escort
 </option>
@@ -1939,7 +2104,7 @@ VVIP Convoy with Police Escort
 </div>
 
 
-<div>
+<div id="distanceField">
 
 <label for="km">
 Estimated Distance (km)
@@ -1950,6 +2115,23 @@ id="km"
 type="number"
 min="1"
 value="10">
+
+</div>
+
+
+<div
+id="carHireDaysCalculator"
+class="hidden">
+
+<label for="fareDays">
+Number of 24-Hour Periods
+</label>
+
+<input
+id="fareDays"
+type="number"
+min="1"
+value="1">
 
 </div>
 
@@ -1991,7 +2173,7 @@ Prado TX / 4x4 Land Cruiser
 </div>
 
 
-<div>
+<div id="returnField">
 
 <label for="returnTrip">
 Return Trip?
@@ -2095,7 +2277,6 @@ Long Distance Across Kenya
 </div>
 
 </section>
-
 
 
 <!-- ================= FOOTER ================= -->
@@ -2209,6 +2390,56 @@ aria-hidden="true">
 
 <script>
 
+const carHireRates = {
+
+"Toyota Prado TX": 18000,
+"Mazda Demio": 3500,
+"Toyota Fielder": 4500,
+"Mazda Axela": 4500,
+"Subaru Forester": 8500,
+"Toyota Premio": 4500,
+"Toyota Aqua": 3500,
+"Toyota Axio": 3500,
+"Nissan X-Trail": 8500,
+"Toyota Harrier": 18000,
+"Toyota Crown": 18000,
+"Landcruiser V8": 18000,
+"Toyota Noah": 8000,
+"Toyota Voxy": 8000,
+"Toyota Alphard": 8000,
+"Toyota Vellfire": 8000,
+"Toyota Wish": 8000,
+"Toyota Isis": 8000,
+"Toyota 7L": 8000,
+"Toyota Mark X": 18000,
+"Prado TXL": 18000
+
+};
+
+
+/* ================= VEHICLE LISTS ================= */
+
+const normalVehicles = [
+
+"Nissan Note",
+"Mazda CX-5",
+"Toyota Land Cruiser Prado TX",
+"4x4 Land Cruiser",
+"Fielder",
+"Noah",
+"Voxy",
+"Mazda Axela",
+"Subaru Forester",
+"5 Executive SUVs + Chase Car"
+
+];
+
+
+const carHireVehicles = Object.keys(carHireRates);
+
+
+/* ================= SELECT VEHICLE ================= */
+
 function selectVehicle(vehicleName){
 
 const vehicleSelect =
@@ -2217,11 +2448,34 @@ document.getElementById("vehicle");
 const bookingSection =
 document.getElementById("booking");
 
+const serviceSelect =
+document.getElementById("service");
+
+
 if(vehicleSelect){
 
 vehicleSelect.value = vehicleName;
 
 }
+
+
+/*
+If the selected vehicle is one of the
+car-hire vehicles, automatically change
+the service to Car Hire.
+*/
+
+if(
+carHireRates[vehicleName] &&
+serviceSelect
+){
+
+serviceSelect.value = "Car Hire";
+
+updateBookingService();
+
+}
+
 
 if(bookingSection){
 
@@ -2235,40 +2489,435 @@ block:"start"
 }
 
 
-document.addEventListener("DOMContentLoaded",function(){
+/* ================= POPULATE VEHICLE SELECT ================= */
+
+function populateVehicleSelect(isCarHire){
 
 const vehicleSelect =
 document.getElementById("vehicle");
 
+if(!vehicleSelect){
+return;
+}
+
+const currentValue =
+vehicleSelect.value;
+
+vehicleSelect.innerHTML = "";
+
+
+const list =
+isCarHire
+? carHireVehicles
+: normalVehicles;
+
+
+list.forEach(function(vehicle){
+
+const option =
+document.createElement("option");
+
+option.value = vehicle;
+option.textContent = vehicle;
+
+vehicleSelect.appendChild(option);
+
+});
+
+
+if(list.includes(currentValue)){
+
+vehicleSelect.value = currentValue;
+
+}
+
+}
+
+
+/* ================= UPDATE BOOKING SERVICE ================= */
+
+function updateBookingService(){
+
+const service =
+document.getElementById("service");
+
+const vehicle =
+document.getElementById("vehicle");
+
+const carHireDetails =
+document.getElementById("carHireDetails");
+
+const carHireDurationRow =
+document.getElementById("carHireDurationRow");
+
+const carHireDays =
+document.getElementById("carHireDays");
+
+const carHireRate =
+document.getElementById("carHireRate");
+
+const carHireRateDisplay =
+document.getElementById("carHireRateDisplay");
+
+
+if(!service){
+return;
+}
+
+
+const isCarHire =
+service.value === "Car Hire";
+
+
+if(isCarHire){
+
+populateVehicleSelect(true);
+
+carHireDetails.classList.add("active");
+
+carHireDurationRow.classList.remove("hidden");
+
+updateCarHireBookingRate();
+
+}else{
+
+populateVehicleSelect(false);
+
+carHireDetails.classList.remove("active");
+
+carHireDurationRow.classList.add("hidden");
+
+if(carHireDays){
+carHireDays.value = 1;
+}
+
+if(carHireRate){
+carHireRate.value = "KES 0 / 24 hours";
+}
+
+}
+
+}
+
+
+/* ================= UPDATE CAR HIRE RATE ================= */
+
+function updateCarHireBookingRate(){
+
+const vehicle =
+document.getElementById("vehicle");
+
+const daysInput =
+document.getElementById("carHireDays");
+
+const rateInput =
+document.getElementById("carHireRate");
+
+const rateDisplay =
+document.getElementById("carHireRateDisplay");
+
+
+if(!vehicle || !daysInput){
+return;
+}
+
+
+const selectedVehicle =
+vehicle.value;
+
+const dailyRate =
+carHireRates[selectedVehicle];
+
+
+if(!dailyRate){
+
+if(rateInput){
+rateInput.value = "KES 0 / 24 hours";
+}
+
+if(rateDisplay){
+rateDisplay.textContent =
+"Select a car-hire vehicle";
+}
+
+return;
+
+}
+
+
+const days =
+Math.max(1,Number(daysInput.value) || 1);
+
+const total =
+dailyRate * days;
+
+
+if(rateInput){
+
+rateInput.value =
+"KES " +
+dailyRate.toLocaleString() +
+" / 24 hours";
+
+}
+
+
+if(rateDisplay){
+
+rateDisplay.innerHTML =
+selectedVehicle +
+" — KES " +
+dailyRate.toLocaleString() +
+" / 24 hours<br>" +
+"<span style='font-size:14px;color:#aaa'>" +
+days +
+" × 24-hour period" +
+(days === 1 ? "" : "s") +
+" = KES " +
+total.toLocaleString() +
+"</span>";
+
+}
+
+}
+
+
+/* ================= DOM READY ================= */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+
+const serviceSelect =
+document.getElementById("service");
+
+const vehicleSelect =
+document.getElementById("vehicle");
+
+const carHireDays =
+document.getElementById("carHireDays");
+
+
+/* Service change */
+
+if(serviceSelect){
+
+serviceSelect.addEventListener(
+"change",
+updateBookingService
+);
+
+}
+
+
+/* Vehicle change */
+
 if(vehicleSelect){
 
-vehicleSelect.addEventListener("change",function(){
+vehicleSelect.addEventListener(
+"change",
+function(){
 
-vehicleSelect.value = this.value;
+if(
+serviceSelect &&
+serviceSelect.value === "Car Hire"
+){
+
+updateCarHireBookingRate();
+
+}
 
 });
 
 }
 
 
+/* Days change */
+
+if(carHireDays){
+
+carHireDays.addEventListener(
+"input",
+updateCarHireBookingRate
+);
+
+}
+
+
+/* ================= FARE CALCULATOR ================= */
+
+const fareService =
+document.getElementById("fareService");
+
+const distanceField =
+document.getElementById("distanceField");
+
+const returnField =
+document.getElementById("returnField");
+
+const carHireDaysCalculator =
+document.getElementById("carHireDaysCalculator");
+
+const fareVehicle =
+document.getElementById("fareVehicle");
+
+
+/* Update calculator vehicle list */
+
+function updateFareVehicleList(){
+
+if(!fareVehicle){
+return;
+}
+
+
+const isCarHire =
+fareService.value === "carhire";
+
+
+fareVehicle.innerHTML = "";
+
+
+if(isCarHire){
+
+carHireVehicles.forEach(function(vehicle){
+
+const option =
+document.createElement("option");
+
+option.value = vehicle;
+
+option.textContent =
+vehicle +
+" - KES " +
+carHireRates[vehicle].toLocaleString() +
+" / 24 hrs";
+
+fareVehicle.appendChild(option);
+
+});
+
+
+}else{
+
+const options = [
+
+{
+value:"standard",
+text:"Standard - Nissan Note / Fielder / Axela"
+},
+
+{
+value:"suv",
+text:"SUV - CX-5 / Forester"
+},
+
+{
+value:"van",
+text:"Van - Noah / Voxy"
+},
+
+{
+value:"4x4",
+text:"Prado TX / 4x4 Land Cruiser"
+},
+
+{
+value:"vvip",
+text:"5 Executive SUVs + Chase Car"
+}
+
+];
+
+
+options.forEach(function(item){
+
+const option =
+document.createElement("option");
+
+option.value =
+item.value;
+
+option.textContent =
+item.text;
+
+fareVehicle.appendChild(option);
+
+});
+
+}
+
+}
+
+
+/* Update calculator layout */
+
+function updateFareCalculatorLayout(){
+
+if(!fareService){
+return;
+}
+
+
+const isCarHire =
+fareService.value === "carhire";
+
+
+if(isCarHire){
+
+distanceField.classList.add("hidden");
+
+returnField.classList.add("hidden");
+
+carHireDaysCalculator.classList.remove("hidden");
+
+}else{
+
+distanceField.classList.remove("hidden");
+
+returnField.classList.remove("hidden");
+
+carHireDaysCalculator.classList.add("hidden");
+
+}
+
+
+updateFareVehicleList();
+
+}
+
+
+/* Service change */
+
+if(fareService){
+
+fareService.addEventListener(
+"change",
+updateFareCalculatorLayout
+);
+
+}
+
+
+/* Initial calculator setup */
+
+updateFareCalculatorLayout();
+
+
+/* ================= CALCULATE BUTTON ================= */
+
 const calculateButton =
 document.getElementById("calculate");
 
+
 if(calculateButton){
 
-calculateButton.addEventListener("click",function(){
+calculateButton.addEventListener(
+"click",
+function(){
+
 
 const service =
 document.getElementById("fareService").value;
-
-const km =
-Number(document.getElementById("km").value) || 0;
-
-const vehicle =
-document.getElementById("fareVehicle").value;
-
-const returnTrip =
-document.getElementById("returnTrip").value;
 
 const result =
 document.getElementById("fareResult");
@@ -2277,18 +2926,87 @@ const note =
 document.getElementById("fareNote");
 
 
-if(service === "vvip" || vehicle === "vvip"){
+/* ================= CAR HIRE ================= */
 
-const vvipPrice = 258000;
+if(service === "carhire"){
 
-const vat = vvipPrice * 0.16;
+const vehicle =
+document.getElementById("fareVehicle").value;
 
-const total = vvipPrice + vat;
+const days =
+Math.max(
+1,
+Number(
+document.getElementById("fareDays").value
+) || 1
+);
+
+
+const dailyRate =
+carHireRates[vehicle];
+
+
+if(!dailyRate){
+
+result.textContent =
+"KES 0";
+
+note.textContent =
+"Please select a car-hire vehicle.";
+
+return;
+
+}
+
+
+const total =
+dailyRate * days;
+
+
+result.textContent =
+"KES " +
+total.toLocaleString();
+
+
+note.innerHTML =
+"<strong>" +
+vehicle +
+"</strong> — KES " +
+dailyRate.toLocaleString() +
+" per 24 hours. " +
+days +
+" × 24-hour period" +
+(days === 1 ? "" : "s") +
+". Final booking confirmation is subject to vehicle availability.";
+
+
+return;
+
+}
+
+
+/* ================= VVIP ================= */
+
+if(
+service === "vvip" ||
+document.getElementById("fareVehicle").value === "vvip"
+){
+
+const vvipPrice =
+258000;
+
+const vat =
+vvipPrice * 0.16;
+
+const total =
+vvipPrice + vat;
+
 
 result.textContent =
 "KES " +
 total.toLocaleString() +
 " incl. VAT";
+
 
 note.textContent =
 "VVIP package: KES 258,000 + VAT. Includes 5 Executive SUVs, Chase Car, Police Escort and Free Professional Reels.";
@@ -2298,9 +3016,24 @@ return;
 }
 
 
+/* ================= NORMAL FARE CALCULATOR ================= */
+
+const km =
+Number(
+document.getElementById("km").value
+) || 0;
+
+const vehicle =
+document.getElementById("fareVehicle").value;
+
+const returnTrip =
+document.getElementById("returnTrip").value;
+
+
 if(km <= 0){
 
-result.textContent = "KES 0";
+result.textContent =
+"KES 0";
 
 note.textContent =
 "Please enter an estimated distance.";
@@ -2309,29 +3042,41 @@ return;
 
 }
 
-let baseFare = 300;
 
-let perKm = 50;
+let baseFare =
+300;
+
+let perKm =
+50;
 
 
 if(service === "airport"){
 
-baseFare = 500;
-perKm = 65;
+baseFare =
+500;
+
+perKm =
+65;
 
 }
 
 else if(service === "long"){
 
-baseFare = 1000;
-perKm = 80;
+baseFare =
+1000;
+
+perKm =
+80;
 
 }
 
 else if(service === "safari"){
 
-baseFare = 2500;
-perKm = 100;
+baseFare =
+2500;
+
+perKm =
+100;
 
 }
 
@@ -2356,12 +3101,14 @@ perKm += 60;
 
 
 let total =
-baseFare + (km * perKm);
+baseFare +
+(km * perKm);
 
 
 if(returnTrip === "yes"){
 
-total = total * 2;
+total =
+total * 2;
 
 }
 
@@ -2379,6 +3126,7 @@ note.textContent =
 }
 
 });
+
 
 </script>
 
