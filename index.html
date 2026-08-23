@@ -1786,68 +1786,6 @@ Subaru Forester
 </div>
 
 
-<!-- ================= CAR HIRE DETAILS ================= -->
-
-<div
-id="carHireDetails"
-class="carhire-info">
-
-<strong>
-🚘 Car Hire Booking
-</strong>
-
-<div
-id="carHireRateDisplay"
-class="carhire-rate">
-
-Select a car-hire vehicle
-
-</div>
-
-<p class="small">
-Car hire prices are calculated per 24 hours.
-</p>
-
-</div>
-
-
-<div
-class="row hidden"
-id="carHireDurationRow">
-
-<div>
-
-<label for="carHireDays">
-Number of 24-Hour Periods
-</label>
-
-<input
-id="carHireDays"
-name="carHireDays"
-type="number"
-min="1"
-value="1">
-
-</div>
-
-<div>
-
-<label>
-Rate
-</label>
-
-<input
-id="carHireRate"
-name="carHireRate"
-type="text"
-value="KES 0 / 24 hours"
-readonly>
-
-</div>
-
-</div>
-
-
 <div class="row">
 
 <div>
@@ -2539,147 +2477,27 @@ vehicleSelect.value = currentValue;
 function updateBookingService(){
 
 const service =
-document.getElementById("service");
+ document.getElementById("service");
 
 const vehicle =
-document.getElementById("vehicle");
+ document.getElementById("vehicle");
 
-const carHireDetails =
-document.getElementById("carHireDetails");
-
-const carHireDurationRow =
-document.getElementById("carHireDurationRow");
-
-const carHireDays =
-document.getElementById("carHireDays");
-
-const carHireRate =
-document.getElementById("carHireRate");
-
-const carHireRateDisplay =
-document.getElementById("carHireRateDisplay");
-
-
-if(!service){
-return;
+if(!service || !vehicle){
+ return;
 }
-
 
 const isCarHire =
-service.value === "Car Hire";
-
+ service.value === "Car Hire";
 
 if(isCarHire){
-
-populateVehicleSelect(true);
-
-carHireDetails.classList.add("active");
-
-carHireDurationRow.classList.remove("hidden");
-
-updateCarHireBookingRate();
-
+ populateVehicleSelect(true);
 }else{
-
-populateVehicleSelect(false);
-
-carHireDetails.classList.remove("active");
-
-carHireDurationRow.classList.add("hidden");
-
-if(carHireDays){
-carHireDays.value = 1;
-}
-
-if(carHireRate){
-carHireRate.value = "KES 0 / 24 hours";
-}
-
+ populateVehicleSelect(false);
 }
 
 }
 
 
-/* ================= UPDATE CAR HIRE RATE ================= */
-
-function updateCarHireBookingRate(){
-
-const vehicle =
-document.getElementById("vehicle");
-
-const daysInput =
-document.getElementById("carHireDays");
-
-const rateInput =
-document.getElementById("carHireRate");
-
-const rateDisplay =
-document.getElementById("carHireRateDisplay");
-
-
-if(!vehicle || !daysInput){
-return;
-}
-
-
-const selectedVehicle =
-vehicle.value;
-
-const dailyRate =
-carHireRates[selectedVehicle];
-
-
-if(!dailyRate){
-
-if(rateInput){
-rateInput.value = "KES 0 / 24 hours";
-}
-
-if(rateDisplay){
-rateDisplay.textContent =
-"Select a car-hire vehicle";
-}
-
-return;
-
-}
-
-
-const days =
-Math.max(1,Number(daysInput.value) || 1);
-
-const total =
-dailyRate * days;
-
-
-if(rateInput){
-
-rateInput.value =
-"KES " +
-dailyRate.toLocaleString() +
-" / 24 hours";
-
-}
-
-
-if(rateDisplay){
-
-rateDisplay.innerHTML =
-selectedVehicle +
-" — KES " +
-dailyRate.toLocaleString() +
-" / 24 hours<br>" +
-"<span style='font-size:14px;color:#aaa'>" +
-days +
-" × 24-hour period" +
-(days === 1 ? "" : "s") +
-" = KES " +
-total.toLocaleString() +
-"</span>";
-
-}
-
-}
 
 
 /* ================= DOM READY ================= */
@@ -2692,9 +2510,6 @@ document.getElementById("service");
 
 const vehicleSelect =
 document.getElementById("vehicle");
-
-const carHireDays =
-document.getElementById("carHireDays");
 
 
 /* Service change */
@@ -2729,20 +2544,6 @@ updateCarHireBookingRate();
 });
 
 }
-
-
-/* Days change */
-
-if(carHireDays){
-
-carHireDays.addEventListener(
-"input",
-updateCarHireBookingRate
-);
-
-}
-
-
 /* ================= FARE CALCULATOR ================= */
 
 const fareService =
