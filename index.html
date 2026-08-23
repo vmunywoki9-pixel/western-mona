@@ -2068,10 +2068,10 @@ Number of 24-Hour Periods
 <input
 id="fareDays"
 type="number"
-min="1"
+min="0"
 step="1"
-value="1"
-placeholder="e.g. 1, 2, 3">
+value="0"
+placeholder="Enter number of 24-hour periods">
 
 </div>
 
@@ -2375,7 +2375,8 @@ const normalVehicles = [
 ];
 
 
-const carHireVehicles = Object.keys(carHireRates);
+const carHireVehicles =
+Object.keys(carHireRates);
 
 
 /* ================= SELECT VEHICLE ================= */
@@ -2394,7 +2395,8 @@ document.getElementById("service");
 
 if(vehicleSelect){
 
-vehicleSelect.value = vehicleName;
+vehicleSelect.value =
+vehicleName;
 
 }
 
@@ -2404,7 +2406,8 @@ carHireRates[vehicleName] &&
 serviceSelect
 ){
 
-serviceSelect.value = "Car Hire";
+serviceSelect.value =
+"Car Hire";
 
 updateBookingService();
 
@@ -2451,8 +2454,11 @@ list.forEach(function(vehicle){
 const option =
 document.createElement("option");
 
-option.value = vehicle;
-option.textContent = vehicle;
+option.value =
+vehicle;
+
+option.textContent =
+vehicle;
 
 vehicleSelect.appendChild(option);
 
@@ -2461,7 +2467,8 @@ vehicleSelect.appendChild(option);
 
 if(list.includes(currentValue)){
 
-vehicleSelect.value = currentValue;
+vehicleSelect.value =
+currentValue;
 
 }
 
@@ -2500,7 +2507,9 @@ populateVehicleSelect(false);
 
 /* ================= DOM READY ================= */
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener(
+"DOMContentLoaded",
+function(){
 
 const serviceSelect =
 document.getElementById("service");
@@ -2555,7 +2564,9 @@ const returnField =
 document.getElementById("returnField");
 
 const carHireDaysCalculator =
-document.getElementById("carHireDaysCalculator");
+document.getElementById(
+"carHireDaysCalculator"
+);
 
 const fareVehicle =
 document.getElementById("fareVehicle");
@@ -2581,7 +2592,6 @@ return;
 const isCarHire =
 fareService.value === "carhire";
 
-
 const previousValue =
 fareVehicle.value;
 
@@ -2590,28 +2600,26 @@ fareVehicle.innerHTML = "";
 
 if(isCarHire){
 
-carHireVehicles.forEach(function(vehicle){
+carHireVehicles.forEach(
+function(vehicle){
 
 const option =
 document.createElement("option");
 
-option.value = vehicle;
+option.value =
+vehicle;
 
 option.textContent =
 vehicle +
 " - KES " +
-carHireRates[vehicle].toLocaleString() +
+carHireRates[vehicle]
+.toLocaleString() +
 " / 24 hrs";
 
 fareVehicle.appendChild(option);
 
 });
 
-
-/*
-Keep previous car if it still exists.
-Otherwise select the first car.
-*/
 
 if(carHireRates[previousValue]){
 
@@ -2626,33 +2634,39 @@ const options = [
 
 {
 value:"standard",
-text:"Standard - Nissan Note / Fielder / Axela"
+text:
+"Standard - Nissan Note / Fielder / Axela"
 },
 
 {
 value:"suv",
-text:"SUV - CX-5 / Forester"
+text:
+"SUV - CX-5 / Forester"
 },
 
 {
 value:"van",
-text:"Van - Noah / Voxy"
+text:
+"Van - Noah / Voxy"
 },
 
 {
 value:"4x4",
-text:"Prado TX / 4x4 Land Cruiser"
+text:
+"Prado TX / 4x4 Land Cruiser"
 },
 
 {
 value:"vvip",
-text:"5 Executive SUVs + Chase Car"
+text:
+"5 Executive SUVs + Chase Car"
 }
 
 ];
 
 
-options.forEach(function(item){
+options.forEach(
+function(item){
 
 const option =
 document.createElement("option");
@@ -2669,8 +2683,12 @@ fareVehicle.appendChild(option);
 
 
 if(
-options.some(function(item){
-return item.value === previousValue;
+options.some(
+function(item){
+
+return item.value ===
+previousValue;
+
 })
 ){
 
@@ -2684,62 +2702,11 @@ previousValue;
 }
 
 
-/* ================= UPDATE CALCULATOR LAYOUT ================= */
-
-function updateFareCalculatorLayout(){
-
-if(!fareService){
-return;
-}
-
-
-const isCarHire =
-fareService.value === "carhire";
-
-
-if(isCarHire){
-
-distanceField.classList.add("hidden");
-
-returnField.classList.add("hidden");
-
-carHireDaysCalculator.classList.remove("hidden");
-
-}else{
-
-distanceField.classList.remove("hidden");
-
-returnField.classList.remove("hidden");
-
-carHireDaysCalculator.classList.add("hidden");
-
-}
-
-
-updateFareVehicleList();
-
-
-/*
-If switching to Car Hire,
-immediately calculate using the
-current vehicle and number of periods.
-*/
-
-if(isCarHire){
-
-calculateCarHire();
-
-}
-
-}
-
-
 /* ================= CAR HIRE CALCULATION ================= */
 
 function calculateCarHire(){
 
 if(
-!fareService ||
 fareService.value !== "carhire"
 ){
 
@@ -2751,6 +2718,13 @@ return;
 const vehicle =
 fareVehicle.value;
 
+
+/*
+IMPORTANT:
+The field starts at 0.
+We do NOT change 0 to 1.
+*/
+
 let days =
 parseInt(
 fareDays.value,
@@ -2758,19 +2732,14 @@ fareDays.value,
 );
 
 
-/*
-Make sure the number of periods
-is always at least 1.
-*/
-
 if(
 isNaN(days) ||
-days < 1
+days < 0
 ){
 
-days = 1;
+days = 0;
 
-fareDays.value = 1;
+fareDays.value = 0;
 
 }
 
@@ -2793,9 +2762,7 @@ return;
 
 
 /*
-MAIN CAR HIRE CALCULATION
-
-24-hour rate × number of 24-hour periods
+RATE × NUMBER OF 24-HOUR PERIODS
 */
 
 const total =
@@ -2807,6 +2774,21 @@ fareResult.textContent =
 total.toLocaleString();
 
 
+if(days === 0){
+
+fareNote.innerHTML =
+"<strong>" +
+vehicle +
+"</strong><br>" +
+"KES " +
+dailyRate.toLocaleString() +
+" per 24 hours. Enter the number of 24-hour periods to calculate the total.";
+
+return;
+
+}
+
+
 fareNote.innerHTML =
 "<strong>" +
 vehicle +
@@ -2816,11 +2798,68 @@ dailyRate.toLocaleString() +
 " × " +
 days +
 " 24-hour " +
-(days === 1 ? "period" : "periods") +
+(days === 1
+? "period"
+: "periods") +
 " = <strong>KES " +
 total.toLocaleString() +
 "</strong>." +
 "<br>Final booking confirmation is subject to vehicle availability.";
+
+}
+
+
+/* ================= UPDATE CALCULATOR LAYOUT ================= */
+
+function updateFareCalculatorLayout(){
+
+if(!fareService){
+return;
+}
+
+const isCarHire =
+fareService.value === "carhire";
+
+
+if(isCarHire){
+
+distanceField.classList.add(
+"hidden"
+);
+
+returnField.classList.add(
+"hidden"
+);
+
+carHireDaysCalculator.classList.remove(
+"hidden"
+);
+
+}else{
+
+distanceField.classList.remove(
+"hidden"
+);
+
+returnField.classList.remove(
+"hidden"
+);
+
+carHireDaysCalculator.classList.add(
+"hidden"
+);
+
+}
+
+
+updateFareVehicleList();
+
+
+if(isCarHire){
+
+calculateCarHire();
+
+}
 
 }
 
@@ -2858,7 +2897,7 @@ calculateCarHire();
 }
 
 
-/* ================= 24-HOUR PERIOD CHANGE ================= */
+/* ================= 24-HOUR INPUT ================= */
 
 if(fareDays){
 
@@ -2894,7 +2933,7 @@ calculateCarHire();
 }
 
 
-/* ================= INITIAL CALCULATOR SETUP ================= */
+/* ================= INITIAL SETUP ================= */
 
 updateFareCalculatorLayout();
 
@@ -2913,12 +2952,6 @@ function(){
 
 const service =
 fareService.value;
-
-const result =
-fareResult;
-
-const note =
-fareNote;
 
 
 /* ================= CAR HIRE ================= */
@@ -2949,13 +2982,13 @@ const total =
 vvipPrice + vat;
 
 
-result.textContent =
+fareResult.textContent =
 "KES " +
 total.toLocaleString() +
 " incl. VAT";
 
 
-note.textContent =
+fareNote.textContent =
 "VVIP package: KES 258,000 + VAT. Includes 5 Executive SUVs, Chase Car, Police Escort and Free Professional Reels.";
 
 return;
@@ -2963,7 +2996,7 @@ return;
 }
 
 
-/* ================= NORMAL FARE CALCULATOR ================= */
+/* ================= NORMAL FARE ================= */
 
 const km =
 Number(
@@ -2979,10 +3012,10 @@ document.getElementById("returnTrip").value;
 
 if(km <= 0){
 
-result.textContent =
+fareResult.textContent =
 "KES 0";
 
-note.textContent =
+fareNote.textContent =
 "Please enter an estimated distance.";
 
 return;
@@ -3060,12 +3093,13 @@ total * 2;
 }
 
 
-result.textContent =
+fareResult.textContent =
 "KES " +
-Math.round(total).toLocaleString();
+Math.round(total)
+.toLocaleString();
 
 
-note.textContent =
+fareNote.textContent =
 "Indicative estimate only. Final fare will be confirmed by Western Mona Taxis & Safaris.";
 
 });
@@ -3076,12 +3110,6 @@ note.textContent =
 
 
 /* ================= BOOKING CAR HIRE RATE ================= */
-
-/*
-This function is kept safe even if the booking
-form does not currently display a separate
-car-hire rate box.
-*/
 
 function updateCarHireBookingRate(){
 
