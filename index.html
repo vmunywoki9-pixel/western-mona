@@ -1786,6 +1786,31 @@ Subaru Forester
 </div>
 
 
+<!-- ================= CAR HIRE DETAILS ================= -->
+
+<div
+id="carHireDetails"
+class="carhire-info">
+
+<strong>
+🚘 Car Hire Booking
+</strong>
+
+<div
+id="carHireRateDisplay"
+class="carhire-rate">
+
+Select a car-hire vehicle
+
+</div>
+
+<p class="small">
+Car hire prices are calculated per 24 hours.
+</p>
+
+</div>
+
+
 <div class="row">
 
 <div>
@@ -2477,27 +2502,147 @@ vehicleSelect.value = currentValue;
 function updateBookingService(){
 
 const service =
- document.getElementById("service");
+document.getElementById("service");
 
 const vehicle =
- document.getElementById("vehicle");
+document.getElementById("vehicle");
 
-if(!service || !vehicle){
- return;
+const carHireDetails =
+document.getElementById("carHireDetails");
+
+const carHireDurationRow =
+document.getElementById("carHireDurationRow");
+
+const carHireDays =
+document.getElementById("carHireDays");
+
+const carHireRate =
+document.getElementById("carHireRate");
+
+const carHireRateDisplay =
+document.getElementById("carHireRateDisplay");
+
+
+if(!service){
+return;
 }
+
 
 const isCarHire =
- service.value === "Car Hire";
+service.value === "Car Hire";
+
 
 if(isCarHire){
- populateVehicleSelect(true);
+
+populateVehicleSelect(true);
+
+carHireDetails.classList.add("active");
+
+if(carHireDurationRow){ carHireDurationRow.classList.remove("hidden"); }
+
+updateCarHireBookingRate();
+
 }else{
- populateVehicleSelect(false);
+
+populateVehicleSelect(false);
+
+carHireDetails.classList.remove("active");
+
+if(carHireDurationRow){ carHireDurationRow.classList.add("hidden"); }
+
+if(carHireDays){
+carHireDays.value = 1;
+}
+
+if(carHireRate){
+carHireRate.value = "KES 0 / 24 hours";
 }
 
 }
 
+}
 
+
+/* ================= UPDATE CAR HIRE RATE ================= */
+
+function updateCarHireBookingRate(){
+
+const vehicle =
+document.getElementById("vehicle");
+
+const daysInput =
+document.getElementById("carHireDays");
+
+const rateInput =
+document.getElementById("carHireRate");
+
+const rateDisplay =
+document.getElementById("carHireRateDisplay");
+
+
+if(!vehicle || !daysInput){
+return;
+}
+
+
+const selectedVehicle =
+vehicle.value;
+
+const dailyRate =
+carHireRates[selectedVehicle];
+
+
+if(!dailyRate){
+
+if(rateInput){
+rateInput.value = "KES 0 / 24 hours";
+}
+
+if(rateDisplay){
+rateDisplay.textContent =
+"Select a car-hire vehicle";
+}
+
+return;
+
+}
+
+
+const days =
+Math.max(1,Number(daysInput.value) || 1);
+
+const total =
+dailyRate * days;
+
+
+if(rateInput){
+
+rateInput.value =
+"KES " +
+dailyRate.toLocaleString() +
+" / 24 hours";
+
+}
+
+
+if(rateDisplay){
+
+rateDisplay.innerHTML =
+selectedVehicle +
+" — KES " +
+dailyRate.toLocaleString() +
+" / 24 hours<br>" +
+"<span style='font-size:14px;color:#aaa'>" +
+days +
+" × 24-hour period" +
+(days === 1 ? "" : "s") +
+" = KES " +
+total.toLocaleString() +
+"</span>";
+
+}
+
+}
 
 
 /* ================= DOM READY ================= */
@@ -2510,6 +2655,9 @@ document.getElementById("service");
 
 const vehicleSelect =
 document.getElementById("vehicle");
+
+const carHireDays =
+document.getElementById("carHireDays");
 
 
 /* Service change */
@@ -2544,391 +2692,270 @@ updateCarHireBookingRate();
 });
 
 }
+
+
+/* Days change */
+
+if(carHireDays){
+
+carHireDays.addEventListener(
+"input",
+updateCarHireBookingRate
+);
+
+}
+
+
 /* ================= FARE CALCULATOR ================= */
 
-const fareService =
-document.getElementById("fareService");
-
-const distanceField =
-document.getElementById("distanceField");
-
-const returnField =
-document.getElementById("returnField");
-
-const carHireDaysCalculator =
-document.getElementById("carHireDaysCalculator");
-
-const fareVehicle =
-document.getElementById("fareVehicle");
-
-
-/* Update calculator vehicle list */
+const fareService = document.getElementById("fareService");
+const distanceField = document.getElementById("distanceField");
+const returnField = document.getElementById("returnField");
+const carHireDaysCalculator = document.getElementById("carHireDaysCalculator");
+const fareVehicle = document.getElementById("fareVehicle");
+const calculateButton = document.getElementById("calculate");
+const fareResult = document.getElementById("fareResult");
+const fareNote = document.getElementById("fareNote");
+const fareDays = document.getElementById("fareDays");
+const kmInput = document.getElementById("km");
+const returnTrip = document.getElementById("returnTrip");
 
 function updateFareVehicleList(){
 
-if(!fareVehicle){
-return;
+    if(!fareVehicle || !fareService) return;
+
+    const isCarHire = fareService.value === "carhire";
+    const currentValue = fareVehicle.value;
+
+    fareVehicle.innerHTML = "";
+
+    if(isCarHire){
+
+        carHireVehicles.forEach(function(vehicle){
+
+            const option = document.createElement("option");
+            option.value = vehicle;
+            option.textContent =
+                vehicle + " - KES " +
+                Number(carHireRates[vehicle]).toLocaleString() +
+                " / 24 hrs";
+
+            fareVehicle.appendChild(option);
+        });
+
+        if(carHireRates[currentValue]){
+            fareVehicle.value = currentValue;
+        }
+
+    }else{
+
+        const options = [
+            ["standard","Standard - Nissan Note / Fielder / Axela"],
+            ["suv","SUV - CX-5 / Forester"],
+            ["van","Van - Noah / Voxy"],
+            ["4x4","Prado TX / 4x4 Land Cruiser"],
+            ["vvip","5 Executive SUVs + Chase Car"]
+        ];
+
+        options.forEach(function(item){
+            const option = document.createElement("option");
+            option.value = item[0];
+            option.textContent = item[1];
+            fareVehicle.appendChild(option);
+        });
+
+        if(["standard","suv","van","4x4","vvip"].includes(currentValue)){
+            fareVehicle.value = currentValue;
+        }
+    }
 }
-
-
-const isCarHire =
-fareService.value === "carhire";
-
-
-fareVehicle.innerHTML = "";
-
-
-if(isCarHire){
-
-carHireVehicles.forEach(function(vehicle){
-
-const option =
-document.createElement("option");
-
-option.value = vehicle;
-
-option.textContent =
-vehicle +
-" - KES " +
-carHireRates[vehicle].toLocaleString() +
-" / 24 hrs";
-
-fareVehicle.appendChild(option);
-
-});
-
-
-}else{
-
-const options = [
-
-{
-value:"standard",
-text:"Standard - Nissan Note / Fielder / Axela"
-},
-
-{
-value:"suv",
-text:"SUV - CX-5 / Forester"
-},
-
-{
-value:"van",
-text:"Van - Noah / Voxy"
-},
-
-{
-value:"4x4",
-text:"Prado TX / 4x4 Land Cruiser"
-},
-
-{
-value:"vvip",
-text:"5 Executive SUVs + Chase Car"
-}
-
-];
-
-
-options.forEach(function(item){
-
-const option =
-document.createElement("option");
-
-option.value =
-item.value;
-
-option.textContent =
-item.text;
-
-fareVehicle.appendChild(option);
-
-});
-
-}
-
-}
-
-
-/* Update calculator layout */
 
 function updateFareCalculatorLayout(){
 
-if(!fareService){
-return;
+    if(!fareService) return;
+
+    const isCarHire = fareService.value === "carhire";
+
+    if(isCarHire){
+
+        if(distanceField) distanceField.classList.add("hidden");
+        if(returnField) returnField.classList.add("hidden");
+        if(carHireDaysCalculator) carHireDaysCalculator.classList.remove("hidden");
+
+    }else{
+
+        if(distanceField) distanceField.classList.remove("hidden");
+        if(returnField) returnField.classList.remove("hidden");
+        if(carHireDaysCalculator) carHireDaysCalculator.classList.add("hidden");
+    }
+
+    updateFareVehicleList();
+    calculateFare();
 }
 
+function calculateFare(){
 
-const isCarHire =
-fareService.value === "carhire";
+    if(!fareService || !fareResult || !fareNote || !fareVehicle) return;
 
+    const service = fareService.value;
+    const vehicle = fareVehicle.value;
 
-if(isCarHire){
+    /* ================= CAR HIRE ================= */
 
-distanceField.classList.add("hidden");
+    if(service === "carhire"){
 
-returnField.classList.add("hidden");
+        const days = Math.max(
+            1,
+            parseInt(fareDays ? fareDays.value : "1", 10) || 1
+        );
 
-carHireDaysCalculator.classList.remove("hidden");
+        const dailyRate = Number(carHireRates[vehicle]) || 0;
 
-}else{
+        if(!dailyRate){
 
-distanceField.classList.remove("hidden");
+            fareResult.textContent = "KES 0";
+            fareNote.textContent = "Please select a car-hire vehicle.";
+            return;
+        }
 
-returnField.classList.remove("hidden");
+        const total = dailyRate * days;
 
-carHireDaysCalculator.classList.add("hidden");
+        fareResult.textContent =
+            "KES " + total.toLocaleString();
 
-}
+        fareNote.innerHTML =
+            "<strong>" + vehicle + "</strong> — KES " +
+            dailyRate.toLocaleString() +
+            " per 24 hours × " +
+            days +
+            " = <strong>KES " +
+            total.toLocaleString() +
+            "</strong>. Final booking confirmation is subject to vehicle availability.";
 
+        return;
+    }
 
-updateFareVehicleList();
+    /* ================= VVIP ================= */
 
+    if(
+        service === "vvip" ||
+        vehicle === "vvip"
+    ){
+
+        const vvipPrice = 258000;
+        const vat = vvipPrice * 0.16;
+        const total = vvipPrice + vat;
+
+        fareResult.textContent =
+            "KES " + total.toLocaleString() + " incl. VAT";
+
+        fareNote.textContent =
+            "VVIP package: KES 258,000 + VAT. Includes 5 Executive SUVs, Chase Car, Police Escort and Free Professional Reels.";
+
+        return;
+    }
+
+    /* ================= NORMAL FARE ================= */
+
+    const km = Math.max(
+        0,
+        Number(kmInput ? kmInput.value : 0) || 0
+    );
+
+    if(km <= 0){
+
+        fareResult.textContent = "KES 0";
+        fareNote.textContent = "Please enter an estimated distance.";
+        return;
+    }
+
+    let baseFare = 300;
+    let perKm = 50;
+
+    if(service === "airport"){
+        baseFare = 500;
+        perKm = 65;
+    }else if(service === "long"){
+        baseFare = 1000;
+        perKm = 80;
+    }else if(service === "safari"){
+        baseFare = 2500;
+        perKm = 100;
+    }
+
+    if(vehicle === "suv"){
+        perKm += 20;
+    }else if(vehicle === "van"){
+        perKm += 30;
+    }else if(vehicle === "4x4"){
+        perKm += 60;
+    }
+
+    let total = baseFare + (km * perKm);
+
+    if(returnTrip && returnTrip.value === "yes"){
+        total *= 2;
+    }
+
+    fareResult.textContent =
+        "KES " + Math.round(total).toLocaleString();
+
+    fareNote.textContent =
+        "Indicative estimate only. Final fare will be confirmed by Western Mona Taxis & Safaris.";
 }
 
 
 /* Service change */
 
 if(fareService){
-
-fareService.addEventListener(
-"change",
-updateFareCalculatorLayout
-);
-
+    fareService.addEventListener("change", updateFareCalculatorLayout);
 }
 
 
-/* Initial calculator setup */
+/* Vehicle change */
 
-updateFareCalculatorLayout();
+if(fareVehicle){
+    fareVehicle.addEventListener("change", calculateFare);
+}
 
 
-/* ================= CALCULATE BUTTON ================= */
+/* 24-hour periods change */
 
-const calculateButton =
-document.getElementById("calculate");
+if(fareDays){
 
+    fareDays.addEventListener("input", calculateFare);
+
+    fareDays.addEventListener("change", calculateFare);
+}
+
+
+/* Distance / return change */
+
+if(kmInput){
+    kmInput.addEventListener("input", calculateFare);
+}
+
+if(returnTrip){
+    returnTrip.addEventListener("change", calculateFare);
+}
+
+
+/* Calculate button */
 
 if(calculateButton){
 
-calculateButton.addEventListener(
-"click",
-function(){
+    calculateButton.addEventListener("click", function(event){
 
+        event.preventDefault();
+        calculateFare();
 
-const service =
-document.getElementById("fareService").value;
-
-const result =
-document.getElementById("fareResult");
-
-const note =
-document.getElementById("fareNote");
-
-
-/* ================= CAR HIRE ================= */
-
-if(service === "carhire"){
-
-const vehicle =
-document.getElementById("fareVehicle").value;
-
-const days =
-Math.max(
-1,
-Number(
-document.getElementById("fareDays").value
-) || 1
-);
-
-
-const dailyRate =
-carHireRates[vehicle];
-
-
-if(!dailyRate){
-
-result.textContent =
-"KES 0";
-
-note.textContent =
-"Please select a car-hire vehicle.";
-
-return;
-
+    });
 }
 
 
-const total =
-dailyRate * days;
+/* Initial setup */
 
-
-result.textContent =
-"KES " +
-total.toLocaleString();
-
-
-note.innerHTML =
-"<strong>" +
-vehicle +
-"</strong> — KES " +
-dailyRate.toLocaleString() +
-" per 24 hours. " +
-days +
-" × 24-hour period" +
-(days === 1 ? "" : "s") +
-". Final booking confirmation is subject to vehicle availability.";
-
-
-return;
-
-}
-
-
-/* ================= VVIP ================= */
-
-if(
-service === "vvip" ||
-document.getElementById("fareVehicle").value === "vvip"
-){
-
-const vvipPrice =
-258000;
-
-const vat =
-vvipPrice * 0.16;
-
-const total =
-vvipPrice + vat;
-
-
-result.textContent =
-"KES " +
-total.toLocaleString() +
-" incl. VAT";
-
-
-note.textContent =
-"VVIP package: KES 258,000 + VAT. Includes 5 Executive SUVs, Chase Car, Police Escort and Free Professional Reels.";
-
-return;
-
-}
-
-
-/* ================= NORMAL FARE CALCULATOR ================= */
-
-const km =
-Number(
-document.getElementById("km").value
-) || 0;
-
-const vehicle =
-document.getElementById("fareVehicle").value;
-
-const returnTrip =
-document.getElementById("returnTrip").value;
-
-
-if(km <= 0){
-
-result.textContent =
-"KES 0";
-
-note.textContent =
-"Please enter an estimated distance.";
-
-return;
-
-}
-
-
-let baseFare =
-300;
-
-let perKm =
-50;
-
-
-if(service === "airport"){
-
-baseFare =
-500;
-
-perKm =
-65;
-
-}
-
-else if(service === "long"){
-
-baseFare =
-1000;
-
-perKm =
-80;
-
-}
-
-else if(service === "safari"){
-
-baseFare =
-2500;
-
-perKm =
-100;
-
-}
-
-
-if(vehicle === "suv"){
-
-perKm += 20;
-
-}
-
-else if(vehicle === "van"){
-
-perKm += 30;
-
-}
-
-else if(vehicle === "4x4"){
-
-perKm += 60;
-
-}
-
-
-let total =
-baseFare +
-(km * perKm);
-
-
-if(returnTrip === "yes"){
-
-total =
-total * 2;
-
-}
-
-
-result.textContent =
-"KES " +
-Math.round(total).toLocaleString();
-
-
-note.textContent =
-"Indicative estimate only. Final fare will be confirmed by Western Mona Taxis & Safaris.";
-
-});
-
-}
-
-});
-
-
+updateFareCalculatorLayout();
 </script>
 
 
